@@ -1,7 +1,6 @@
 class StoriesController < ApplicationController
   before_action :set_stories, only: [:show, :edit, :destroy, :update]
 
-
   def index
     # displays all published stories
     @stories = Story.all
@@ -9,7 +8,7 @@ class StoriesController < ApplicationController
 
   def show
     # show particular story
-    # @story = Story.find
+
   end
 
   def new
@@ -26,7 +25,10 @@ class StoriesController < ApplicationController
     else
       render :new
     end
+<<<<<<< HEAD
 
+=======
+>>>>>>> set stories controller crud actions
   end
 
   def edit
@@ -40,7 +42,7 @@ class StoriesController < ApplicationController
   end
 
   def story_params
-    params.require(:stories).permit(:title, :content)
+    params.require(:story).permit(:title, :content)
   end
 
   private
