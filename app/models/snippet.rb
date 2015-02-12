@@ -9,7 +9,7 @@ class Snippet < ActiveRecord::Base
   end
 
   def self.most_popular
-      Snippet.all.sort_by(&:score).reverse.take(10)
+    Snippet.all.sort_by(&:score).reverse.take(10)
   end
 
 
