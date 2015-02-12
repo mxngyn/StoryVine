@@ -12,5 +12,9 @@ class Snippet < ActiveRecord::Base
     Snippet.all.sort_by(&:score).reverse.take(10)
   end
 
+  def self.random
+    Snippet.all.shuffle
+  end
+
 
 end
