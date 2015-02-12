@@ -8,7 +8,6 @@ class StoriesController < ApplicationController
 
   def show
     # show particular story
-
   end
 
   def new
@@ -25,11 +24,13 @@ class StoriesController < ApplicationController
     else
       render :new
     end
+
   end
 
   def edit
     # edit a particular story
   end
+
 
   private
 
