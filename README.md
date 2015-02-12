@@ -20,6 +20,7 @@ Team Members
 * As a user, I can edit/delete my story.
 * As a user, I can upvote/downvote stories.
 * As a user, I can view stories without logging in.
+* As a user, I can access a dashboard after logging in.
 
 ----------
 
