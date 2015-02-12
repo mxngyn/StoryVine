@@ -1,0 +1,15 @@
+<h1>Edit Your Story</h1>
+
+  <%= form_for @story do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+
+    <%= f.label :content %>
+    <%= f.text_field :content %><br>
+
+
+    <%= f.submit %>
+
+  <% end %>
+
