@@ -1,7 +1,7 @@
 class SnippetsController < ApplicationController
 
   def index
-    # displays all snippets based on new or popularity
+    @snippets = Snippet.random
   end
 
   def new
