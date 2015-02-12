@@ -21,6 +21,7 @@ class SnippetsController < ApplicationController
 
   def show
     set_snippet
+    @stories = @snippet.stories
   end
 
   private

@@ -1,0 +1,8 @@
+<%= @snippet.content %>
+<%= @snippet.user.username %>
+<ul>
+  <% @stories.each do |story| %>
+    <li><%= link_to story.title, "/" %></li>
+    <!-- Must change url to story path once story path is complete -->
+  <% end %>
+</ul>
