@@ -23,5 +23,17 @@ class SnippetsController < ApplicationController
     set_snippet
   end
 
+  private
 
+  def set_user
+
+  end
+
+  def set_snippet
+    @snippet = Snippet.find(params[:id])
+  end
+
+  def snippet_params
+    params.require(:snippet).permit(:user_id, :content)
+  end
 end
