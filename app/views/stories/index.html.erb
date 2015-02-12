@@ -1,6 +1,7 @@
-<ul>
+<ol>
   <% @stories.each do |story| %>
-    <li><%= story.title %></li>
-    <%= story.content %><br>
+    <li><%= link_to story.title, story_path(story) %></li>
+
   <% end %>
-</ul>
+</ol>
+
