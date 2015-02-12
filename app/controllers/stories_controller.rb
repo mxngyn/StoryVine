@@ -9,6 +9,7 @@ class StoriesController < ApplicationController
 
   def show
     # show particular story
+    # @story = Story.find
   end
 
   def new
