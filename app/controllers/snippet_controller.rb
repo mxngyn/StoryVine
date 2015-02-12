@@ -1,4 +1,4 @@
-class SnippetController < ApplicationController
+class SnippetsController < ApplicationController
 
   def index
     # displays all snippets based on new or popularity
