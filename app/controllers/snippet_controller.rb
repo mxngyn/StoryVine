@@ -1,0 +1,4 @@
+class SnippetController < ApplicationController
+
+
+end
