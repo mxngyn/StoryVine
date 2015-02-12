@@ -5,7 +5,7 @@ class SnippetsController < ApplicationController
   end
 
   def new
-    # show new snippet form
+    @snippet = Snippet.new
   end
 
   def create
