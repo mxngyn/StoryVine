@@ -32,6 +32,15 @@ class StoriesController < ApplicationController
     # edit a particular story
   end
 
+  private
+
+  def set_stories
+    @story = Story.find(params[:id])
+  end
+
+  def story_params
+    params.require(:stories).permit(:title, :content)
+  end
 
   private
 
