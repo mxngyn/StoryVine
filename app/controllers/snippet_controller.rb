@@ -20,7 +20,7 @@ class SnippetsController < ApplicationController
   end
 
   def show
-    # shows individual snippet with stories
+    set_snippet
   end
 
 
