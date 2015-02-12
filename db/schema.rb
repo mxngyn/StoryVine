@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20150212195202) do
 
   create_table "stories", force: :cascade do |t|
     t.integer  "snippet_id"
-    t.integer  "user_id"
     t.integer  "parent_id"
+    t.integer  "author_id"
     t.string   "title"
     t.text     "content"
     t.boolean  "published"
