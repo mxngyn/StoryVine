@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
   before_action :set_stories, only: [:show, :edit, :destroy, :update]
 
+
   def index
     # displays all published stories
     @stories = Story.all
