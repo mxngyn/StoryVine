@@ -5,7 +5,7 @@ class SnippetsController < ApplicationController
   end
 
   def new
-    @snippet = Snippet.new
+    @snippet = Snippet.create
   end
 
   def create
@@ -19,6 +19,15 @@ class SnippetsController < ApplicationController
     end
   end
 
+  def update
+    @snippet = Snippet.find(params["id"])
+    if @snippet.update(content: params["snippet"]["content"])
+      render plain: "Autosaved on " + @snippet.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
+    else
+      redirect_to :back
+    end
+  end
+
   def show
     set_snippet
     @stories = @snippet.stories
@@ -27,7 +36,7 @@ class SnippetsController < ApplicationController
   private
 
     def set_user
-
+      params[:snippet][:user_id] = session[:user_id]
     end
 
     def set_snippet
@@ -35,6 +44,7 @@ class SnippetsController < ApplicationController
     end
 
     def snippet_params
+      set_user
       params.require(:snippet).permit(:user_id, :content)
     end
 

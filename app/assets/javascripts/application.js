@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require redactor-rails
+//= require redactor-rails/config.js
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

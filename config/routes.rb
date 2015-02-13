@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :snippets, only: [:index, :new, :create, :show]
+  mount RedactorRails::Engine => '/redactor_rails'
+  resources :snippets
 
 
   get '/signup', to: 'users#new'
