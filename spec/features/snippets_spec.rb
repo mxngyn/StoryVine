@@ -8,13 +8,4 @@ feature "Snippet" do
     expect(page).to have_content(snippet.content)
   end
 
-  scenario "Create new snippet" do
-    visit new_snippet_path
-
-    fill_in "Content", :with => snippet.content
-    click_on "Submit"
-
-    expect(page).to have_content(snippet.content)
-  end
-
 end
