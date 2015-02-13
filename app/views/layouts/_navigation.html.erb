@@ -12,7 +12,7 @@
     <ul class="right">
       <li class="has-form">
         <div class="row collapse">
-          <%= form_for(:user, url: login_path) do |f| %>
+          <%= form_for(:session, url: login_path) do |f| %>
           <div class="large-5 small-4 columns">
             <%= f.text_field :email, :placeholder => "Email" %>
           </div>
