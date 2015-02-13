@@ -12,6 +12,14 @@ class Story < ActiveRecord::Base
     self.votes.where(liked: true).count
   end
 
+  def self.most_popular
+    Story.all.map { |story| {story => story.vote_count} }.take(10)
+  end
+
+  def self.most_recent
+    Story.all.sort_by(&:created_at).reverse.take(10)
+  end
+
 end
 
 
