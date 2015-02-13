@@ -1,0 +1,23 @@
+<div id="sign_up_form">
+  <%= form_for(:user, url: signup_path) do |f| %>
+   <%= f.label :username %>
+   <%= f.text_field :username %>
+   <%= f.label :password %>
+   <%= f.password_field :password %>
+   <%= f.label :password_confirmation %>
+   <%= f.password_field :password_confirmation %>
+   <%= f.label :first_name %>
+   <%= f.text_field :first_name %>
+   <%= f.label :last_name %>
+   <%= f.text_field :last_name %>
+   <%= f.label :email %>
+   <%= f.text_field :email %>
+   <%= f.label :pic_url%>
+   <%= f.text_field :pic_url %>
+   <%= f.label :website_url %>
+   <%= f.text_field :website_url %>
+   <%= f.label :bio %>
+   <%= f.text_area :bio %>
+   <%= f.submit "Sign Up" %>
+  <% end %>
+</div>
