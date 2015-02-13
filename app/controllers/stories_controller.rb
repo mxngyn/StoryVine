@@ -25,10 +25,6 @@ class StoriesController < ApplicationController
     else
       render :new
     end
-<<<<<<< HEAD
-
-=======
->>>>>>> set stories controller crud actions
   end
 
   def edit
