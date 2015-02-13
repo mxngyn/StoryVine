@@ -1,5 +1,6 @@
 <%= form_for(:snippet, url: snippets_path) do |f| %>
     <legend>Submit a new snippet</legend>
+    <%= f.label :content%>
     <%= f.text_area :content, size: "35x10" %><br>
     <%= f.submit "Submit" %>
   </fieldset>
