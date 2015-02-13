@@ -14,7 +14,5 @@ $(document).ready(function(){
       "css":"style.css"}
   );
 
-
-
 });
 
