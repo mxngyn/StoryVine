@@ -16,10 +16,12 @@ function autosave () {
 $(document).ready(function (){
   var autosaveOnFocus;
   $('.redactor_editor').focus(function() {
-    autosaveOnFocus = setTimeout(autosave, 5000);
+    autosaveOnFocus = setInterval(autosave, 5000);
   });
 
   $('.redactor_editor').blur(function() {
-    clearTimeout(autosaveOnFocus);
+    console.log(autosaveOnFocus);
+    clearInterval(autosaveOnFocus);
+    console.log(autosaveOnFocus);
   })
 });
