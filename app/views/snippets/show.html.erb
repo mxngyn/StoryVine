@@ -1,5 +1,5 @@
 <%= @snippet.content %>
-<%= @snippet.user.username %>
+<%= @snippet.user.username if @snippet.user %>
 <ul>
   <% @stories.each do |story| %>
     <li><%= link_to story.title, "/" %></li>
