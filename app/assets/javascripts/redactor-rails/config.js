@@ -13,23 +13,7 @@ $(document).ready(function(){
       "path":"/assets/redactor-rails",
       "css":"style.css"}
   );
-  // $('.new_snippet').redactor({
-  // autosave: '/snippets',
-  // autosaveInterval: 5,
-  // autosaveCallback: function(name, json)
-  //     {
-  //         console.log("Hello");
-  //         console.log(name);
-  //         console.log(json.content);
-  //         alert("SUCCESS");
-  //     },
-  // autosaveErrorCallback: function(name, json)
-  // {
-  //     console.log("Goodbye");
-  //     console.log(name);
-  //     alert("FAILED");
-  // }
-  // });
+
 
 
 });
