@@ -26,6 +26,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update_attributes(user_params)
+      render :show
+    else
+     @errors = @user.errors.messages
+     redirect_to :back
+    end
   end
 
   def destroy
