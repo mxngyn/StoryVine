@@ -8,7 +8,6 @@ class StoriesController < ApplicationController
 
   def show
     # show particular story
-
   end
 
   def new
