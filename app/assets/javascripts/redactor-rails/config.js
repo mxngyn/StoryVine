@@ -1,5 +1,4 @@
-$(document).ready(
-  function(){
+$(document).ready(function(){
   var csrf_token = $('meta[name=csrf-token]').attr('content');
   var csrf_param = $('meta[name=csrf-param]').attr('content');
   var params;
@@ -14,4 +13,24 @@ $(document).ready(
       "path":"/assets/redactor-rails",
       "css":"style.css"}
   );
+  // $('.new_snippet').redactor({
+  // autosave: '/snippets',
+  // autosaveInterval: 5,
+  // autosaveCallback: function(name, json)
+  //     {
+  //         console.log("Hello");
+  //         console.log(name);
+  //         console.log(json.content);
+  //         alert("SUCCESS");
+  //     },
+  // autosaveErrorCallback: function(name, json)
+  // {
+  //     console.log("Goodbye");
+  //     console.log(name);
+  //     alert("FAILED");
+  // }
+  // });
+
+
 });
+
