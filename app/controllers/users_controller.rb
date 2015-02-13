@@ -14,6 +14,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if @user.id == session[:user_id]
+      render :edit
+    else
+      redirect_to :root
+    end
   end
 
   def show
