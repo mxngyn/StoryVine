@@ -16,3 +16,9 @@
  *= require foundation_and_overrides
 
  */
+
+#upvote {
+  width: 25px;
+  height: 25px;
+
+}
