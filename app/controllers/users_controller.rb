@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      sesssion[:user_id] = @user.user_id
-      redirect_to user_show_path(@user)
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
       redirect_to :back
     end
