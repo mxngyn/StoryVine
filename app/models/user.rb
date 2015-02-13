@@ -8,4 +8,16 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :password, presence: true
 
+  def all_published
+    self.stories.select do |story|
+      story.published
+    end
+  end
+
+  def all_unpublished
+    self.stories.select do |story|
+      story.published == false
+    end
+  end
+
 end
