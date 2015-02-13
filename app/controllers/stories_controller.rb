@@ -8,12 +8,10 @@ class StoriesController < ApplicationController
 
   def show
     # show particular story
-
   end
 
   def new
     # show a new story form
-    # @story = Story.new
     @story = Story.new
   end
 
@@ -31,15 +29,20 @@ class StoriesController < ApplicationController
     # edit a particular story
   end
 
-  private
-
-  def set_stories
-    @story = Story.find(params[:id])
+  def update
+    if @story.update_attributes story_params
+      redirect_to story_path(@story)
+    else
+      render :edit
+    end
   end
 
-  def story_params
-    params.require(:story).permit(:title, :content)
+  def destroy
+    story.destroy
+    redirect_to root_path
   end
+
+
 
   private
 

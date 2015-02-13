@@ -1,2 +1,7 @@
 <%= @story.title %><br>
 <%= @story.content %>
+<%= @story.votes.count_votes %>
+<% if @story.published == false %>
+  <%= link_to "Edit", edit_story_path(@story) %><br>
+  <%= link_to "Delete", root_path, :method => :delete %>
+<% end %>
