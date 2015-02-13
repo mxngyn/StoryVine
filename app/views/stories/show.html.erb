@@ -1,13 +1,15 @@
 <%= @story.title %><br>
 <%= @story.content %><br>
 <%= @story.vote_count %><br>
-<% if @current_user %>
+<% if current_user %>
   <%=link_to 'Up', vote_up_path(@story.id)%>
   <%= link_to 'Down', vote_down_path(@story.id)%>
 <% end %>
+
+
 <% if @story.published == false %>
   <%= link_to "Edit", edit_story_path(@story) %><br>
   <%= link_to "Delete", root_path, :method => :delete %>
 <% end %>
 
-<%= @current_user.username  %>
+
