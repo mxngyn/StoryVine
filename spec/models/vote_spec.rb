@@ -1,4 +1,4 @@
-require_relative '../spec_helper'
+require 'rails_helper'
 
 describe Vote do
   it "tests if true is true" do
