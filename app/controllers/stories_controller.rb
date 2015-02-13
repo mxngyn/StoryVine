@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :set_stories, only: [:show, :edit, :destroy, :update]
+  before_action :set_stories, only: [:show, :edit, :destroy, :update, :upvote]
 
   def index
     # displays all published stories
@@ -12,7 +12,6 @@ class StoriesController < ApplicationController
 
   def new
     # show a new story form
-    # @story = Story.new
     @story = Story.new
   end
 
@@ -42,6 +41,7 @@ class StoriesController < ApplicationController
     story.destroy
     redirect_to root_path
   end
+
 
 
   private
