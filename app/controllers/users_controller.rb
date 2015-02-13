@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by(id: user_params[:id])
   end
 
   def update
