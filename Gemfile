@@ -43,7 +43,7 @@ group :development, :test do
   gem 'spring'
 
   # Rspec gem
-  gem 'rspec-rails'
+  gem 'rspec', '~> 3.2.0'
 
 end
 
