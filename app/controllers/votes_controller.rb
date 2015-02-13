@@ -1,33 +1,34 @@
 class VotesController < ApplicationController
+  before_action :set_story, :set_vote
 
   def upvote
-    @story = Story.find(params[:id])
-    @vote = Vote.where(user_id: current_user.id, story_id: @story.id)
-    if @vote.count == 0
-      @vote.create(user_id: current_user.id, story_id: @story.id, liked: true)
-    elsif @vote.count == 1
-      @vote.update(vote_params)
-    else
-      redirect_to :back
-    end
+    set_vote_up(@story.id, current_user.id)
+    redirect_to :back
   end
 
-  def downvote
-    @story = Story.find(params[:id])
-    @vote = Vote.where(user_id: current_user.id, story_id: @story.id)
-    if @vote.count == 0
-      @vote.create(user_id: current_user.id, story_id: @story.id, liked: false)
-    elsif @vote.count == 1
-      @vote.update(vote_params)
-    else
-      redirect_to :back
-    end
-  end
 
   private
 
+  def set_vote
+    @vote = Vote.find_by(user_id: current_user.id, story_id: @story.id)
+  end
+
+  def set_story
+    @story = Story.find(params[:id])
+  end
+
   def vote_params
     params.require(:vote).permit(:liked, :story_id, :user_id)
+  end
+
+  def set_vote_up(story_id, user)
+    if @vote == nil
+      Vote.create(user_id: user, story_id: story_id, liked: true)
+    elsif @vote.user_id == user
+      @vote.update(liked: true)
+    else
+      redirect_to :back
+    end
   end
 end
 
