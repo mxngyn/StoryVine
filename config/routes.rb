@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'votes/show', to: 'votes#show'
   post 'votes/create', to: 'votes#create'
 
+  get 'stories/:id/upvote', to: 'votes#upvote', as: 'vote_up'
+  get 'stories/:id/downvote', to: 'votes#downvote', as: 'vote_down'
+
   resources :users, only: [:show, :edit, :update, :delete]
 
   resources :stories
