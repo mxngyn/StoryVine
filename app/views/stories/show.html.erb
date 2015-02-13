@@ -2,8 +2,9 @@
 <%= @story.content %><br>
 <%= @story.vote_count %><br>
 <% if current_user %>
-  <%=link_to 'Up', vote_up_path(@story.id)%>
-  <%= link_to 'Down', vote_down_path(@story.id)%>
+<div id="upvote">
+  <%=link_to "#{image_tag('/thumbsup.png')}".html_safe, vote_up_path(@story.id)%>
+</div>
 <% end %>
 
 <% if current_user %>
