@@ -1,23 +1,25 @@
 class VotesController < ApplicationController
 
   def upvote
+    @current_user = User.find(1) # for testing purposes - will delete this later
     @story = Story.find(params[:id])
-    @vote = Vote.new(user_id: 1, story_id: @story.id, liked: true)
-    unless @vote.save
-      db_vote = Vote.where(user_id: 1, votable_id: @story.id)[0]
-      db_vote.update(liked: true)
+    @vote = Vote.where(user_id: @current_user.id, story_id: @story.id)
+    if @vote.count == 0
+      @vote.create(user_id: @current_user.id, story_id: @story.id, liked:true)
+    else
+      redirect_to :back
     end
-    redirect_to :back
   end
 
   def downvote
+    @current_user = User.find(1) # for testing purposes - will delete this later
     @story = Story.find(params[:id])
-    @vote = Vote.new(user_id: 1, story_id: @story.id, liked: false)
-    unless @vote.save
-      db_vote = Vote.where(user_id: current_user.id, votable_id: @story.id)[0]
-      db_vote.update(liked: false)
+    @vote = Vote.where(user_id: @current_user.id, story_id: @story.id)
+    if @vote.count == 0
+      @vote.create(user_id: @current_user.id, story_id: @story.id, liked: false)
+    else
+      redirect_to :back
     end
-    redirect_to :back
   end
 
   private
