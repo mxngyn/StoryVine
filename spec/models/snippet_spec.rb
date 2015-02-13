@@ -3,7 +3,7 @@ require 'factory_girl_rails'
 
 describe Snippet do
 
-  let(:snippet) { FactoryGirl.create(:snippet)}
+  let(:snippet) { FactoryGirl.create(:snippet) }
 
   it "has a valid FACTORY" do
     expect(FactoryGirl.create(:snippet)).to be_valid
