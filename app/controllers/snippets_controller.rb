@@ -27,7 +27,7 @@ class SnippetsController < ApplicationController
   private
 
     def set_user
-
+      params[:snippet][:user_id] = session[:user_id]
     end
 
     def set_snippet
@@ -35,6 +35,7 @@ class SnippetsController < ApplicationController
     end
 
     def snippet_params
+      set_user
       params.require(:snippet).permit(:user_id, :content)
     end
 
