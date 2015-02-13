@@ -2,28 +2,10 @@ class VotesController < ApplicationController
   before_action :set_story, :set_vote
 
   def upvote
-    if @vote == nil
-      Vote.create(user_id: current_user.id, story_id: @story.id, liked: true)
-      redirect_to :back
-    elsif @vote.user_id == current_user.id
-      @vote.update(liked: true)
-      redirect_to :back
-    else
-      redirect_to :back
-    end
+    set_vote_up(@story.id, current_user.id)
+    redirect_to :back
   end
 
-  def downvote
-    if @vote == nil
-      Vote.create(user_id: current_user.id, story_id: @story.id, liked: false)
-      redirect_to :back
-    elsif @vote.user_id == current_user.id
-      @vote.update(liked: false)
-      redirect_to :back
-    else
-      redirect_to :back
-    end
-  end
 
   private
 
@@ -37,6 +19,16 @@ class VotesController < ApplicationController
 
   def vote_params
     params.require(:vote).permit(:liked, :story_id, :user_id)
+  end
+
+  def set_vote_up(story_id, user)
+    if @vote == nil
+      Vote.create(user_id: user, story_id: story_id, liked: true)
+    elsif @vote.user_id == user
+      @vote.update(liked: true)
+    else
+      redirect_to :back
+    end
   end
 end
 

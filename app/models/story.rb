@@ -9,7 +9,7 @@ class Story < ActiveRecord::Base
   has_many :votes
 
   def vote_count
-    self.votes.where(liked: true).count - votes.where(liked: false).count
+    self.votes.where(liked: true).count
   end
 
 end
