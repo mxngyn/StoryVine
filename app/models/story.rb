@@ -8,4 +8,8 @@ class Story < ActiveRecord::Base
   has_many :tags, through: :story_tags
   has_many :votes
 
+  def vote_count
+    self.votes.where(liked: true).count - votes.where(liked: false).count
+  end
+
 end

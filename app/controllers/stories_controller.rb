@@ -43,7 +43,6 @@ class StoriesController < ApplicationController
   end
 
 
-
   private
 
   def set_stories
