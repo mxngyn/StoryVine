@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(session_params[:password])
       session[:user_id] = @user.id
+      flash[:notice] = "Welcome back, #{@user.username}!"
       redirect_to root_path
     else
       redirect_to :back
@@ -19,6 +20,7 @@ class SessionsController < ApplicationController
   def destroy
     session.clear
     reset_session
+    flash[:notice] = "Come back,soon!"
     redirect_to root_path
   end
 
