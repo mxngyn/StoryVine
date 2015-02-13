@@ -31,14 +31,12 @@ class StoriesController < ApplicationController
     # edit a particular story
   end
 
-  private
-
-  def set_stories
-    @story = Story.find(params[:id])
-  end
-
-  def story_params
-    params.require(:story).permit(:title, :content)
+  def update
+    if @story.update_attributes story_params
+      redirect_to story_path(@story)
+    else
+      render :edit
+    end
   end
 
   private
