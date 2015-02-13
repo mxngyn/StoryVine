@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:edit, :show, :update, :destroy]
 
   def create
     @user = User.new(user_params)
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+
     if @user.id == session[:user_id]
       render :edit
     else
@@ -22,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
     @user = User.find(params[:id])
   end
 
@@ -38,6 +41,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+
+  end
 
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name, :email, :pic_url, :url, :bio)
