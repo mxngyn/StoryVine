@@ -1,7 +1,7 @@
 <ul>
   <% @snippets.each do |snippet| %>
     <div class="snippet">
-      <li><%= link_to snippet.content[0...249].html_safe, snippet_path(snippet) %></li>
+      <li><%= link_to snippet.content, snippet_path(snippet) %></li>
     </div>
   <% end %>
 </ul>

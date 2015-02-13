@@ -1,30 +1,68 @@
-<ul class="tabs" data-tab>
-  <li class="tab-title active"><a href="#panel1">Recent Snippets</a></li>
-  <li class="tab-title"><a href="#panel2">Popular Snippets</a></li>
-  <li class="tab-title"><a href="#panel3">Recent Stories</a></li>
-  <li class="tab-title"><a href="#panel4">Popular Stories</a></li>
-</ul>
-<div class="tabs-content">
-  <div class="content active" id="panel1">
-    <p>
-      <% @recent_snippets.each do |recent| %>
-        <%= link_to recent.content.html_safe, snippet_path(recent) %>
-      <% end %>
-    </p>
+
+<div class="row">
+
+
+
+  <div class="large-9 columns">
+
+    <ul class="tabs" data-tab>
+      <li class="tab-title active"><a href="#panel1">Recent Snippets</a></li>
+      <li class="tab-title"><a href="#panel2">Popular Snippets</a></li>
+      <li class="tab-title"><a href="#panel3">Recent Stories</a></li>
+      <li class="tab-title"><a href="#panel4">Popular Stories</a></li>
+    </ul>
+    <div class="tabs-content">
+      <div class="content active" id="panel1">
+        <p>
+          <% @recent_snippets.each do |recent| %>
+            <%= link_to recent.content, snippet_path(recent) %>
+          <% end %>
+        </p>
+      </div>
+      <div class="content" id="panel2">
+        <p>
+          <% @popular_snippets.each do |snippet| %>
+            <% snippet.each do |snippet, stories_count| %>
+              <%= link_to "#{snippet.content} (#{stories_count})", snippet_path(snippet) %>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+      <div class="content" id="panel3">
+        <p>
+          <% @recent_stories.each do |recent| %>
+            <%= link_to recent.title, story_path(recent) %>
+          <% end %>
+        </p>
+      </div>
+      <div class="content" id="panel4">
+        <p>
+          <% @popular_stories.each do |story| %>
+            <% story.each do |story, votes| %>
+              <%= link_to "#{story.title} (#{votes})", story_path(story) %>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="content" id="panel2">
-    <p>
-      <% @popular_snippets.each do |snippet| %>
-        <% snippet.each do |snippet, stories_count| %>
-          <%= link_to "#{snippet.content} (#{stories_count})", snippet_path(snippet) %>
+
+  <div class="large-3 columns">
+    <%= form_for(:user, url: signup_path) do |f| %>
+          <fieldset>
+            <legend>Signup</legend>
+              <%= f.label :username %>
+              <%= f.text_field :username %>
+              <%= f.label :email %>
+              <%= f.text_field :email %>
+              <%= f.label :password %>
+              <%= f.password_field :password %>
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation %>
+              <%= f.submit "Sign Up" %>
+          </fieldset>
         <% end %>
-      <% end %>
-    </p>
   </div>
-  <div class="content" id="panel3">
-    <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
-  </div>
-  <div class="content" id="panel4">
-    <p>This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
-  </div>
+
 </div>
+

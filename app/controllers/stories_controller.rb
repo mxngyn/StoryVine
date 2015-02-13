@@ -3,7 +3,7 @@ class StoriesController < ApplicationController
 
   def index
     # displays all published stories
-    @stories = Story.all
+    @stories = Story.all.where(published: true)
   end
 
   def show
