@@ -8,7 +8,7 @@
   <div class="content active" id="panel1">
     <p>
       <% @recent_snippets.each do |recent| %>
-        <%= link_to recent.content.html_safe, snippet_path(recent) %>
+        <%= link_to recent.content, snippet_path(recent) %>
       <% end %>
     </p>
   </div>
