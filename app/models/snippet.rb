@@ -9,7 +9,7 @@ class Snippet < ActiveRecord::Base
   end
 
   def self.most_popular
-    Snippet.all.sort_by(&:score).reverse.take(10)
+    Snippet.all.map { |snippet| {snippet => snippet.stories.count} }.take(10)
   end
 
   def self.random
