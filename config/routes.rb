@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
+  get 'votes/show', to: 'votes#show'
+  post 'votes/create', to: 'votes#create'
+
   resources :users, only: [:show, :edit, :update, :delete]
 end
 
