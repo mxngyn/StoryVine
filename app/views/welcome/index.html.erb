@@ -22,9 +22,19 @@
     </p>
   </div>
   <div class="content" id="panel3">
-    <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
+    <p>
+      <% @recent_stories.each do |recent| %>
+        <%= link_to recent.title, story_path(recent) %>
+      <% end %>
+    </p>
   </div>
   <div class="content" id="panel4">
-    <p>This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
+    <p>
+      <% @popular_stories.each do |story| %>
+        <% story.each do |story, votes| %>
+          <%= link_to "#{story.title} (#{votes})", story_path(story) %>
+        <% end %>
+      <% end %>
+    </p>
   </div>
 </div>
