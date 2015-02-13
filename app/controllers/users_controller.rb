@@ -14,13 +14,24 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if @user.id == session[:user_id]
+      render :edit
+    else
+      redirect_to :root
+    end
   end
 
   def show
-    @user = User.find_by(id: user_params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
+    if @user.update_attributes(user_params)
+      render :show
+    else
+     @errors = @user.errors.messages
+     redirect_to :back
+    end
   end
 
   def destroy
