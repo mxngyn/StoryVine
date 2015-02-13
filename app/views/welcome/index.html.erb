@@ -46,29 +46,23 @@
       </div>
     </div>
   </div>
-  <div class="content" id="panel2">
-    <p>
-      <% @popular_snippets.each do |snippet| %>
-        <% snippet.each do |snippet, stories_count| %>
-          <%= link_to "#{snippet.content} (#{stories_count})", snippet_path(snippet) %>
+
+  <div class="large-3 columns">
+    <%= form_for(:user, url: signup_path) do |f| %>
+          <fieldset>
+            <legend>Signup</legend>
+              <%= f.label :username %>
+              <%= f.text_field :username %>
+              <%= f.label :email %>
+              <%= f.text_field :email %>
+              <%= f.label :password %>
+              <%= f.password_field :password %>
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation %>
+              <%= f.submit "Sign Up" %>
+          </fieldset>
         <% end %>
-      <% end %>
-    </p>
   </div>
-  <div class="content" id="panel3">
-    <p>
-      <% @recent_stories.each do |recent| %>
-        <%= link_to recent.title, story_path(recent) %>
-      <% end %>
-    </p>
-  </div>
-  <div class="content" id="panel4">
-    <p>
-      <% @popular_stories.each do |story| %>
-        <% story.each do |story, votes| %>
-          <%= link_to "#{story.title} (#{votes})", story_path(story) %>
-        <% end %>
-      <% end %>
-    </p>
-  </div>
+
 </div>
+
