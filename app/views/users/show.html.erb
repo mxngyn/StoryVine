@@ -1,13 +1,15 @@
-<div id="user-view">
- hello, <%= @user.first_name %>
- <h3>YO' PUBLISHED POSTS:</h3>
-   <% @user.all_published.each do |story| %>
-      <p><%= story.title %></p>
-    <% end %>
+<%= @user.username %><br>
+<%= @user.country %><br>
+<%= image_tag @user.pic_url %><br>
+<%= link_to "Website", @user.url %><br>
 
- <h3>YO' UNPUBLISHED POSTS:</h3>
-   <% @user.all_unpublished.each do |story| %>
-      <p><%= story.title %></p>
-    <% end %>
-</div>
-
+<br>
+User's Snippets<br>
+<% @user.snippets.each do |snippet| %>
+  <%= link_to snippet.content, snippet_path(snippet) %>
+<% end %>
+<br><br>
+User's stories<br>
+<% @user.all_published.each do |published| %>
+  <%= link_to published.title, story_path(published) %>
+<% end %>

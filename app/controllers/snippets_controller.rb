@@ -6,6 +6,7 @@ class SnippetsController < ApplicationController
 
   def new
     @snippet = Snippet.create
+    User.find(session[:user_id]).snippets << @snippet
   end
 
   def create

@@ -1,0 +1,11 @@
+User side bar
+ hello, <%= current_user.first_name %>
+ <h3>YO' PUBLISHED POSTS:</h3>
+   <% @user.all_published.each do |story| %>
+      <p><%= story.title %></p>
+    <% end %>
+
+ <h3>YO' UNPUBLISHED POSTS:</h3>
+   <% @user.all_unpublished.each do |story| %>
+      <p><%= story.title %></p>
+    <% end %>
