@@ -37,6 +37,13 @@ class SnippetsController < ApplicationController
     @stories = @snippet.stories
   end
 
+  def destroy
+
+    @snippet = Snippet.find(params["id"])
+    @snippet.destroy
+    redirect_to "/"
+  end
+
   private
 
     def set_user
