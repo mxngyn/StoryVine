@@ -1,4 +1,4 @@
-<%= @snippet.content %>
+<%= @snippet.content.html_safe %>
 <%= @snippet.user.username if @snippet.user %>
 <ul>
   <% @stories.each do |story| %>
