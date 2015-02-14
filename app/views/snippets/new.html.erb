@@ -1,6 +1,6 @@
 <%= form_for(@snippet) do |f| %>
    <%= f.text_area :content, placeholder: "Content goes here...", :class => "redactor"%>
-   <%= f.submit %>
+   <%= f.submit 'Submit', :class => 'submit_new_content'%>
  <% end %>
 
 <div class="autosave">
