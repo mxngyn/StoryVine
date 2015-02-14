@@ -4,6 +4,12 @@ class StoriesController < ApplicationController
   def index
     # displays all published stories
     @stories = Story.all.where(published: true)
+
+    #displays all stories searched for
+    @search = Story search do
+      fulltext params[:search]
+    end
+    @searched_stories = @search.results
   end
 
   def show
