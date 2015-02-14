@@ -1,0 +1,3 @@
+<%= form_for [@vote, @story], url: "#{@story.id}/upvote" do |f| %>
+<%= f.button :Vote_Up, value: true %>
+<% end %>

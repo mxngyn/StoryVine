@@ -3,7 +3,7 @@ class VotesController < ApplicationController
 
   def upvote
     set_vote_up(@story.id, current_user.id)
-    redirect_to :back
+    redirect_to @story
   end
 
 
@@ -27,7 +27,7 @@ class VotesController < ApplicationController
     elsif @vote.user_id == user
       @vote.update(liked: true)
     else
-      redirect_to :back
+      redirect_to @story
     end
   end
 end

@@ -3,7 +3,7 @@
 <%= @story.vote_count %><br>
 <% if current_user %>
 <div id="upvote">
-  <%=link_to "#{image_tag('/thumbsup.png')}".html_safe, vote_up_path(@story.id)%>
+  <%= render "votes/new"  %>
 </div>
 <% end %>
 
