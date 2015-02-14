@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create', as: 'new_sign_up'
 
   patch 'stories/:id/upvote', to: 'votes#upvote', as: 'vote_up'
-  get 'stories/:id/downvote', to: 'votes#downvote', as: 'vote_down'
+  delete '/vote/:id', to: 'votes#destroy', as: 'vote_delete'
 
   resources :users, only: [:show, :edit, :update, :delete]
   # patch '/users/:id', to: 'users#update', as: 'users_update'

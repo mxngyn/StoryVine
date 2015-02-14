@@ -1,11 +1,15 @@
 <%= @story.title %><br>
 <%= @story.content %><br>
 <%= @story.vote_count %><br>
-<% if current_user %>
-<div id="upvote">
-  <%= render "votes/new"  %>
+  <% if current_user %>
+  <div id="upvote">
+    <% if @vote != nil && @vote.user_id == current_user.id %>
+    <%= button_to "Delete",vote_delete_path(@vote), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
+    <% else %>
+    <%= render "votes/new" %>
+    <% end %>
+  <% end %>
 </div>
-<% end %>
 
 <% if current_user %>
   <% if @story.published == false %>
