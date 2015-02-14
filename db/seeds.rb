@@ -25,3 +25,7 @@ end
   liked = [true, false].sample
   Vote.create(story_id: rand(1..20), user_id: rand(1..10), liked: liked)
 end
+
+## ADMIN ##
+
+User.create(username: "mai", password: "password", email: "mai@mai.com")

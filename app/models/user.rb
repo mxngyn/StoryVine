@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :votes
 
   validates :username, presence: true
-  validates :password, presence: true
+  # validates :password, presence: true
 
   def all_published
     self.stories.select do |story|

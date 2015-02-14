@@ -48,20 +48,12 @@
   </div>
 
   <div class="large-3 columns">
-    <%= form_for(:user, url: signup_path) do |f| %>
-          <fieldset>
-            <legend>Signup</legend>
-              <%= f.label :username %>
-              <%= f.text_field :username %>
-              <%= f.label :email %>
-              <%= f.text_field :email %>
-              <%= f.label :password %>
-              <%= f.password_field :password %>
-              <%= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation %>
-              <%= f.submit "Sign Up" %>
-          </fieldset>
-        <% end %>
+    <%= render 'layouts/featured' %>
+    <% if current_user %>
+    <%= render 'layouts/usersidebar' %>
+    <% else %>
+      <%= render 'layouts/signupsidebar' %>
+    <% end %>
   </div>
 
 </div>

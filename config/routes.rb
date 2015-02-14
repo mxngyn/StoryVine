@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   patch 'stories/:id/upvote', to: 'votes#upvote', as: 'vote_up'
   delete '/vote/:id', to: 'votes#destroy', as: 'vote_delete'
 
-  resources :users, only: [:show, :edit, :delete]
-  get '/users/:id', to: 'users#update', as: 'users_update'
+  resources :users, only: [:show, :edit, :update, :delete]
+  # patch '/users/:id', to: 'users#update', as: 'users_update'
 
   resources :stories
 

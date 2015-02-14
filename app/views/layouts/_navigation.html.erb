@@ -10,23 +10,28 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="has-form">
-        <div class="row collapse">
-          <%= form_for(:session, url: login_path) do |f| %>
-          <div class="large-5 small-4 columns">
-            <%= f.text_field :email, :placeholder => "Email" %>
+      <% if !current_user %>
+        <li class="has-form">
+          <div class="row collapse">
+            <%= form_for(:session, url: login_path) do |f| %>
+            <div class="large-5 small-4 columns">
+              <%= f.text_field :email, :placeholder => "Email" %>
+            </div>
+            <div class="large-5 small-4 columns">
+              <%= f.password_field :password, :placeholder => "Password"%>
+            </div>
+            <div class="large-2 small-3 columns">
+              <%= f.submit "Login", :class => "alert button expand" %>
+            </div>
+            <% end %>
           </div>
-          <div class="large-5 small-4 columns">
-            <%= f.password_field :password, :placeholder => "Password"%>
-          </div>
-          <div class="large-2 small-3 columns">
-            <%= f.submit "Login", :class => "alert button expand" %>
-          </div>
-          <% end %>
-        </div>
-      </li>
+        </li>
+      <% end %>
+
       <li class="divider"></li>
       <% if current_user %>
+        <li><%= link_to "Hello #{current_user.first_name}", user_path(current_user) %></li>
+        <li class="divider"></li>
         <li class="has-dropdown">
           <a href="#">MENU</a>
           <ul class="dropdown">
