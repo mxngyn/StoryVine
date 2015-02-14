@@ -34,7 +34,7 @@ class SnippetsController < ApplicationController
   end
 
   def show
-    set_snippet
+    Sanitize.fragment(set_snippet.content, Sanitize::Config::RESTRICTED)
     @stories = @snippet.stories
   end
 
