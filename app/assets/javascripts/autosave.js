@@ -1,4 +1,4 @@
-function autosave () {
+function autosaveSnippet () {
   var $url = $('.edit_snippet')[0].action;
   var $data = $('.edit_snippet').serialize();
   $.ajax({
@@ -16,7 +16,7 @@ function autosave () {
 $(document).ready(function (){
   var autosaveOnFocus;
   $('.redactor_editor').focus(function() {
-    autosaveOnFocus = setInterval(autosave, 5000);
+    autosaveOnFocus = setInterval(autosaveSnippet, 5000);
   });
 
   $('.redactor_editor').blur(function() {
