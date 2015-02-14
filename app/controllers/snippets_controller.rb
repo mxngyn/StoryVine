@@ -22,7 +22,11 @@ class SnippetsController < ApplicationController
   def update
     @snippet = Snippet.find(params["id"])
     if @snippet.update(content: params["snippet"]["content"])
-      render plain: "Autosaved on " + @snippet.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
+      if request.xhr?
+        render plain: "Autosaved on " + @snippet.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
+      else
+        redirect_to snippet_path(@snippet)
+      end
     else
       redirect_to :back
     end
