@@ -12,7 +12,7 @@ class StoriesController < ApplicationController
 
   def new
     # show a new story form
-    @story = Story.new
+    @story = Story.create
   end
 
   def create
@@ -30,10 +30,15 @@ class StoriesController < ApplicationController
   end
 
   def update
-    if @story.update_attributes story_params
-      redirect_to story_path(@story)
+    @story = Story.find(params["id"])
+    if @story.update(content: params["story"]["content"])
+      if request.xhr?
+        render plain: "Autosaved on " + @story.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
+      else
+        redirect_to story_path(@story)
+      end
     else
-      render :edit
+      redirect_to :back
     end
   end
 
