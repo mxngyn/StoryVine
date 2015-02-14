@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :badges
+
   has_many :snippets
   has_many :stories, foreign_key: :author_id
   has_many :votes
@@ -20,5 +22,13 @@ class User < ActiveRecord::Base
       story.published == false
     end
   end
+
+  def award_badge
+    if self.stories.count == 1
+
+    end
+  end
+
+
 
 end
