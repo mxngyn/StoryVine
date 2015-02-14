@@ -11,8 +11,9 @@ $(document).ready(function(){
       "fileUpload":"/redactor_rails/documents?" + params,
       "fileGetJson":"/redactor_rails/documents",
       "path":"/assets/redactor-rails",
-      "css":"style.css"}
-  );
+      "css":"style.css",
+      buttons: ['formatting', 'bold', 'italic', 'deleted', 'unorderedlist', 'orderedlist', 'outdent', 'indent', 'alignment', 'horizontalrule']
+  });
 
 });
 
