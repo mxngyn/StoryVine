@@ -1,0 +1,8 @@
+Entries tagged "<%= @tag.name %>"
+
+<div class="tag-with-stories">
+<% @stories_with_tag.each do |storytag| %>
+  <%= link_to "#{storytag.story.title}", story_path(storytag.story) %><br>
+<% end %>
+</div>
+
