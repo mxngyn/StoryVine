@@ -57,6 +57,9 @@ group :development, :test do
   # Rspec gem
   gem 'rspec-rails', '~> 3.0'
 
+  #Sunspot solr gem.  Enables to access slr search features in development.
+  gem 'sunspot_solr'
+
 end
 
 group :test do
