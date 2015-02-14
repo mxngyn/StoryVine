@@ -14,3 +14,10 @@
   <% end %>
 <% end %>
 
+<br><br>
+
+<div class="story-tags">
+  <% @story.tags.each do |tag| %>
+    <%= link_to "#{tag.name}", tags_show_path(tag) %>
+  <% end %>
+</div>

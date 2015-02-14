@@ -47,6 +47,10 @@ class StoriesController < ApplicationController
     redirect_to root_path
   end
 
+  # def show_tags
+  #   @story = Story.find(params[:id])
+  #   @stories_with_tags = Tag.where(story_id: @story.id)
+  # end
 
   private
 
