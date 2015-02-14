@@ -1,5 +1,5 @@
 User side bar
- hello, <%= current_user.first_name %>
+ hello, <div class="logged-in-user"><%= current_user.first_name %></div>
  <h3>YO' PUBLISHED POSTS:</h3>
    <% current_user.all_published.each do |story| %>
       <p><%= story.title %></p>
