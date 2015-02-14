@@ -31,7 +31,12 @@ function autosaveStory () {
 $(document).ready(function (){
   var autosaveOnFocus;
   $('.redactor_editor').focus(function() {
-    autosaveOnFocus = setInterval(autosaveSnippet, 5000);
+    if ($('.edit_snippet').length !== 0) {
+      autosaveOnFocus = setInterval(autosaveSnippet, 5000);
+    }
+    else {
+      autosaveOnFocus = setInterval(autosaveStory, 5000);
+    }
   });
 
   $('.redactor_editor').blur(function() {
