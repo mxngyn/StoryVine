@@ -22,3 +22,13 @@
   height: 25px;
 
 }
+
+ .LV_validation_message.LV_invalid {
+
+  color: red;
+}
+
+
+.LV_validation_message.LV_valid {
+  color: green;
+}
