@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
 
   def new
     # show a new story form
-    @story = Story.create
+    @story = Story.create(snippet_id: params["snippet_id"], author_id: session[:user_id], published: false)
   end
 
   def create
