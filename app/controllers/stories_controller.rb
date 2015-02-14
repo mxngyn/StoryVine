@@ -7,6 +7,7 @@ class StoriesController < ApplicationController
   end
 
   def show
+    find_vote(@story)
     # show particular story
   end
 
@@ -53,6 +54,10 @@ class StoriesController < ApplicationController
   # end
 
   private
+
+  def find_vote(story)
+    @vote = story.votes.find_by(user_id: current_user.id, story_id: story.id )
+  end
 
   def set_stories
     @story = Story.find(params[:id])
