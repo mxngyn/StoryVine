@@ -2,7 +2,7 @@
    <%= f.text_area :content, placeholder: "Content goes here...", :class => "redactor"%>
    <%= f.submit 'Submit', :class => 'submit_new_content'%>
  <% end %>
-
+ <%= link_to 'Cancel', root_path, data: { confirm: 'Are you sure?' } %>
 <div class="autosave">
 
 </div>
