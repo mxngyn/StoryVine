@@ -17,5 +17,6 @@
 //= require redactor-rails/config.js
 //= require_tree .
 //= require livevalidation_standalone.js
+//= require livevalidationready.js
 
 $(function(){ $(document).foundation(); });
