@@ -12,6 +12,21 @@ function autosaveSnippet () {
   });
 }
 
+function autosaveStory () {
+  var $url = $('.edit_story')[0].action;
+  var $data = $('.edit_story').serialize();
+  $.ajax({
+    type: "PATCH",
+    url: $url,
+    data: $data,
+    dataType: "text"
+  }).done(function(response){
+    console.log(response);
+    $(".autosave").html(response);
+  });
+}
+
+
 
 $(document).ready(function (){
   var autosaveOnFocus;
