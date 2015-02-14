@@ -1,5 +1,5 @@
 User side bar
- hello, <%= @user.first_name %>
+ hello, <%= current_user.first_name %>
  <h3>YO' PUBLISHED POSTS:</h3>
    <% @user.all_published.each do |story| %>
       <p><%= story.title %></p>
