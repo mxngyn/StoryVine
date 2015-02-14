@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  before_action :set_story, :set_vote
+  before_action :set_story, :set_vote, except: [:destroy]
 
   def upvote
     set_vote_up(@story.id, current_user.id)
@@ -7,11 +7,18 @@ class VotesController < ApplicationController
   end
 
 
+  def destroy
+    @vote = Vote.find(params[:id])
+    @vote.destroy
+    redirect_to :back
+  end
+
   private
 
   def set_vote
     @vote = Vote.find_by(user_id: current_user.id, story_id: @story.id)
   end
+
 
   def set_story
     @story = Story.find(params[:id])
