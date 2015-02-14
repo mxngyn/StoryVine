@@ -12,7 +12,7 @@ class StoriesController < ApplicationController
 
   def new
     # show a new story form
-    @story = Story.new
+    @story = Story.create
   end
 
   def create
