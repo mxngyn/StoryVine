@@ -28,6 +28,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Foundation
 gem 'foundation-rails'
 
+# Sunspot keyword search gem
+gem 'sunspot_rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
