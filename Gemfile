@@ -28,6 +28,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Foundation
 gem 'foundation-rails'
 
+# Sunspot keyword search gem
+gem 'sunspot_rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -53,6 +56,9 @@ group :development, :test do
 
   # Rspec gem
   gem 'rspec-rails', '~> 3.0'
+
+  #Sunspot solr gem.  Enables to access slr search features in development.
+  gem 'sunspot_solr'
 
 end
 

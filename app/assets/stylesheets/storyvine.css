@@ -1,5 +1,10 @@
 /* EDIT STORY PAGE */
 
+
 #publish-warning {
+  display: none;
+}
+
+#search-results {
   display: none;
 }
