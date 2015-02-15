@@ -29,7 +29,8 @@ class SnippetsController < ApplicationController
         redirect_to snippet_path(@snippet)
       end
     else
-      redirect_to :back
+      flash[:notice] = "There was an error saving your snippet. Please make sure it isn't blank."
+      render :new
     end
   end
 
