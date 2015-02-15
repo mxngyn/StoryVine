@@ -36,3 +36,10 @@
   <% end %>
   <%= render :partial => 'tags/tagform'%>
 </div>
+
+<div class="story-badges">
+  <%# @story.badges.each do |badge| %>
+    <%# badge.title  %>
+  <%# end %>
+  <%= @story.award_badge.title %>
+</div>
