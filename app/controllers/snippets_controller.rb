@@ -22,7 +22,7 @@ class SnippetsController < ApplicationController
 
   def update
     @snippet = Snippet.find(params["id"])
-    if @snippet.update(content: params["snippet"]["content"])
+    if @snippet.update(content: params["snippet"]["content"], flagged: params["snippet"]["flagged"])
       if request.xhr?
         render plain: "Autosaved on " + @snippet.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
       else
