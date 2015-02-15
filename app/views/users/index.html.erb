@@ -1,7 +1,9 @@
 <div class="all-users">
   <% @users.each do |user| %>
     <%= link_to "#{user.username}", user_path(user) %><br>
+    <% user.badges.each do |badge| %>
+      <%= badge.title  %>
+    <% end %>
   <% end %>
 </div>
-
 
