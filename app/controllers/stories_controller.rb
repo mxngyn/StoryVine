@@ -5,10 +5,11 @@ class StoriesController < ApplicationController
     p params
     # displays all published stories
     @stories = Story.all.where(published: true)
+  end
 
+  def search
     #displays all stories searched for
     @search = Story.search do
-
       fulltext params[:search]
     end
     @searched_stories = @search.results
