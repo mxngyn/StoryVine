@@ -1,8 +1,3 @@
 class Badge < ActiveRecord::Base
-  def index
-  end
-
-  def show
-  end
-
+  belongs_to :story
 end
