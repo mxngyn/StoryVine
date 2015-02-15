@@ -32,7 +32,7 @@
 
 <div class="story-tags">
   <% @story.tags.each do |tag| %>
-    <%= link_to "#{tag.name}", tags_show_path(tag) %>
+    <%= link_to "#{tag.name}", tags_show_path(tag) %><br>
   <% end %>
   <%= render :partial => 'tags/tagform'%>
 </div>
@@ -41,5 +41,7 @@
   <%# @story.badges.each do |badge| %>
     <%# badge.title  %>
   <%# end %>
-  <%= @story.award_badge.title %>
+  <% if @story.author != nil %>
+    <%= @story.award_badge %>
+  <% end %>
 </div>
