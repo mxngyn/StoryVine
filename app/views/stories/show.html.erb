@@ -26,10 +26,7 @@
 </div>
 <br><br>
 
-<%= form_for @story do |f| %>
-  <%= f.hidden_field :title, :value => @story.title %>
-  <%= f.hidden_field :content, :value => @story.content %>
-  <%= f.hidden_field :flagged, :value => true %>
+<%= form_for @story, :url => story_flag_path(@story) do |f| %>
 <%= f.submit "Report inappropriate" %>
 <% end %>
 
