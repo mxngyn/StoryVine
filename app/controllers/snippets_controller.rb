@@ -35,12 +35,11 @@ class SnippetsController < ApplicationController
   end
 
   def show
-    Sanitize.fragment(set_snippet.content, Sanitize::Config::RESTRICTED)
+    Sanitize.fragment(set_snippet, Sanitize::Config::RESTRICTED)
     @stories = @snippet.stories
   end
 
   def destroy
-
     @snippet = Snippet.find(params["id"])
     @snippet.destroy
     redirect_to "/"
