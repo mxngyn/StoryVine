@@ -8,16 +8,15 @@
 </div>
 
 <div id="search-results">
-  <h1> SOME SHIT YOU'VE SEARCHED FOR </h1>
-  <% @searched_stories.each do |story|%>
-    <p><%= story.title %></p>
-  <% end %>
+  <h1> SOME SHIT YOU'VE SEARCHED FOR: </h1>
+    <% @searched_stories.each do |story|%>
+      <p><%= story.title %></p>
+    <% end %>
 </div>
 
 <ol>
   <% @stories.each do |story| %>
     <li><%= link_to story.title, story_path(story) %></li>
-
   <% end %>
 </ol>
 
