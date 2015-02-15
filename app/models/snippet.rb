@@ -1,8 +1,11 @@
 class Snippet < ActiveRecord::Base
 
+  include Flagging
+
   belongs_to :user
 
   has_many :stories
+  has_many :flags, as: :flaggable
 
   validates_presence_of :content, :on => :update
 
