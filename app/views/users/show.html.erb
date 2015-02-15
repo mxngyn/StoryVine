@@ -1,3 +1,4 @@
+
 <%= @user.username %><br>
 <%= @user.country %><br>
 <%= image_tag @user.pic_url %><br>
@@ -13,3 +14,27 @@ User's stories<br>
 <% @user.all_published.each do |published| %>
   <%= link_to published.title, story_path(published) %>
 <% end %>
+
+<div id="user-view">
+ hello, <%= @user.first_name %>
+ <h3>YO' PUBLISHED POSTS:</h3>
+   <% @user.all_published.each do |story| %>
+      <p><%= link_to "#{story.title}", story_path(story) %></p>
+    <% end %>
+
+ <h3>YO' UNPUBLISHED POSTS:</h3>
+   <% @user.all_unpublished.each do |story| %>
+      <p><%= link_to "#{story.title}", story_path(story) %></p>
+    <% end %>
+</div>
+
+<div class="users-badges">
+  <%= @user.username.capitalize %>'s Badges:<br>
+  <%# @user.stories.first.first_story_badge %>
+  <%= @user.stories.each do |story|  %>
+    <% story.badges.each do |badge| %>
+      <%= badge.title %>
+    <% end %>
+  <% end %>
+</div>
+
