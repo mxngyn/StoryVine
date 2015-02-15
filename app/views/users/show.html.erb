@@ -31,7 +31,7 @@ User's stories<br>
 <div class="users-badges">
   <%= @user.username.capitalize %>'s Badges:<br>
   <%# @user.stories.first.first_story_badge %>
-  <%= @user.stories.each do |story|  %>
+  <% @user.stories.each do |story|  %>
     <% story.badges.each do |badge| %>
       <%= badge.title %>
     <% end %>
