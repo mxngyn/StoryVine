@@ -26,6 +26,12 @@
 </div>
 <br><br>
 
+<%= form_for @story do |f| %>
+  <%= f.hidden_field :title, :value => @story.title %>
+  <%= f.hidden_field :content, :value => @story.content %>
+  <%= f.hidden_field :flagged, :value => true %>
+<%= f.submit "Report inappropriate" %>
+<% end %>
 
 <div class="story-tags">
   <% @story.tags.each do |tag| %>
