@@ -29,7 +29,7 @@
       <% end %>
       <li class="divider"></li>
       <li class="jankity-search-form">
-        <%= form_tag stories_path, :method => :get do %>
+        <%= form_tag stories_search_path, :method => :get do %>
             <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
       </li>
       <li class="jankity-search-form"><%= submit_tag "Search", :name => nil %>
