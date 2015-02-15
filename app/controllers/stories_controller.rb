@@ -41,9 +41,8 @@ class StoriesController < ApplicationController
   end
 
   def update
-    p params
     @story = Story.find(params["id"])
-    if @story.update(content: params["story"]["content"], title: params["story"]["title"], published: params["story"]["published"])
+    if @story.update(content: params["story"]["content"], title: params["story"]["title"], published: params["story"]["published"], flagged: params["story"]["flagged"])
       if request.xhr?
         render plain: "Autosaved on " + @story.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
       else
