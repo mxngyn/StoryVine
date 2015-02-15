@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
-  if (document.querySelector('#user_username') != null){
+  var startLiveVal = document.querySelector('#user_username');
 
+  if (startLiveVal) {
 
 var password = new LiveValidation('user_password');
 password.add( Validate.Length, { minimum: 4 } );
@@ -16,5 +17,7 @@ var confirmation = new LiveValidation('user_password_confirmation');
 confirmation.add( Validate.Confirmation, { match: 'user_password' } );
 confirmation.validMessage = "Password Matches";
 
+  } else {
+    console.log('')
   }
 });
