@@ -1,4 +1,5 @@
 **/log/development.log
 **/log/test.log
+**/log/*
 **/tmp/*
 **/tmp-copy/*

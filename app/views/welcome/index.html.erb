@@ -1,69 +1,164 @@
+<html>
+<head>
+  <style type="text/css">
+  html,
+  body {
+    margin: 0;
+    height: 100%
+  }
 
-<div class="row">
+  h1,
+  p {
+    margin: 0;
+    padding: 0;
+  }
 
+  header {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
 
+  section {
+    text-align: center;
+    color: #EFEFEF;
+  }
+  </style>
+  <link href='http://fonts.googleapis.com/css?family=Bitter|Bree+Serif' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+  <body>
 
-  <div class="large-9 columns">
+<div class="sticky">
+<nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+  <ul class="title-area">
+    <li class="name">
+      <span class="top-left-logo">Story Vine</span>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
 
-    <ul class="tabs" data-tab>
-      <li class="tab-title active"><a href="#panel1">Recent Snippets</a></li>
-      <li class="tab-title"><a href="#panel2">Popular Snippets</a></li>
-      <li class="tab-title"><a href="#panel3">Recent Stories</a></li>
-      <li class="tab-title"><a href="#panel4">Popular Stories</a></li>
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li>
+      </li>
+      <li class=""><a href="#" data-reveal-id="login">Login</a></li>
+      <li class=""><a href="#" data-reveal-id="signup">Signup</a></li>
     </ul>
-    <div class="tabs-content">
-      <div class="content active" id="panel1">
-        <p>
-          <% @recent_snippets.each do |recent| %>
-            <%= link_to recent.content, snippet_path(recent) %>
-          <% end %>
-        </p>
-      </div>
-      <div class="content" id="panel2">
-        <p>
-          <% @popular_snippets.each do |snippet| %>
-            <% snippet.each do |snippet, stories_count| %>
-              <%= link_to "#{snippet.content} (#{stories_count})", snippet_path(snippet) %>
-            <% end %>
-          <% end %>
-        </p>
-      </div>
-      <div class="content" id="panel3">
-        <p>
-          <% @recent_stories.each do |recent| %>
-            <%= link_to recent.title, story_path(recent) %>
-          <% end %>
-        </p>
-      </div>
-      <div class="content" id="panel4">
-        <p>
-          <% @popular_stories.each do |story| %>
-            <% story.each do |story, votes| %>
-              <%= link_to "#{story.title} (#{votes})", story_path(story) %>
-            <% end %>
-          <% end %>
-        </p>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+    </ul>
+  </section>
+</nav>
+</div>
+
+
+
+<div id="login" class="reveal-modal" data-reveal>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.text_field :email, :placeholder => "Email" %>
+    <%= f.password_field :password, :placeholder => "Password"%>
+    <%= f.submit "Login", :class => "alert button expand" %>
+  <% end %>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="signup" class="reveal-modal" data-reveal>
+  <%= form_for(:user, url: signup_path) do |f| %>
+        <fieldset>
+          <legend>Signup</legend>
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %>
+            <%= f.submit "Sign Up" %>
+        </fieldset>
+      <% end %>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+
+<div class="row fullWidth">
+  <div class="large-12 columns" style="padding: 0px;">
+    <header role="banner">
+</header>
+
+<main class="full-screen" role="main">
+  <section class="full-screen first-screen">
+    <div class="row">
+      <div class="small-12 columns">
+    <div class="headerlogo">Story Vine</div>
+    </div>
+    <div class="small-12 columns">
+    <span id="index-typed"></span>
+    </div>
+    <div class="small-12 columns">
+      <div class="search-bar">
+        <%= form_tag stories_search_path, :method => :get do %>
+            <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
+        <%= submit_tag "Search", :name => nil %>
+        <% end %>
       </div>
     </div>
-  </div>
+    </div>
+  </section>
 
-  <div class="large-3 columns">
-    <%= render 'layouts/featured' %>
-    <% if current_user && current_user.admin %>
-      <%= render 'layouts/usersidebar' %>
-      <%= render 'layouts/flaggedposts' %>
-    <% elsif current_user %>
-      <%= render 'layouts/usersidebar' %>
-    <% else %>
-      <%= render 'layouts/signupsidebar' %>
-    <% end %>
-  </div>
+  <section id="pinned-trigger1" class="full-screen second-screen">
+    <div id="pinned-element1">
+      <div class="headerlogo">Popular Snippets</div>
+    </div>
+  </section>
 
+  <section id="pinned-trigger2" class="full-screen third-screen">
+    <div id="pinned-element2">
+      <div class="headerlogo">Popular Stories</div>
+    </div>
+  </section>
+
+  <section class="full-screen last-screen">
+    <div>
+      <div class="headerlogo">Meet the Team</div>
+    </div>
+  </section>
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr/>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>© Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</main>
+</div>
 </div>
 
-
-<div class="story-of-the-day">
-  Story Of The Day<br>
-  <%= link_to "#{random_story.title}", story_path(random_story) %>
-  <%# random_story.author.award_badge %>
-</div>
+<script>
+  $(function(){
+      $("#index-typed").typed({
+        strings: ["Have a thought.", "Jot it down.", "... Share it here.", "Inspire others."],
+        typeSpeed: 70
+      });
+  });
+</script>
+  </body>
+</html>
