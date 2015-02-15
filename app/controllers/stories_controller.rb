@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :set_stories, only: [:show, :edit, :destroy, :update]
+  before_action :set_story, only: [:show, :edit, :destroy, :update]
 
   def index
     # displays all published stories
@@ -8,12 +8,13 @@ class StoriesController < ApplicationController
 
   def show
     find_vote(@story)
+    Sanitize.fragment(@story, Sanitize::Config::RESTRICTED)
     # show particular story
   end
 
   def new
     # show a new story form
-    @story = Story.create
+    @story = Story.create(snippet_id: params["snippet_id"], author_id: session[:user_id], published: false)
   end
 
   def create
@@ -31,15 +32,17 @@ class StoriesController < ApplicationController
   end
 
   def update
+    p params
     @story = Story.find(params["id"])
-    if @story.update(content: params["story"]["content"])
+    if @story.update(content: params["story"]["content"], title: params["story"]["title"], published: params["story"]["published"])
       if request.xhr?
         render plain: "Autosaved on " + @story.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
       else
         redirect_to story_path(@story)
       end
     else
-      redirect_to :back
+      flash[:notice] = "There was an error saving your story. Please make sure the fields aren't blank."
+      render :new
     end
   end
 
@@ -59,12 +62,12 @@ class StoriesController < ApplicationController
     @vote = story.votes.find_by(user_id: session[:user_id], story_id: story.id )
   end
 
-  def set_stories
+  def set_story
     @story = Story.find(params[:id])
   end
 
   def story_params
-    params.require(:story).permit(:title, :content)
+    params.require(:story).permit(:title, :content, :snippet_id, :author_id, :published)
   end
 
 
