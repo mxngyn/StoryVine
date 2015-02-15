@@ -2,7 +2,9 @@
 <% if @story.title %>
   <%= @story.title.html_safe %><br>
 <% end %>
-<%= @story.content.html_safe %><br>
+<% if @story.content %>
+<%= @story.content.html_safe %>
+<% end %>
 <%= @story.vote_count %><br>
   <% if current_user %>
     <div id="upvote">
