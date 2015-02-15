@@ -11,6 +11,10 @@ class Story < ActiveRecord::Base
   validates_presence_of :title, :on => :update
   validates_presence_of :content, :on => :update
 
+  searchable do
+    text :title, :content
+  end
+
   def vote_count
     self.votes.where(liked: true).count
   end
