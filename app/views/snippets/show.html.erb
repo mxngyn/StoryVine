@@ -11,8 +11,6 @@
   <% end %>
 </ul>
 
-<%= form_for @snippet do |f| %>
-  <%= f.hidden_field :content, :value => @snippet.content %>
-  <%= f.hidden_field :flagged, :value => true %>
+<%= form_for @snippet, :url => snippet_flag_path(@snippet) do |f| %>
 <%= f.submit "Report inappropriate" %>
 <% end %>
