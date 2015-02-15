@@ -41,7 +41,8 @@ class StoriesController < ApplicationController
         redirect_to story_path(@story)
       end
     else
-      redirect_to :back
+      flash[:notice] = "There was an error saving your story. Please make sure the fields aren't blank."
+      render :new
     end
   end
 
