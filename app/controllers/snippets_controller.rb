@@ -29,17 +29,17 @@ class SnippetsController < ApplicationController
         redirect_to snippet_path(@snippet)
       end
     else
-      redirect_to :back
+      flash[:notice] = "There was an error saving your snippet. Please make sure it isn't blank."
+      render :new
     end
   end
 
   def show
-    set_snippet
+    Sanitize.fragment(set_snippet, Sanitize::Config::RESTRICTED)
     @stories = @snippet.stories
   end
 
   def destroy
-
     @snippet = Snippet.find(params["id"])
     @snippet.destroy
     redirect_to "/"

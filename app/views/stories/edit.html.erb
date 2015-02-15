@@ -6,10 +6,15 @@
     <%= f.text_field :title %><br>
 
     <%= f.label :content %>
-    <%= f.text_field :content %><br>
+    <%= f.text_field :content, class: "redactor" %><br>
 
+    Would you like to publish this story?
+    <%= f.radio_button 'published', false, { :checked => true } %> No
+    <%= f.radio_button 'published', true %> Yes
 
     <%= f.submit %>
 
   <% end %>
-
+<div id="publish-warning">
+  Are you sure? This story will no longer be editable.
+</div>

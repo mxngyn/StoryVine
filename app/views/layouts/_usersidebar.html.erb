@@ -1,11 +1,17 @@
 User side bar
  hello, <div class="logged-in-user"><%= current_user.first_name %></div>
- <h3>YO' PUBLISHED POSTS:</h3>
-   <% current_user.all_published.each do |story| %>
-      <p><%= story.title %></p>
+
+ hello, <%= current_user.first_name %>
+
+
+ <h5>Here are your unpublished posts:</h5>
+   <% current_user.all_unpublished.each do |story| %>
+      <p><%=link_to story.title, story_path(story) %></p>
     <% end %>
 
- <h3>YO' UNPUBLISHED POSTS:</h3>
-   <% current_user.all_unpublished.each do |story| %>
-      <p><%= story.title %></p>
+ <h5>Some of your published work:</h5>
+   <% current_user.all_published.each do |story| %>
+      <p><%= link_to story.title, story_path(story) %></p>
     <% end %>
+
+

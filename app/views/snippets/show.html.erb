@@ -1,8 +1,12 @@
-<%= @snippet.content %>
+<%= @snippet.content.html_safe %>
 <%= @snippet.user.username if @snippet.user %>
+<%=link_to "Submit a story for this snippet", new_story_path(snippet_id: @snippet.id) %>
 <ul>
-  <% @stories.each do |story| %>
-    <li><%= link_to story.title, "/" %></li>
-    <!-- Must change url to story path once story path is complete -->
+  <% if @stories.count != 0 %>
+    <% @stories.each do |story| %>
+      <li><%= link_to story.title, story_path(story) %></li>
+    <% end %>
+  <% else %>
+    There are currently no stories for this snippet.
   <% end %>
 </ul>
