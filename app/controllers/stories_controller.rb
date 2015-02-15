@@ -8,6 +8,7 @@ class StoriesController < ApplicationController
 
   def show
     find_vote(@story)
+    Sanitize.fragment(@story, Sanitize::Config::RESTRICTED)
     # show particular story
   end
 
