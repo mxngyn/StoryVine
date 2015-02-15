@@ -1,7 +1,9 @@
 <ul>
   <% @snippets.each do |snippet| %>
     <div class="snippet">
-      <li><%= link_to snippet.content, snippet_path(snippet) %></li>
+      <% if snippet.content %>
+        <li><%= link_to strip_tags(snippet.content), snippet_path(snippet) %></li>
+      <% end %>
     </div>
   <% end %>
 </ul>
