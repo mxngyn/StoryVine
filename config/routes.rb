@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/tags/:id/stories', to: 'tags#show', as: 'tags_show'
   # get '/stories/:id/tags', to: 'stories#show_tags', as: 'show_tags'
   resources :storytags
+  resources :badges
 
   root "welcome#index"
 
