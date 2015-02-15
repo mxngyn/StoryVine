@@ -21,4 +21,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  # def award_badge
+  #   if self.stories.count == 1
+  #     @badge = Badge.create(title:"First Story Written", story_id: )
+  #     return @badge.title
+  #   end
+  # end
+
 end

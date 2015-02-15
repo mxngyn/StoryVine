@@ -1,3 +1,4 @@
+
 <%= @user.username %><br>
 <%= @user.country %><br>
 <%= image_tag @user.pic_url %><br>
@@ -13,3 +14,15 @@ User's stories<br>
 <% @user.all_published.each do |published| %>
   <%= link_to published.title, story_path(published) %>
 <% end %>
+
+
+<div class="users-badges">
+  <%= @user.username.capitalize %>'s Badges:<br>
+  <%# @user.stories.first.first_story_badge %>
+  <% @user.stories.each do |story|  %>
+    <% story.badges.each do |badge| %>
+      <%= badge.title %>
+    <% end %>
+  <% end %>
+</div>
+

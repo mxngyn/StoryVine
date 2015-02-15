@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   patch 'stories/:id/upvote', to: 'votes#upvote', as: 'vote_up'
   delete '/vote/:id', to: 'votes#destroy', as: 'vote_delete'
 
+
   resources :users, only: [:show, :edit, :update, :delete]
+
 
   resources :stories
 
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   get '/tags/:id/stories', to: 'tags#show', as: 'tags_show'
   # get '/stories/:id/tags', to: 'stories#show_tags', as: 'show_tags'
   resources :storytags
+  resources :badges
 
   root "welcome#index"
 
