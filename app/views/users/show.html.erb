@@ -15,18 +15,6 @@ User's stories<br>
   <%= link_to published.title, story_path(published) %>
 <% end %>
 
-<div id="user-view">
- hello, <%= @user.first_name %>
- <h3>YO' PUBLISHED POSTS:</h3>
-   <% @user.all_published.each do |story| %>
-      <p><%= link_to "#{story.title}", story_path(story) %></p>
-    <% end %>
-
- <h3>YO' UNPUBLISHED POSTS:</h3>
-   <% @user.all_unpublished.each do |story| %>
-      <p><%= link_to "#{story.title}", story_path(story) %></p>
-    <% end %>
-</div>
 
 <div class="users-badges">
   <%= @user.username.capitalize %>'s Badges:<br>
