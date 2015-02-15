@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   delete '/vote/:id', to: 'votes#destroy', as: 'vote_delete'
 
   resources :users, only: [:show, :edit, :update, :delete]
-  # patch '/users/:id', to: 'users#update', as: 'users_update'
 
   resources :stories
 
