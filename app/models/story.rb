@@ -27,6 +27,10 @@ class Story < ActiveRecord::Base
     Story.all.where(published: true).sort_by(&:created_at).reverse.take(10)
   end
 
+  def self.flagged
+    Story.all.where(flagged: true)
+  end
+
 end
 
 
