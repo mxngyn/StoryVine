@@ -16,7 +16,7 @@
     </div>
   <% end %>
 
-<% if current_user.id == @story.author_id %>
+<% if story_editable?(@story) %>
 <div>
   <% if !@story.published %><Br><br>
     <%= link_to "Edit", edit_story_path(@story) %><br>
