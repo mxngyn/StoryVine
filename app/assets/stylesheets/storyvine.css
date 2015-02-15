@@ -8,3 +8,127 @@
 #search-results {
  /* display: none;*/
 }
+
+
+/* INDEX */
+
+body {
+  background-color: #65b6b0;
+}
+
+.headerlogo {
+  font-family: 'Bree Serif', serif;
+  font-size: 6em;
+  margin-bottom: 20px;
+}
+
+.top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span {
+  font-family: 'Bree Serif', serif;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 1.5em;
+}
+
+.fullWidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
+
+.fi-magnifying-glass {
+  margin-top: 5px;
+  font-size: 2em;
+  height: 100%;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  font-family: 'Bree Serif', serif;
+  background-color: #97cfcc;
+  font-size: 1.25em;
+}
+
+.top-bar-section ul li {
+  background-color: #97cfcc;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+   background-color: #97cfcc;
+}
+
+.sticky {
+  background-color: #97cfcc;
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.top-bar {
+  background-color: #97cfcc;
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
+
+.full-screen {
+  height: 100%; /* makes panels the entire window height */
+}
+
+.first-screen {
+  background-color: #65b6b0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-screen {
+  background-color: #E7E1D4;
+  color: #372e27;
+}
+
+.third-screen {
+  background-color: #372e27;
+  color: #E7E1D4;
+}
+
+.last-screen {
+  background-color: #97cfcc;
+}
+
+
+/* TYPED.JS CSS */
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+
+#index-typed {
+  font-family: 'Bitter', serif;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  display: block;
+}
+
+
+.search-bar {
+  display: block;
+}
+
