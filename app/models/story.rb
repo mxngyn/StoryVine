@@ -8,6 +8,9 @@ class Story < ActiveRecord::Base
   has_many :tags, through: :story_tags
   has_many :votes
 
+  validates_presence_of :title, :on => :update
+  validates_presence_of :content, :on => :update
+
   def vote_count
     self.votes.where(liked: true).count
   end
