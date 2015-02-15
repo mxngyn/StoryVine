@@ -4,6 +4,8 @@ class Snippet < ActiveRecord::Base
 
   has_many :stories
 
+  validates_presence_of :content, :on => :update
+
   def self.most_recent
     Snippet.all.sort_by(&:created_at).reverse.take(10)
   end
