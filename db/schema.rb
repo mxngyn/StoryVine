@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215042734) do
+ActiveRecord::Schema.define(version: 20150215172539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "flags", force: :cascade do |t|
+    t.integer  "flaggable_id"
+    t.string   "flaggable_type"
+    t.integer  "user_id"
+    t.boolean  "flagged"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "flags", ["flaggable_type", "flaggable_id"], name: "index_flags_on_flaggable_type_and_flaggable_id", using: :btree
 
   create_table "redactor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -37,7 +48,6 @@ ActiveRecord::Schema.define(version: 20150215042734) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "flagged",    default: false
   end
 
   create_table "stories", force: :cascade do |t|
@@ -49,7 +59,6 @@ ActiveRecord::Schema.define(version: 20150215042734) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "flagged",    default: false
   end
 
   add_index "stories", ["parent_id"], name: "index_stories_on_parent_id", using: :btree
