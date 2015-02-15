@@ -62,7 +62,7 @@ class StoriesController < ApplicationController
     @vote = story.votes.find_by(user_id: session[:user_id], story_id: story.id )
   end
 
-  def set_stories
+  def set_story
     @story = Story.find(params[:id])
   end
 
