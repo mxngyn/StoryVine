@@ -8,17 +8,15 @@ Rails.application.routes.draw do
   patch 'stories/:id/upvote', to: 'votes#upvote', as: 'vote_up'
   delete '/vote/:id', to: 'votes#destroy', as: 'vote_delete'
 
-
   resources :users, only: [:show, :edit, :update, :delete]
 
-
+  get 'stories/search', to: 'stories#search', as: 'stories_search'
   resources :stories
 
   resources :tags
   get '/tags/:id/stories', to: 'tags#show', as: 'tags_show'
   # get '/stories/:id/tags', to: 'stories#show_tags', as: 'show_tags'
   resources :storytags
-  resources :badges
 
   root "welcome#index"
 
@@ -27,7 +25,9 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
 
+
   patch 'snippets/:id/flag', to: 'snippets#flag', as: 'snippet_flag'
   patch 'stories/:id/flag', to: 'stories#flag', as: 'story_flag'
+
 end
 
