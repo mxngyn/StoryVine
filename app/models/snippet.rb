@@ -18,5 +18,8 @@ class Snippet < ActiveRecord::Base
     Snippet.all.shuffle
   end
 
+  def self.flagged
+    Snippet.all.where(flagged: true)
+  end
 
 end
