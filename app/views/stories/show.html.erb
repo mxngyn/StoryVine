@@ -1,5 +1,8 @@
-<%= @story.title %><br>
-<%= @story.content %><br>
+<%= @story.snippet.content %>(<%= link_to "link", @story.snippet %>)<br>
+<% if @story.title %>
+  <%= @story.title.html_safe %><br>
+<% end %>
+<%= @story.content.html_safe %><br>
 <%= @story.vote_count %><br>
   <% if current_user %>
     <div id="upvote">
