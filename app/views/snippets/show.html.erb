@@ -10,3 +10,9 @@
     There are currently no stories for this snippet.
   <% end %>
 </ul>
+
+<%= form_for @snippet do |f| %>
+  <%= f.hidden_field :content, :value => @snippet.content %>
+  <%= f.hidden_field :flagged, :value => true %>
+<%= f.submit "Report inappropriate" %>
+<% end %>
