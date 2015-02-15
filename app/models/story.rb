@@ -41,7 +41,7 @@ class Story < ActiveRecord::Base
 
   def award_badge
     if self.author.stories.count == 1
-      Badge.create(title: "First Story Written", story_id: self.author.stories.first.author.id)
+      Badge.create(title: "First Story Written", story_id: self.id)
     end
   end
 
