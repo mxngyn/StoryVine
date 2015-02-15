@@ -1,5 +1,7 @@
 class Story < ActiveRecord::Base
 
+  include Flagging
+
   belongs_to :author, class_name: "User"
   belongs_to :parent, class_name: "Story"
   belongs_to :snippet
@@ -7,6 +9,7 @@ class Story < ActiveRecord::Base
   has_many :story_tags
   has_many :tags, through: :story_tags
   has_many :votes
+  has_many :flags, as: :flaggable
 
   validates_presence_of :title, :on => :update
   validates_presence_of :content, :on => :update
@@ -25,6 +28,10 @@ class Story < ActiveRecord::Base
 
   def self.most_recent
     Story.all.where(published: true).sort_by(&:created_at).reverse.take(10)
+  end
+
+  def self.flagged
+    Story.all.where(flagged: true)
   end
 
 end

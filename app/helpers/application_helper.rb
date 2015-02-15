@@ -6,4 +6,16 @@ module ApplicationHelper
        nil
      end
    end
+
+   def item_editable?(item)
+     if current_user
+       item.user.id == session[:user_id] || current_user.admin
+     end
+   end
+
+   def story_editable?(item)
+     if current_user
+       item.author.id == session[:user_id] || current_user.admin
+     end
+   end
 end

@@ -41,7 +41,6 @@ class StoriesController < ApplicationController
   end
 
   def update
-    p params
     @story = Story.find(params["id"])
     if @story.update(content: params["story"]["content"], title: params["story"]["title"], published: params["story"]["published"])
       if request.xhr?
@@ -64,6 +63,15 @@ class StoriesController < ApplicationController
   #   @story = Story.find(params[:id])
   #   @stories_with_tags = Tag.where(story_id: @story.id)
   # end
+
+  def flag
+    @story = Story.find(params[:id])
+    if !(Flag.where(flaggable_type: "Story", flaggable_id: @story.id))
+      @story.flag(session[:user_id])
+    end
+    flash[:notice] = "Thank you. We'll look into this shortly."
+    redirect_to story_path(@story.id)
+  end
 
   private
 

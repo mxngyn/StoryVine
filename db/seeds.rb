@@ -28,4 +28,4 @@ end
 
 ## ADMIN ##
 
-User.create(username: "mai", password: "password", email: "mai@mai.com")
+User.create(username: "mai", password: "password", email: "mai@mai.com", admin: true)

@@ -10,3 +10,7 @@
     There are currently no stories for this snippet.
   <% end %>
 </ul>
+
+<%= form_for @snippet, :url => snippet_flag_path(@snippet) do |f| %>
+<%= f.submit "Report inappropriate" %>
+<% end %>

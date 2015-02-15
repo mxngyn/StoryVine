@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   delete '/vote/:id', to: 'votes#destroy', as: 'vote_delete'
 
   resources :users, only: [:show, :edit, :update, :delete]
-  # patch '/users/:id', to: 'users#update', as: 'users_update'
 
   resources :stories
 
@@ -24,5 +23,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+
+  patch 'snippets/:id/flag', to: 'snippets#flag', as: 'snippet_flag'
+  patch 'stories/:id/flag', to: 'stories#flag', as: 'story_flag'
 end
 

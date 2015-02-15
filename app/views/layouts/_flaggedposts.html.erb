@@ -1,0 +1,10 @@
+FLAGGED STORIES
+<% @flagged_stories.each do |story| %>
+<%= link_to story.title, story_path(story) %>
+<% end %>
+
+
+FLAGGED SNIPPETS
+<% @flagged_snippets.each do |snippet| %>
+<%= link_to snippet.content, snippet_path(snippet) %>
+<% end %>
