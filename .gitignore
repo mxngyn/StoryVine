@@ -4,4 +4,4 @@
 **/tmp/*
 **/tmp-copy/*
 **/log/*
-**/solr/*
+/solr/data
