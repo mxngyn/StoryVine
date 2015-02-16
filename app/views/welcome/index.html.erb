@@ -113,15 +113,37 @@
     </div>
   </section>
 
+
   <section id="pinned-trigger1" class="full-screen second-screen">
     <div id="pinned-element1">
       <div class="headerlogo">Popular Snippets</div>
+      <ol class ="index-list">
+      <% @popular_snippets.each do |snippet| %>
+        <% snippet.each do |key, value| %>
+        <li>
+          <%= link_to key.content, snippet_path(key) %><br> <%= value %> Stories Created
+        </li>
+        <% end %>
+      <% end %>
+      </ol>
     </div>
   </section>
 
   <section id="pinned-trigger2" class="full-screen third-screen">
     <div id="pinned-element2">
       <div class="headerlogo">Popular Stories</div>
+      <ol class ="index-list">
+      <% @popular_stories.each do |story| %>
+        <% story.each do |key, value| %>
+        <li>
+         <div class="popular-stuff">
+          <%= link_to key.title, story_path(key) %><br>
+          <%= value %> Tags
+        </div>
+        </li>
+        <% end %>
+      <% end %>
+      </ol>
     </div>
   </section>
 
