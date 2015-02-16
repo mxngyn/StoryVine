@@ -1,4 +1,14 @@
-var LeavePage = function() {
+var DeleteSnippetWidget = {}
+
+
+DeleteSnippetWidget.autoDeleteIncompleteSnippet = function() {
+  var submitNewContentExists = document.getElementById("submit_new_content")
+  if(submitNewContentExists) {
+    this.LeavePage();
+  }
+}
+
+DeleteSnippetWidget.LeavePage = function() {
 
   $('#submit_new_content').on('click', function() {
     window.btn_clicked = true;
