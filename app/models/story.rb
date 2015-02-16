@@ -9,6 +9,7 @@ class Story < ActiveRecord::Base
   has_many :story_tags
   has_many :tags, through: :story_tags
   has_many :votes
+  has_many :children, class_name: "Story", foreign_key: :parent_id
 
   has_many :flags, as: :flaggable
 
