@@ -1,0 +1,17 @@
+<div class="root-snippet">
+  <%= @story.snippet.content %>
+</div>
+
+<br><br>
+
+<div class="story-parent">
+  <h3>The Story You Are Writing Off Of:</h3>
+  <%= link_to "#{@story.parent.title}", story_path(@story.parent) %>
+</div>
+
+<br><br>
+
+<div class="nested-stories">
+  <h3>Nested Stories:</h3>
+  <%= link_to"#{@story.title}", story_path(@story) %>
+</div>
