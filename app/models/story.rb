@@ -28,11 +28,12 @@ class Story < ActiveRecord::Base
   end
 
   def self.most_popular
-    Story.all.where(published: true).map { |story| {story => story.vote_count} }.take(10)
+    stories = Story.all.where(published: true).sort_by(&:vote_count).reverse.take(5)
+    stories.map { |story| {story => story.vote_count} }
   end
 
   def self.most_recent
-    Story.all.where(published: true).sort_by(&:created_at).reverse.take(10)
+    Story.all.where(published: true).sort_by(&:created_at).reverse.take(5)
   end
 
 

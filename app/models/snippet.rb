@@ -10,11 +10,16 @@ class Snippet < ActiveRecord::Base
   validates_presence_of :content, :on => :update
 
   def self.most_recent
-    Snippet.all.sort_by(&:created_at).reverse.take(10)
+    Snippet.all.sort_by(&:created_at).reverse.take(5)
+  end
+
+  def stories_count
+    self.stories.count
   end
 
   def self.most_popular
-    Snippet.all.map { |snippet| {snippet => snippet.stories.count} }.take(10)
+    snippets = Snippet.all.sort_by(&:stories_count).reverse.take(5)
+    snippets.map { |snippet| {snippet => snippet.stories_count} }
   end
 
   def self.random

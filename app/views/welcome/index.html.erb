@@ -32,50 +32,14 @@
 </head>
   <body>
 
-<div class="sticky">
-  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to 'Story Vine', :root %></h1>
-    </li>
-  </ul>
 
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li>
-      </li>
-      <% if current_user %>
-        <li><%= link_to "Hello, #{current_user.username}", user_path(current_user) %></li>
-        <li class="divider"></li>
-        <li class="has-dropdown">
-          <a href="#">MENU</a>
-          <ul class="dropdown">
-            <li class="divider"></li>
-            <li><%= link_to 'New Snippet', new_snippet_path%></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Profile', user_path(current_user) %></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Dashboard', dashboard_path %></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Logout', logout_path(current_user) %></li>
-          </ul>
-        </li>
-      <% else %>
-      <li class=""><a href="#" data-reveal-id="login">Login</a></li>
-      <li class=""><a href="#" data-reveal-id="signup">Signup</a></li>
-      <% end %>
+  <div id="infoMenu">
+    <ul class="menu">
+      <li><a href="#" data-reveal-id="login">LOGIN</a></li>
+      <li><a href="#" data-reveal-id="signup">SIGNUP</a></li>
     </ul>
-
-    <!-- Left Nav Section -->
-    <ul class="left">
-    </ul>
-  </section>
-</nav>
-
-</div>
-
+  </div>
 
 
   <div id="login" class="reveal-modal" data-reveal>
@@ -88,101 +52,81 @@
     <a class="close-reveal-modal">&#215;</a>
   </div>
 
+<div id="fullpage">
 
-<div class="row fullWidth">
-  <div class="large-12 columns" style="padding: 0px;">
-    <header role="banner">
-</header>
-
-<main class="full-screen" role="main">
-  <section class="full-screen first-screen">
-    <div class="row">
-      <div class="small-12 columns">
-    <div class="headerlogo">Story Vine</div>
-    </div>
-    <div class="small-12 columns">
-    <span id="index-typed"></span>
-    </div>
-    <div class="small-12 columns">
-      <div class="search-bar">
-        <%= form_tag stories_search_path, :method => :get do %>
-            <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
-            <%= submit_tag "Search", :name => nil, class: "button round" %>
-        <% end %>
+    <div class="section" id="section0">
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="headerlogo">Story Vine</div>
+        </div>
+        <div class="small-12 columns">
+          <span id="index-typed"></span>
+        </div>
+        <div class="small-12 columns">
+          <div class="search-bar">
+            <%= form_tag stories_search_path, :method => :get do %>
+              <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
+              <%= submit_tag "Search", :name => nil, class: "button round" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
+
+
+    <div class="section">
+      <div id="pinned-element-feature">
+        <div class="headerlogo">Featured Story</div>
+        <ol class ="index-list">
+          <h2>
+            <%= link_to "#{random_story.title}", story_path(@story) %>
+          </h2>
+        </ol>
+      </div>
     </div>
-  </section>
-
-    <section id="pinned-trigger-feature" class="full-screen feature-screen">
-    <div id="pinned-element-feature">
-      <div class="headerlogo">Featured Story</div>
-      <ol class ="index-list">
-        <h2>
-          <%= link_to "#{random_story.title}", story_path(@story) %>
-        </h2>
-      </ol>
-    </div>
-    <div class="story-of-the-day">
-
-  </section>
 
 
-  <section id="pinned-trigger1" class="full-screen second-screen">
-    <div id="pinned-element1">
-      <div class="headerlogo">Popular Snippets</div>
-      <ol class ="index-list">
-      <% @popular_snippets.each do |snippet| %>
-        <% snippet.each do |key, value| %>
-        <li>
-          <%= link_to key.content, snippet_path(key) %> <%= value %> Stories Created
-        </li>
-        <% end %>
-      <% end %>
-      </ol>
-    </div>
-    <div class="story-of-the-day">
-
-  </section>
-
-  <section id="pinned-trigger2" class="full-screen third-screen">
-    <div id="pinned-element2">
+    <div class="section" id="section2">
       <div class="headerlogo">Popular Stories</div>
       <ol class ="index-list">
-      <% @popular_stories.each do |story| %>
-        <% story.each do |key, value| %>
-        <li>
-         <div class="popular-stuff">
-          <%= link_to key.title, story_path(key) %>
-          <%= value %> Tags
-        </div>
-        </li>
+        <% @popular_stories.each do |story| %>
+          <% story.each do |key, value| %>
+            <li>
+              <div class="popular-stuff">
+                <%= link_to key.title, story_path(key) %>
+                <%= value %> Tags
+              </div>
+            </li>
+          <% end %>
         <% end %>
-      <% end %>
       </ol>
-  </section>
+    </div>
 
+    <div class="section">
+      <div class="headerlogo">Popular Snippets</div>
+      <ol class ="index-list">
+        <% @popular_snippets.each do |snippet| %>
+          <% snippet.each do |key, value| %>
+            <li>
+              <%= link_to key.content, snippet_path(key) %> <%= value %> Stories Created
+            </li>
+          <% end %>
+        <% end %>
+      </ol>
+    </div>
 
-  <section class="full-screen last-screen">
-    <div>
+    <div class="section">
+      <div class="slide"> Slide 1 </div>
+      <div class="slide"> Slide 2 </div>
+      <div class="slide"> Slide 3 </div>
+      <div class="slide"> Slide 4 </div>
+    </div>
+
+    <div class="section">
       <div class="headerlogo">Meet the Team</div>
     </div>
-  </section>
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr/>
-      <div class="row">
-        <div class="large-6 columns">
-          <p>© StoryVine</p>
-        </div>
-        <div class="large-6 columns">
-
-        </div>
-      </div>
-    </div>
-  </footer>
-</main>
 </div>
+
 
 <script>
   $(function(){

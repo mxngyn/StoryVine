@@ -13,6 +13,7 @@
  *= require redactor-rails
  *= require_self
  *= require foundation_and_overrides
+ *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_tree .
 
  */
