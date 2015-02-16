@@ -32,50 +32,14 @@
 </head>
   <body>
 
-<div class="sticky">
-  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to 'Story Vine', :root %></h1>
-    </li>
-  </ul>
 
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li>
-      </li>
-      <% if current_user %>
-        <li><%= link_to "Hello, #{current_user.username}", user_path(current_user) %></li>
-        <li class="divider"></li>
-        <li class="has-dropdown">
-          <a href="#">MENU</a>
-          <ul class="dropdown">
-            <li class="divider"></li>
-            <li><%= link_to 'New Snippet', new_snippet_path%></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Profile', user_path(current_user) %></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Dashboard', dashboard_path %></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Logout', logout_path(current_user) %></li>
-          </ul>
-        </li>
-      <% else %>
-      <li class=""><a href="#" data-reveal-id="login">Login</a></li>
-      <li class=""><a href="#" data-reveal-id="signup">Signup</a></li>
-      <% end %>
+  <div id="infoMenu">
+    <ul class="menu">
+      <li><a href="#" data-reveal-id="login">LOGIN</a></li>
+      <li><a href="#" data-reveal-id="signup">SIGNUP</a></li>
     </ul>
-
-    <!-- Left Nav Section -->
-    <ul class="left">
-    </ul>
-  </section>
-</nav>
-
-</div>
-
+  </div>
 
 
   <div id="login" class="reveal-modal" data-reveal>
