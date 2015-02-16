@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :destroy, :update]
+  before_action :set_story, only: [:show, :edit, :destroy, :update, :create_nested_story]
 
   def index
     # displays all published stories
@@ -66,10 +66,6 @@ class StoriesController < ApplicationController
     redirect_to root_path
   end
 
-  # def show_tags
-  #   @story = Story.find(params[:id])
-  #   @stories_with_tags = Tag.where(story_id: @story.id)
-  # end
 
   def flag
     @story = Story.find(params[:id])
@@ -81,10 +77,17 @@ class StoriesController < ApplicationController
   end
 
   def create_nested_story
-    # @story = Story.new(story_params)
-    # @story.update()
+
     # figure out parent id!
-    @story = Story.find(params[:id])
+    # @story = Story.find(params[:id])
+    @story_new = Story.new(title: params[:story_new][:title], content: params[:story_new][:content], author_id: params[:story_new][:session_id ] )
+    # if @story_new.save
+      # @story_new.update(parent_id: @story.id)
+      # redirect_to story_path(@story)
+    # else
+      # render :new
+      # this should give errors!
+    # end
 
   end
 
