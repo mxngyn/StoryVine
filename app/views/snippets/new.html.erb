@@ -1,8 +1,15 @@
-<%= form_for(@snippet) do |f| %>
-   <%= f.text_area :content, placeholder: "Content goes here...", :class => "redactor"%>
-   <%= f.submit 'Submit', :class => 'submit_new_content'%>
- <% end %>
- <%= link_to 'Cancel', root_path, data: { confirm: 'Are you sure?' } %>
-<div class="autosave">
+<div class="row">
+  <div class="large-12 columns">
+    <div class="new-snippet">
+      Submit a Snippet
+    </div>
+      <%= form_for(@snippet) do |f| %>
+        <%= f.text_area :content, placeholder: "Content goes here...", :class => "redactor"%>
+        <%= f.submit 'Submit', :id => 'submit_new_content', class: "button round secondary small"%>
+      <% end %>
+    <%= link_to 'Cancel', root_path, data: { confirm: 'Are you sure?' }, class: "button round secondary small" %>
+    <div class="autosave">
 
+    </div>
+  </div>
 </div>

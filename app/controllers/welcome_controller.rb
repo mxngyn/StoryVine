@@ -6,5 +6,6 @@ class WelcomeController < ApplicationController
     @popular_stories = Story.most_popular
     @flagged_stories = Flag.stories
     @flagged_snippets = Flag.snippets
+    render :layout => false
   end
 end

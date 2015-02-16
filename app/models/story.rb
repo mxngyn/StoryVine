@@ -40,9 +40,23 @@ class Story < ActiveRecord::Base
   end
 
   def award_badge
-    if self.author.stories.count == 1
-      @badge = Badge.create(title: "First Story Written", story_id: self.id)
-      return @badge.title
+    has_a_first_story_badge = false
+    self.badges.each do |badge|
+      has_a_first_story_badge = true if badge.title = "First Story Written"
+    end
+    return "First Story Written" if has_a_first_story_badge
+    if !has_a_first_story_badge
+      badge = Badge.create(title: "First Story Written", story_id: self.id)
+      self.badges << badge
+      return badge.title
+    end
+  end
+
+  def most_voted
+    current_stories = Story.all.sort_by {|story| story.votes.count }
+    if self.votes.count > current_stories.last.votes.count
+      badge = Badge.create(title: "Most Voted", story_id: self.id)
+      return badge.title
     end
   end
 

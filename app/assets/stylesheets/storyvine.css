@@ -8,3 +8,260 @@
 #search-results {
  /* display: none;*/
 }
+
+
+/* INDEX */
+
+body {
+  background-color: #65b6b0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Bitter', serif;
+  color: #372e27;
+}
+
+.headerlogo {
+  font-family: 'Bree Serif', serif;
+  font-size: 6em;
+  margin-bottom: 20px;
+}
+
+.top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span {
+  font-family: 'Bree Serif', serif;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 1.5em;
+}
+
+.fullWidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
+
+.fi-magnifying-glass {
+  margin-top: 5px;
+  font-size: 2em;
+  height: 100%;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  font-family: 'Bree Serif', serif;
+  background-color: #97cfcc;
+  font-size: 1.25em;
+}
+
+.top-bar-section ul li {
+  background-color: #97cfcc;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+   background-color: #97cfcc;
+}
+
+.sticky {
+  background-color: #97cfcc;
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.top-bar {
+  background-color: #97cfcc;
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
+
+.full-screen {
+  height: 100%; /* makes panels the entire window height */
+}
+
+.first-screen {
+  background-color: #65b6b0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-screen {
+  background-color: #E7E1D4;
+  color: #372e27;
+}
+
+.third-screen {
+  background-color: #372e27;
+  color: #E7E1D4;
+}
+
+.last-screen {
+  background-color: #97cfcc;
+}
+
+
+/* TYPED.JS CSS */
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+
+#index-typed {
+  font-family: 'Bitter', serif;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  display: block;
+}
+
+
+.search-bar {
+  display: block;
+}
+
+
+/* SNIPPET INDEX */
+
+.snippet-header {
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Bitter', serif;
+  font-size: 4em;
+  color: #FFFFFF;
+}
+
+.snippet {
+  font-family: 'Bitter', serif;
+  padding: 30px 0px 30px 0px;
+  margin: 50px;
+  background-color: #97cfcc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.snippet-content {
+  color: #372e27;
+  font-size: 1.4em;
+}
+
+.snippet-link {
+  margin-top: 10px;
+  width: 80%;
+  text-align: right;
+  font-size: 0.78em;
+}
+
+/* SNIPPET SHOW */
+
+.snippet-author {
+  margin-top: 10px;
+  width: 80%;
+  text-align: right;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.submit-story {
+  text-align: center;
+}
+
+.submit-story ul {
+  list-style: none;
+}
+
+.snippet-button {
+  background-color: #372e27;
+  color: #f0efed;
+}
+
+.snippet-button:hover {
+  background-color: #97cfcc;
+}
+
+.snippet-stories-header {
+  font-family: 'Bitter', serif;
+  font-size: 3em;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.snippet-stories {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.snippet-story {
+  clear: both;
+  font-family: 'Bitter', serif;
+  padding: 20px 0px 20px 0px;
+  margin: 20px;
+  background-color: #97cfcc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* SNIPPET NEW */
+
+.autosave {
+  text-align: right;
+}
+
+.new-snippet {
+  margin-top: 10px;
+  font-family: 'Bitter', serif;
+  font-size: 3em;
+  color: #FFFFFF;
+}
+
+/* STORY SHOW */
+
+.story-show {
+  font-family: 'Bitter', serif;
+  padding: 30px 0px 30px 0px;
+  margin: 50px;
+  background-color: #97cfcc;
+  border-radius: 10px;
+  text-align: center;
+  color: #372e27;
+}
+
+.votes {
+  font-family: 'Bitter', serif;
+  padding: 30px;
+  margin: 50px;
+  background-color: #97cfcc;
+  border-radius: 10px;
+  text-align: center;
+  color: #372e27;
+}
+
+.vote-count {
+  float: left;
+}
+
+.vote-button {
+  float: right;
+}
+
+#vote-up-button {
+  padding: 5;
+  margin: 0;
+}

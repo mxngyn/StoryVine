@@ -6,7 +6,7 @@ class CreateStories < ActiveRecord::Migration
       t.integer :author_id
       t.string :title
       t.text :content
-      t.boolean :published
+      t.boolean :published, default: false
 
       t.timestamps
     end

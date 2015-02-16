@@ -1,20 +1,40 @@
-<%= @story.snippet.content %>(<%= link_to "link", @story.snippet %>)<br>
-<% if @story.title %>
-  <%= @story.title.html_safe %><br>
-<% end %>
-<% if @story.content %>
-<%= @story.content.html_safe %>
-<% end %>
-<%= @story.vote_count %><br>
-  <% if current_user %>
-    <div id="upvote">
-    <% if @vote != nil && @vote.user_id == current_user.id %>
-      <%= button_to "Delete",vote_delete_path(@vote), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
-    <% else %>
-      <%= render "votes/new" %>
-    <% end %>
+<div class="row">
+  <div class="large-12 columns">
+
+    <div class="snippet">
+      <div class="snippet-content">
+         <%= strip_tags(@story.snippet.content) %>
+      </div>
+      <div class="snippet-author">
+        <% if @story.snippet.user %>
+          - <%= link_to @story.snippet.user.username, user_path(@story.snippet.user)  %> (<%= link_to "link", @story.snippet %>)
+        <% end %>
+      </div>
     </div>
-  <% end %>
+
+  <div class="story-show">
+    <% if @story.title && @story.content %>
+      <h4><%= @story.title.html_safe %></h4>
+      <%= @story.content.html_safe %>
+    <% end %>
+  </div>
+
+  <div class="votes">
+    <div class="vote-count">
+      Votes: <%= @story.vote_count %>
+    </div>
+    <div class="vote-button">
+      <% if current_user %>
+        <div id="upvote">
+        <% if @vote != nil && @vote.user_id == current_user.id %>
+          <%= button_to "Downvote",vote_delete_path(@vote), :method => :delete, :class => "button round", :confirm => "Are you sure ?" %>
+        <% else %>
+          <%= render "votes/new" %>
+        <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
 <% if story_editable?(@story) %>
 <div>
@@ -22,7 +42,7 @@
     <%= link_to "Edit", edit_story_path(@story) %><br>
     <%= link_to "Delete", root_path, :method => :delete %>
   <% end %>
-<% end %>
+
 </div>
 <br><br>
 
@@ -36,6 +56,8 @@
   <% end %>
   <%= render :partial => 'tags/tagform'%>
 </div>
+<% end %>
+<br><br>
 
 <div class="story-badges">
   <%# @story.badges.each do |badge| %>
@@ -43,5 +65,8 @@
   <%# end %>
   <% if @story.author != nil %>
     <%= @story.award_badge %>
+    <%# @story.most_voted %>
   <% end %>
+</div>
+</div>
 </div>
