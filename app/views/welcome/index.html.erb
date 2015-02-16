@@ -36,19 +36,40 @@
 <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
   <ul class="title-area">
     <li class="name">
-      <span class="top-left-logo">Story Vine</span>
+      <!-- <span class="top-left-logo">Story Vine</span> -->
+      <h1><%= link_to 'Story Vine', :root %></h1>
     </li>
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    <!-- <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> -->
   </ul>
+
 
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
       <li>
       </li>
+      <% if current_user %>
+          <li><%= link_to "Hello, #{current_user.username}", user_path(current_user) %></li>
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">MENU</a>
+          <ul class="dropdown">
+            <li class="divider"></li>
+            <li><%= link_to 'New Snippet', new_snippet_path%></li>
+            <li class="divider"></li>
+            <!-- <li><%# link_to 'Edit Profile', edit_user_path(current_user) %></li> -->
+            <li><%= link_to 'Profile', user_path(current_user) %></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Dashboard', dashboard_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Logout', logout_path(current_user) %></li>
+          </ul>
+        </li>
+      <% else %>
       <li class=""><a href="#" data-reveal-id="login">Login</a></li>
       <li class=""><a href="#" data-reveal-id="signup">Signup</a></li>
+      <% end %>
     </ul>
 
     <!-- Left Nav Section -->
