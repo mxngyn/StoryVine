@@ -61,11 +61,14 @@
 
 
 <div id="login" class="reveal-modal" data-reveal>
-  <%= form_for(:session, url: login_path) do |f| %>
+  <%= form_for(:session, url: login_path) do |f| %><br>
+  <fieldset>
+    <legend>Login</legend>
     <%= f.text_field :email, :placeholder => "Email" %>
     <%= f.password_field :password, :placeholder => "Password"%>
     <%= f.submit "Login", :class => "alert button expand" %>
   <% end %>
+</fieldset>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
@@ -81,7 +84,7 @@
             <%= f.password_field :password %>
             <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation %>
-            <%= f.submit "Sign Up" %>
+            <%= f.submit "Sign Up", :class => "alert button expand" %>
         </fieldset>
       <% end %>
   <a class="close-reveal-modal">&#215;</a>
@@ -106,22 +109,44 @@
       <div class="search-bar">
         <%= form_tag stories_search_path, :method => :get do %>
             <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
-        <%= submit_tag "Search", :name => nil %>
+            <%= submit_tag "Search", :name => nil, class: "button round" %>
         <% end %>
       </div>
     </div>
     </div>
   </section>
 
+
   <section id="pinned-trigger1" class="full-screen second-screen">
     <div id="pinned-element1">
       <div class="headerlogo">Popular Snippets</div>
+      <ol class ="index-list">
+      <% @popular_snippets.each do |snippet| %>
+        <% snippet.each do |key, value| %>
+        <li>
+          <%= link_to key.content, snippet_path(key) %><br> <%= value %> Stories Created
+        </li>
+        <% end %>
+      <% end %>
+      </ol>
     </div>
   </section>
 
   <section id="pinned-trigger2" class="full-screen third-screen">
     <div id="pinned-element2">
       <div class="headerlogo">Popular Stories</div>
+      <ol class ="index-list">
+      <% @popular_stories.each do |story| %>
+        <% story.each do |key, value| %>
+        <li>
+         <div class="popular-stuff">
+          <%= link_to key.title, story_path(key) %><br>
+          <%= value %> Tags
+        </div>
+        </li>
+        <% end %>
+      <% end %>
+      </ol>
     </div>
   </section>
 
@@ -139,12 +164,7 @@
           <p>© Copyright no one at all. Go to town.</p>
         </div>
         <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-          </ul>
+
         </div>
       </div>
     </div>

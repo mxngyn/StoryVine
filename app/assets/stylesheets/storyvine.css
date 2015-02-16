@@ -99,6 +99,11 @@ h1,h2,h3,h4,h5,h6 {
   background-color: #97cfcc;
 }
 
+.index-list {
+  text-align: center;
+  list-style: none;
+}
+
 
 /* TYPED.JS CSS */
 
@@ -130,6 +135,7 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 2.5em;
   margin-bottom: 20px;
   display: block;
+  width: 100%;
 }
 
 
@@ -264,4 +270,16 @@ h1,h2,h3,h4,h5,h6 {
 #vote-up-button {
   padding: 5;
   margin: 0;
+
+li {
+  font-family: 'Bree Serif', serif;
+  font-size: 1.2em;
+}
+
+p {
+  font-family: 'Bree Serif', serif;
+}
+
+.popular-stuff {
+  margin-bottom: 8px;
 }
