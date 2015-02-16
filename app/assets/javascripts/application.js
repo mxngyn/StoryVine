@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
+//= require_tree ../../../vendor/assets/javascripts/.
 //= require redactor-rails
 //= require redactor-rails/config
+//= require foundation
 //= require_tree .
 
 
