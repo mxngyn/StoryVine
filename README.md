@@ -16,9 +16,8 @@ Team Members
 * As a user, I can view snippets by date, popularity, random.
 * As a user, I can create snippets.
 * As a user, I can create stories off of snippets.
-* As a user, I can add sections to stories.
 * As a user, I can edit/delete my story.
-* As a user, I can upvote/downvote stories.
+* As a user, I can upvote/unvote stories.
 * As a user, I can view stories without logging in.
 * As a user, I can access a dashboard after logging in.
 
