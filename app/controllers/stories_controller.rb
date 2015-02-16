@@ -26,15 +26,6 @@ class StoriesController < ApplicationController
     @story = Story.create(snippet_id: params["snippet_id"], author_id: session[:user_id], published: false)
   end
 
-  def create
-    # create new story
-    @story = Story.new story_params
-    if @story.save
-      redirect_to story_path(@story)
-    else
-      render :new
-    end
-  end
 
   def edit
     # edit a particular story
