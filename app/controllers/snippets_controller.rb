@@ -6,7 +6,7 @@ class SnippetsController < ApplicationController
 
   def new
     @snippet = Snippet.create
-    User.find(session[:user_id]).snippets << @snippet
+
   end
 
   def create
@@ -23,14 +23,19 @@ class SnippetsController < ApplicationController
   def update
     @snippet = Snippet.find(params["id"])
     if @snippet.update(content: params["snippet"]["content"])
+      User.find(session[:user_id]).snippets << @snippet
       if request.xhr?
         render plain: "Autosaved on " + @snippet.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
       else
         redirect_to snippet_path(@snippet)
       end
     else
-      flash[:notice] = "There was an error saving your snippet. Please make sure it isn't blank."
-      render :new
+      if request.xhr?
+        render plain: "Failed to autosave: #{@snippet.errors.messages.inspect}"
+      else
+        flash[:notice] = "There was an error saving your snippet. Please make sure it isn't blank."
+        render :new
+      end
     end
   end
 

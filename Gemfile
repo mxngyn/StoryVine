@@ -48,6 +48,7 @@ gem 'sanitize', '~> 3.1.1'
 gem 'foundation-icons-sass-rails', '~> 3.0.0'
 
 group :development, :test do
+  gem 'pry-byebug'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug'
 
