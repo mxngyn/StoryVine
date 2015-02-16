@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :flags, as: :flaggable
 
   validates :username, presence: true
-  # validates :password, presence: true
+  validates :password_digest, presence: true
 
   def all_published
     self.stories.select do |story|
