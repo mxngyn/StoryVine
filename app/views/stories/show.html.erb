@@ -17,6 +17,7 @@
       <h4><%= @story.title.html_safe %></h4>
       <%= @story.content.html_safe %><br>
       Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %>
+      <%# link_to "Write A Story Based On This Story",%>
     <% end %>
   </div>
 
