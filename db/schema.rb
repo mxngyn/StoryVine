@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20150215172539) do
     t.integer  "author_id"
     t.string   "title"
     t.text     "content"
-    t.boolean  "published"
+    t.boolean  "published",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

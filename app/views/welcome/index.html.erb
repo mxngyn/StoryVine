@@ -125,6 +125,7 @@
     </div>
   </section>
 
+
   <section class="full-screen last-screen">
     <div>
       <div class="headerlogo">Meet the Team</div>
@@ -150,6 +151,12 @@
   </footer>
 </main>
 </div>
+
+<div class="story-of-the-day">
+  Story Of The Day<br>
+  <%= link_to "#{random_story.title}", story_path(@story) %>
+  <%# random_story.author.award_badge %>
+
 </div>
 
 <script>

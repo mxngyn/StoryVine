@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :story do
-    title {Faker::Lorem.sentence}
-    content {Faker::Lorem.paragraph}
+    title {"This is a title"}
+    content {"this is a story about dionne."}
     author_id {rand(1..10)}
     parent_id {rand(1..9)}
     snippet_id {rand(1..10)}
