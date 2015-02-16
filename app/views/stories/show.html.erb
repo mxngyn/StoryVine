@@ -16,8 +16,15 @@
     <% if @story.title && @story.content %>
       <h4><%= @story.title.html_safe %></h4>
       <%= @story.content.html_safe %><br>
-      Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %>
-      <%# link_to "Write A Story Based On This Story",%>
+      Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %><br></br>
+      <%= link_to "Write Off Of This Story", new_nested_story_path %>
+    <% end %>
+  </div>
+
+  <div class="story-show">
+    <h3>Children:</h3>
+    <% @story.children.each do |story| %>
+      <%= link_to "#{story.title}", story_path(story.id) %><br>
     <% end %>
   </div>
 
