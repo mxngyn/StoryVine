@@ -1,4 +1,5 @@
-$(document).ready(function() {
+var LeavePage = function() {
+
   $('#submit_new_content').on('click', function() {
     window.btn_clicked = true;
   })
@@ -18,5 +19,4 @@ $(document).ready(function() {
         }
       }
   };
-
-})
+}

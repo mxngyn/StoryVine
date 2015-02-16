@@ -25,24 +25,3 @@ function autosaveStory () {
     $(".autosave").html(response);
   });
 }
-
-
-
-$(document).ready(function (){
-  var autosaveOnFocus;
-  $('.redactor_editor').focus(function() {
-    if ($('.edit_snippet').length !== 0) {
-      autosaveOnFocus = setInterval(autosaveSnippet, 5000);
-    }
-    else {
-      autosaveOnFocus = setInterval(autosaveStory, 5000);
-    }
-  });
-
-  $('.redactor_editor').blur(function() {
-    console.log(autosaveOnFocus);
-    clearInterval(autosaveOnFocus);
-    console.log(autosaveOnFocus);
-  })
-
-});
