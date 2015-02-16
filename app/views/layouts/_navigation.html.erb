@@ -37,7 +37,7 @@
       </li>
       <li class="divider"></li>
       <% if current_user %>
-        <li><%= link_to "Hello #{current_user.first_name}", user_path(current_user) %></li>
+        <li><%= link_to "Hello, #{current_user.username.capitalize}", user_path(current_user) %></li>
         <li class="divider"></li>
         <li class="has-dropdown">
           <a href="#">MENU</a>

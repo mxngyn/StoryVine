@@ -2,6 +2,8 @@
   <h1>Welcome, <%= current_user.username %></h1>
 </div>
 
+<br>
+
 <div class="users-snippets">
   <h3>Your Snippets</h3>
   <% if current_user.snippets.count == 0 %>
@@ -12,6 +14,8 @@
     <% end %>
   <% end %>
 </div>
+
+<br>
 
 <div class="users-unpublished-stories">
   <h3>Your Unpublished Stories</h3>
@@ -24,6 +28,8 @@
   <% end %>
 </div>
 
+<br>
+
 <div class="users-published-stories">
   <h3>Your Published Stories</h3>
   <% if current_user.stories.where(published: true).count == 0 %>
@@ -35,11 +41,21 @@
   <% end %>
 </div>
 
-<div class="users-stories-voted">
-  <% current_user.stories.each do |story| %>
+<br>
 
+<div class="users-stories-voted">
+  <h3>Stories You Voted On</h3>
+  <% if current_user.votes.count == 0 %>
+    <p>You have not voted any stories.</p>
+  <% else %>
+    <% current_user.votes.each do |vote| %>
+      <%= link_to "#{vote.story.title}", story_path(vote.story) %>
+    <% end %>
   <% end %>
 </div>
 
+Go To Your <%= link_to "Profile", user_path(current_user)  %>
+
+<br>
 story of the day<br>
 stories user has upvoted<br>

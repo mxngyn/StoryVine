@@ -1,20 +1,14 @@
-
+<h1><%= current_user.username.capitalize %>'s Profile</h1>
 <%= @user.username %><br>
 <%= @user.country %><br>
 <%= image_tag @user.pic_url %><br>
 <%= link_to "Website", @user.url %><br>
 
 <br>
-User's Snippets<br>
-<% @user.snippets.each do |snippet| %>
-  <%= link_to snippet.content, snippet_path(snippet) %>
-<% end %>
-<br><br>
-User's stories<br>
-<% @user.all_published.each do |published| %>
-  <%= link_to published.title, story_path(published) %>
-<% end %>
 
+Go To Your <%# link_to "Dashboard",  %>
+
+<br><br>
 
 <div class="users-badges">
   <%= @user.username.capitalize %>'s Badges:<br>
@@ -26,3 +20,6 @@ User's stories<br>
   <% end %>
 </div>
 
+<br><br>
+
+<%=link_to "Edit", edit_user_path(current_user) %>
