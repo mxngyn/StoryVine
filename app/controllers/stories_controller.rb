@@ -16,7 +16,7 @@ class StoriesController < ApplicationController
 
   def show
     find_vote(@story)
-    Sanitize.fragment(@story, Sanitize::Config::RESTRICTED)
+    @story.remove_dangerous_html_tags!
     @tags = Tag.tags_for_select
     # show particular story
   end
