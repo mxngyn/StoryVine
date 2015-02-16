@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :snippet do
-    user_id 1
-    content "THIS IS A SNIPPET, WHADDUP"
+    association :user
+    content "This is a snippet."
 
   end
 end
