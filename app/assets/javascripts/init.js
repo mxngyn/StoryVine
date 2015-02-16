@@ -1,18 +1,12 @@
 $(document).ready(function() {
   checkSignUpValidations();
 
-  autoDeleteIncompleteSnippet();
+  DeleteSnippetWidget.autoDeleteIncompleteSnippet();
   SaveWidget.autoSaveContent();
   warnBeforePublish();
 
 });
 
-var autoDeleteIncompleteSnippet = function() {
-  var submitNewContentExists = document.getElementById("submit_new_content")
-  if(submitNewContentExists) {
-    LeavePage();
-  }
-}
 
 var checkSignUpValidations = function() {
   var userNameFieldExists = document.querySelector('#user_username');
