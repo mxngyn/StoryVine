@@ -6,8 +6,8 @@ SaveWidget.autoSaveContent = function() {
   var editStoryExists = document.getElementsByClassName('edit_story');
 
   $('.redactor_editor').focus(function() {
-    if (editSnippetExists) {
-      autosaveOnFocus = setInterval(this.autosaveSnippet, 5000);
+    if (editSnippetExists.length !=0) {
+      autosaveOnFocus = setInterval(this.autosaveSnippet, 2000);
     }
     else if (editStoryExists) {
       autosaveOnFocus = setInterval(this.autosaveStory, 5000);
@@ -24,27 +24,33 @@ SaveWidget.autoSaveContent = function() {
 SaveWidget.autosaveSnippet = function() {
   var $url = $('.edit_snippet')[0].action;
   var $data = $('.edit_snippet').serialize();
-  $.ajax({
-    type: "PATCH",
-    url: $url,
-    data: $data,
-    dataType: "text"
-  }).done(function(response){
-    console.log(response);
-    $(".autosave").html(response);
-  });
+  var $textbox = $('.redactor_editor');
+  if($textbox.html().length > 8) {
+    $.ajax({
+      type: "PATCH",
+      url: $url,
+      data: $data,
+      dataType: "text"
+    }).done(function(response){
+      console.log(response);
+      $(".autosave").html(response);
+    });
+  }
 }
 
 SaveWidget.autosaveStory = function() {
   var $url = $('.edit_story')[0].action;
   var $data = $('.edit_story').serialize();
-  $.ajax({
-    type: "PATCH",
-    url: $url,
-    data: $data,
-    dataType: "text"
-  }).done(function(response){
-    console.log(response);
-    $(".autosave").html(response);
-  });
+  var $textbox = $('.redactor_editor');
+  if($textbox.html().length > 8) {
+    $.ajax({
+      type: "PATCH",
+      url: $url,
+      data: $data,
+      dataType: "text"
+    }).done(function(response){
+      console.log(response);
+      $(".autosave").html(response);
+    });
+  }
 }
