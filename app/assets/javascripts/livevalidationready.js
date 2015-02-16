@@ -1,4 +1,14 @@
-var liveValidationFunction = function () {
+var CheckLiveValidations = {}
+
+CheckLiveValidations.checkSignUpValidations = function() {
+  var userNameFieldExists = document.querySelector('#user_username');
+
+  if (userNameFieldExists) {
+    this.liveValidationFunction();
+  }
+}
+
+CheckLiveValidations.liveValidationFunction = function () {
 
   var password = new LiveValidation('user_password');
   password.add( Validate.Length, { minimum: 4 } );
