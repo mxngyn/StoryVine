@@ -1,9 +1,17 @@
-<ul>
-  <% @snippets.each do |snippet| %>
-    <div class="snippet">
-      <% if snippet.content %>
-        <li><%= link_to strip_tags(snippet.content), snippet_path(snippet) %></li>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="snippet-header">Snippets</div>
+      <% @snippets.each do |snippet| %>
+          <% if snippet.content %>
+            <div class="snippet">
+              <div class="snippet-content">
+                <%= strip_tags(snippet.content) %>
+              </div>
+              <div class="snippet-link">
+                <%= link_to "(link)", snippet_path(snippet) %>
+              </div>
+            </div>
+          <% end %>
       <% end %>
-    </div>
-  <% end %>
-</ul>
+  </div>
+</div>
