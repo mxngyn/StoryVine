@@ -41,7 +41,7 @@
 <div>
   <% if !@story.published %><Br><br>
     <%= link_to "Edit", edit_story_path(@story) %><br>
-    <%= link_to "Delete", root_path, :method => :delete %>
+    <%= link_to "Delete", @story, :method => :delete %>
   <% end %>
 
 </div>

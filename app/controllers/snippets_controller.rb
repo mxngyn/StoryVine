@@ -6,19 +6,8 @@ class SnippetsController < ApplicationController
 
   def new
     @snippet = Snippet.create
-
   end
 
-  def create
-    @snippet = Snippet.new(snippet_params)
-    if @snippet.save
-      flash[:success] = "Snippet successfully created."
-      redirect_to snippet_path(@snippet)
-    else
-      flash[:error] = "There was a problem creating your snippet."
-      redirect_to :back
-    end
-  end
 
   def update
     @snippet = Snippet.find(params["id"])
@@ -40,7 +29,7 @@ class SnippetsController < ApplicationController
   end
 
   def show
-    Sanitize.fragment(set_snippet, Sanitize::Config::RESTRICTED)
+    set_snippet.remove_dangerous_html_tags!
     @stories = @snippet.stories.where(published: true)
   end
 

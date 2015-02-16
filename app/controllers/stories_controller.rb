@@ -16,7 +16,7 @@ class StoriesController < ApplicationController
 
   def show
     find_vote(@story)
-    Sanitize.fragment(@story, Sanitize::Config::RESTRICTED)
+    @story.remove_dangerous_html_tags!
     @tags = Tag.tags_for_select
     # show particular story
   end
@@ -26,15 +26,6 @@ class StoriesController < ApplicationController
     @story = Story.create(snippet_id: params["snippet_id"], author_id: session[:user_id], published: false)
   end
 
-  def create
-    # create new story
-    @story = Story.new story_params
-    if @story.save
-      redirect_to story_path(@story)
-    else
-      render :new
-    end
-  end
 
   def edit
     # edit a particular story
@@ -42,7 +33,7 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find(params["id"])
-    if @story.update(content: params["story"]["content"], title: params["story"]["title"], published: params["story"]["published"])
+    if @story.update_materials(params)
       User.find(session[:user_id]).stories << @story
       if request.xhr?
         render plain: "Autosaved on " + @story.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
@@ -60,7 +51,7 @@ class StoriesController < ApplicationController
   end
 
   def destroy
-    story.destroy
+    @story.destroy
     redirect_to root_path
   end
 

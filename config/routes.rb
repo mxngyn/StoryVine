@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount RedactorRails::Engine => '/redactor_rails'
-  resources :snippets
+
+  resources :snippets, except: :create
+
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create', as: 'new_sign_up'
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :delete]
 
   get 'stories/search', to: 'stories#search', as: 'stories_search'
-  resources :stories
+  resources :stories, except: :create
 
   resources :tags
   get '/tags/:id/stories', to: 'tags#show', as: 'tags_show'

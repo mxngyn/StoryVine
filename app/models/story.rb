@@ -61,6 +61,14 @@ class Story < ActiveRecord::Base
     end
   end
 
+  def update_materials(params)
+    update(content: params["story"]["content"], title: params["story"]["title"], published: params["story"]["published"])
+  end
+
+  def remove_dangerous_html_tags!
+    Sanitize.fragment(self, Sanitize::Config::RESTRICTED)
+  end
+
 end
 
 

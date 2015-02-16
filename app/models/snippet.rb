@@ -25,4 +25,8 @@ class Snippet < ActiveRecord::Base
     Snippet.all.where(flagged: true)
   end
 
+  def remove_dangerous_html_tags!
+    Sanitize.fragment(self, Sanitize::Config::RESTRICTED)
+  end
+
 end
