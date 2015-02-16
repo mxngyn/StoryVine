@@ -22,7 +22,7 @@
     <%= link_to "Edit", edit_story_path(@story) %><br>
     <%= link_to "Delete", root_path, :method => :delete %>
   <% end %>
-<% end %>
+
 </div>
 <br><br>
 
@@ -36,6 +36,8 @@
   <% end %>
   <%= render :partial => 'tags/tagform'%>
 </div>
+<% end %>
+<br><br>
 
 <div class="story-badges">
   <%# @story.badges.each do |badge| %>
@@ -43,5 +45,6 @@
   <%# end %>
   <% if @story.author != nil %>
     <%= @story.award_badge %>
+    <%# @story.most_voted %>
   <% end %>
 </div>
