@@ -132,3 +132,97 @@ body {
   display: block;
 }
 
+
+/* SNIPPET INDEX */
+
+.snippet-header {
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Bitter', serif;
+  font-size: 4em;
+  color: #FFFFFF;
+}
+
+.snippet {
+  font-family: 'Bitter', serif;
+  padding: 30px 0px 30px 0px;
+  margin: 50px;
+  background-color: #97cfcc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.snippet-content {
+  color: #372e27;
+  font-size: 1.4em;
+}
+
+.snippet-link {
+  margin-top: 10px;
+  width: 80%;
+  text-align: right;
+  font-size: 0.78em;
+}
+
+/* SNIPPET SHOW */
+
+.snippet-author {
+  margin-top: 10px;
+  width: 80%;
+  text-align: right;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.submit-story {
+  text-align: center;
+}
+
+.submit-story ul {
+  list-style: none;
+}
+
+.snippet-button {
+  background-color: #372e27;
+  color: #f0efed;
+}
+
+.snippet-button:hover {
+  background-color: #97cfcc;
+}
+
+.snippet-stories-header {
+  font-family: 'Bitter', serif;
+  font-size: 3em;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.snippet-stories {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.snippet-story {
+  clear: both;
+  font-family: 'Bitter', serif;
+  padding: 20px 0px 20px 0px;
+  margin: 20px;
+  background-color: #97cfcc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* SNIPPET NEW */
+
+.autosave {
+  text-align: right;
+}
+
+.new-snippet {
+  margin-top: 10px;
+  font-family: 'Bitter', serif;
+  font-size: 3em;
+  color: #FFFFFF;
+}
+

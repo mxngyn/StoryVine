@@ -1,16 +1,40 @@
-<%= @snippet.content.html_safe %>
-<%= @snippet.user.username if @snippet.user %>
-<%=link_to "Submit a story for this snippet", new_story_path(snippet_id: @snippet.id) %>
-<ul>
-  <% if @stories.count != 0 %>
-    <% @stories.each do |story| %>
-      <li><%= link_to story.title, story_path(story) %></li>
-    <% end %>
-  <% else %>
-    There are currently no stories for this snippet.
-  <% end %>
-</ul>
+<div class="row">
+  <div class="large-12 columns">
 
-<%= form_for @snippet, :url => snippet_flag_path(@snippet) do |f| %>
-<%= f.submit "Report inappropriate" %>
-<% end %>
+    <div class="snippet">
+      <div class="snippet-content">
+        <%= @snippet.content.html_safe %>
+      </div>
+      <div class="snippet-author">
+        <% if @snippet.user %>
+          - <%= link_to @snippet.user.username, user_path(@snippet.user)  %>
+        <% end %>
+      </div>
+    </div>
+    <div class="submit-story">
+        <ul>
+          <li><%=link_to "Submit a story for this snippet", new_story_path(snippet_id: @snippet.id), class: "button round snippet-button" %></li>
+          <%= form_for @snippet, :url => snippet_flag_path(@snippet) do |f| %>
+          <li><%= f.submit "Report inappropriate", class: "button round secondary small" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="snippet-stories">
+      <div class="snippet-stories-header">
+        Stories for this snippet:
+      </div>
+      <% if @stories.count != 0 %>
+        <% @stories.each do |story| %>
+          <div class="snippet-story">
+            <%= link_to story.title, story_path(story) %>
+          </div>
+        <% end %>
+      <% else %>
+        There are currently no stories for this snippet.
+      <% end %>
+    </div>
+
+  </div>
+</div>
