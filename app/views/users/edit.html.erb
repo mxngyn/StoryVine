@@ -1,4 +1,5 @@
 <div class="center row">
+   <link href='http://fonts.googleapis.com/css?family=Bitter|Bree+Serif' rel='stylesheet' type='text/css'>
   <div class="section-container tabs" data-section="tabs">
   <section class="active">
   <div class="large-12 columns">
@@ -7,7 +8,7 @@
   <%= form_for(@user) do |f| %>
   <fieldset>
     <legend>This is You!</legend>
-
+  <p>
       <%= f.label :username %>
       <%= f.text_field :username %>
 
@@ -26,6 +27,7 @@
    <%= f.text_field :country %>
    <%= f.label :bio %>
    <%= f.text_area :bio, rows: 10 %>
+ </p>
    <%= f.submit "Update",:class => "button expand" %>
   </fieldset>
   <% end %>

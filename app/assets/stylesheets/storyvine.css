@@ -276,6 +276,10 @@ li {
   font-size: 1.2em;
 }
 
+p {
+  font-family: 'Bree Serif', serif;
+}
+
 .popular-stuff {
   margin-bottom: 8px;
 }
