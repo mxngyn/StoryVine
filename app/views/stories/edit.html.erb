@@ -6,7 +6,7 @@
     <%= f.text_field :title %><br>
 
     <%= f.label :content %>
-    <%= f.text_field :content, class: "redactor" %><br>
+    <%= f.text_area :content, :value => @story.content.html_safe, class: "redactor" %><br>
 
     Would you like to publish this story?
     <%= f.radio_button 'published', false, { :checked => true } %> No
