@@ -10,6 +10,8 @@ DeleteSnippetWidget.autoDeleteIncompleteSnippet = function() {
 
 DeleteSnippetWidget.LeavePage = function() {
 
+  var editSnippetExists = document.getElementsByClassName('edit_snippet');
+
   $('#submit_new_content').on('click', function() {
     window.btn_clicked = true;
   })
@@ -17,7 +19,7 @@ DeleteSnippetWidget.LeavePage = function() {
   window.onbeforeunload = function(event){
       if(!window.btn_clicked){
         // Need to add alert to prevent user from leaving page.
-        if($('.edit_snippet')){
+        if(editSnippetExists){
             var $url = $('.edit_snippet')[0].action;
             $.ajax({
               type: "DELETE",
