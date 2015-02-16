@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.submit_new_content').on('click', function() {
+  $('#submit_new_content').on('click', function() {
     window.btn_clicked = true;
   })
 
