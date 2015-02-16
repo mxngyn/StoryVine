@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(session_params[:password])
       session[:user_id] = @user.id
-      flash[:notice] = "Welcome back, #{@user.username}!"
-      redirect_to root_path
+      # flash[:notice] = "Welcome back, #{@user.username}!"
+      render :show
     else
       redirect_to :back
     end

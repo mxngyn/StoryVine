@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path(@user)
+      # render :user_dashboard
     else
       redirect_to :back
     end

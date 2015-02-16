@@ -1,0 +1,45 @@
+<div class="user-dashboard">
+  <h1>Welcome, <%= current_user.username %></h1>
+</div>
+
+<div class="users-snippets">
+  <h3>Your Snippets</h3>
+  <% if current_user.snippets.count == 0 %>
+    <p>You have not written any snippets.</p>
+  <% else %>
+    <% current_user.snippets.each do |snippet|  %>
+      <%= snippet.content  %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="users-unpublished-stories">
+  <h3>Your Unpublished Stories</h3>
+  <% if current_user.stories.where(published: false).count == 0 %>
+    <p>You have no unpublished stories.</p>
+  <% else %>
+    <% current_user.stories.where(published: false).each do |story| %>
+      <%= link_to "#{story.title}", story_path(story) %><br>
+      <% end %>
+  <% end %>
+</div>
+
+<div class="users-published-stories">
+  <h3>Your Published Stories</h3>
+  <% if current_user.stories.where(published: true).count == 0 %>
+    <p>You have no published stories.</p>
+  <% else %>
+    <% current_user.stories.where(published: true).each do |story| %>
+      <%= link_to "#{story.title}", story_path(story) %><br>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="users-stories-voted">
+  <% current_user.stories.each do |story| %>
+
+  <% end %>
+</div>
+
+story of the day<br>
+stories user has upvoted<br>
