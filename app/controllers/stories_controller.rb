@@ -51,7 +51,7 @@ class StoriesController < ApplicationController
   end
 
   def destroy
-    story.destroy
+    @story.destroy
     redirect_to root_path
   end
 
