@@ -28,7 +28,7 @@ class StoriesController < ApplicationController
 
 
   def edit
-    # edit a particular story
+    Sanitize.fragment(@story, Sanitize::Config::RESTRICTED)
   end
 
   def update
