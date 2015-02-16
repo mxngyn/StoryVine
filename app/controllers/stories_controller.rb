@@ -27,6 +27,17 @@ class StoriesController < ApplicationController
   end
 
 
+  def create
+    # create new story
+    @story = Story.new(story_params)
+    if @story.save
+      redirect_to story_path(@story)
+    else
+      render :new
+    end
+  end
+
+
   def edit
     @story.remove_dangerous_html_tags!
   end
@@ -68,6 +79,16 @@ class StoriesController < ApplicationController
     flash[:notice] = "Thank you. We'll look into this shortly."
     redirect_to story_path(@story.id)
   end
+
+  def create_nested_story
+    # @story = Story.new(story_params)
+    # @story.update()
+    # figure out parent id!
+    @story = Story.find(params[:id])
+
+  end
+
+
 
   private
 
