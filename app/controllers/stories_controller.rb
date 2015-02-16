@@ -43,14 +43,19 @@ class StoriesController < ApplicationController
   def update
     @story = Story.find(params["id"])
     if @story.update(content: params["story"]["content"], title: params["story"]["title"], published: params["story"]["published"])
+      User.find(session[:user_id]).stories << @story
       if request.xhr?
         render plain: "Autosaved on " + @story.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
       else
         redirect_to story_path(@story)
       end
     else
-      flash[:notice] = "There was an error saving your story. Please make sure the fields aren't blank."
-      render :new
+      if request.xhr?
+        render plain: "Failed to autosave: #{@story.errors.messages.inspect}"
+      else
+        flash[:notice] = "There was an error saving your story. Please make sure the fields aren't blank."
+        render :new
+      end
     end
   end
 
