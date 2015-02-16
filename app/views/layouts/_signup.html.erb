@@ -1,0 +1,20 @@
+  <%= form_for(:user, url: signup_path) do |f| %>
+        <fieldset>
+          <legend>Signup</legend>
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %>
+            <%= f.submit "Sign Up", :class => "alert button expand" %>
+        </fieldset>
+      <% end %>
+
+
+        <div class="panel callout radius">
+      <h1>Story Of The Day</h1>
+  <%= link_to "#{random_story.title}", story_path(@story) %>
+</div>
