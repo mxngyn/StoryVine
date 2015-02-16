@@ -2,11 +2,11 @@ var SaveWidget = {}
 
 SaveWidget.autoSaveContent = function() {
   var autosaveOnFocus;
-  var editSnippetExists = document.getElementsByClassName('edit_snippet');
-  var editStoryExists = document.getElementsByClassName('edit_story');
+  var editSnippetExists = document.getElementsByClassName('edit_snippet')[0];
+  var editStoryExists = document.getElementsByClassName('edit_snippet')[0];
 
   $('.redactor_editor').focus(function() {
-    if (editSnippetExists.length !=0) {
+    if (editSnippetExists) {
       autosaveOnFocus = setInterval(this.autosaveSnippet, 2000);
     }
     else if (editStoryExists) {
