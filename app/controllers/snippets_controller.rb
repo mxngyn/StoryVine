@@ -36,7 +36,7 @@ class SnippetsController < ApplicationController
 
   def show
     Sanitize.fragment(set_snippet, Sanitize::Config::RESTRICTED)
-    @stories = @snippet.stories
+    @stories = @snippet.stories.where(published: true)
   end
 
   def destroy
