@@ -33,22 +33,39 @@
   <body>
 
 <div class="sticky">
-<nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
   <ul class="title-area">
     <li class="name">
-      <span class="top-left-logo">Story Vine</span>
+      <h1><%= link_to 'Story Vine', :root %></h1>
     </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
+
 
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
       <li>
       </li>
+      <% if current_user %>
+        <li><%= link_to "Hello, #{current_user.username}", user_path(current_user) %></li>
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">MENU</a>
+          <ul class="dropdown">
+            <li class="divider"></li>
+            <li><%= link_to 'New Snippet', new_snippet_path%></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Profile', user_path(current_user) %></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Dashboard', dashboard_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Logout', logout_path(current_user) %></li>
+          </ul>
+        </li>
+      <% else %>
       <li class=""><a href="#" data-reveal-id="login">Login</a></li>
       <li class=""><a href="#" data-reveal-id="signup">Signup</a></li>
+      <% end %>
     </ul>
 
     <!-- Left Nav Section -->
@@ -56,39 +73,20 @@
     </ul>
   </section>
 </nav>
+
 </div>
 
 
 
-<div id="login" class="reveal-modal" data-reveal>
-  <%= form_for(:session, url: login_path) do |f| %><br>
-  <fieldset>
-    <legend>Login</legend>
-    <%= f.text_field :email, :placeholder => "Email" %>
-    <%= f.password_field :password, :placeholder => "Password"%>
-    <%= f.submit "Login", :class => "alert button expand" %>
-  <% end %>
-</fieldset>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
+  <div id="login" class="reveal-modal" data-reveal>
+    <%= render 'layouts/login' %>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
 
-<div id="signup" class="reveal-modal" data-reveal>
-  <%= form_for(:user, url: signup_path) do |f| %>
-        <fieldset>
-          <legend>Signup</legend>
-            <%= f.label :username %>
-            <%= f.text_field :username %>
-            <%= f.label :email %>
-            <%= f.text_field :email %>
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation %>
-            <%= f.submit "Sign Up", :class => "alert button expand" %>
-        </fieldset>
-      <% end %>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
+  <div id="signup" class="reveal-modal" data-reveal>
+    <%= render 'layouts/signup' %>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
 
 
 <div class="row fullWidth">
@@ -116,6 +114,19 @@
     </div>
   </section>
 
+    <section id="pinned-trigger-feature" class="full-screen feature-screen">
+    <div id="pinned-element-feature">
+      <div class="headerlogo">Featured Story</div>
+      <ol class ="index-list">
+        <h2>
+          <%= link_to "#{random_story.title}", story_path(@story) %>
+        </h2>
+      </ol>
+    </div>
+    <div class="story-of-the-day">
+
+  </section>
+
 
   <section id="pinned-trigger1" class="full-screen second-screen">
     <div id="pinned-element1">
@@ -124,12 +135,14 @@
       <% @popular_snippets.each do |snippet| %>
         <% snippet.each do |key, value| %>
         <li>
-          <%= link_to key.content, snippet_path(key) %><br> <%= value %> Stories Created
+          <%= link_to key.content, snippet_path(key) %> <%= value %> Stories Created
         </li>
         <% end %>
       <% end %>
       </ol>
     </div>
+    <div class="story-of-the-day">
+
   </section>
 
   <section id="pinned-trigger2" class="full-screen third-screen">
@@ -140,14 +153,13 @@
         <% story.each do |key, value| %>
         <li>
          <div class="popular-stuff">
-          <%= link_to key.title, story_path(key) %><br>
+          <%= link_to key.title, story_path(key) %>
           <%= value %> Tags
         </div>
         </li>
         <% end %>
       <% end %>
       </ol>
-    </div>
   </section>
 
 
@@ -161,7 +173,7 @@
       <hr/>
       <div class="row">
         <div class="large-6 columns">
-          <p>© Copyright no one at all. Go to town.</p>
+          <p>© StoryVine</p>
         </div>
         <div class="large-6 columns">
 
@@ -170,13 +182,6 @@
     </div>
   </footer>
 </main>
-</div>
-
-<div class="story-of-the-day">
-  Story Of The Day<br>
-  <%= link_to "#{random_story.title}", story_path(@story) %>
-  <%# random_story.author.award_badge %>
-
 </div>
 
 <script>

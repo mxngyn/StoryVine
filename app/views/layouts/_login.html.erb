@@ -1,0 +1,8 @@
+  <%= form_for(:session, url: login_path) do |f| %><br>
+  <fieldset>
+    <legend>Login</legend>
+    <%= f.text_field :email, :placeholder => "Email" %>
+    <%= f.password_field :password, :placeholder => "Password"%>
+    <%= f.submit "Login", :class => "alert button expand" %>
+  <% end %>
+</fieldset>

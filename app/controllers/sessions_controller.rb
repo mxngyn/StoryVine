@@ -10,10 +10,15 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(session_params[:password])
       session[:user_id] = @user.id
-      render :show
+      render dashboard_path
+      # flash[:notice] = "Welcome back, #{@user.username}!"
     else
       redirect_to :back
     end
+  end
+
+  def show
+    @user = User.find(session[:user_id])
   end
 
   def destroy

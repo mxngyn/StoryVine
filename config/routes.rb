@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   get '/login', to: 'sessions#new'
+  get '/dashboard', to: 'sessions#show', as: 'dashboard'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   # post '/logout', to: 'sessions#destroy'
