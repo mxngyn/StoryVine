@@ -20,10 +20,19 @@
   </div>
 
   <div id="infoMenu">
+    <% if !current_user %>
     <ul class="menu">
       <li><a href="#" data-reveal-id="login">LOGIN</a></li>
       <li><a href="#" data-reveal-id="signup">SIGNUP</a></li>
     </ul>
+    <% else %>
+      <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:90000;">Menu</a>
+      <ul id="hover1" class="f-dropdown" data-dropdown-content>
+      <li class="menu-dropdown"><a href="#">Create Snippet</a></li>
+      <li class="menu-dropdown"><a href="#">Profile</a></li>
+      <li class="menu-dropdown"><a href="#">Logout</a></li>
+    </ul>
+    <% end %>
   </div>
 
   <div id="login" class="reveal-modal" data-reveal>
