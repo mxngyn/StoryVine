@@ -42,12 +42,15 @@
     </div>
 
 
+
+  <div class="story-show">
       <ul class="side-nav-1">
         <h4>Other Stories Written Off Of "<%= @story.title %>"</h4>
           <% @story.children.each do |story| %>
             <p><%= link_to "#{story.title}", story_path(story) %></p>
           <% end %>
       </ul>
+  </div>
 
 
   </div>
