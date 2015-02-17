@@ -3,7 +3,7 @@ var SaveWidget = {}
 SaveWidget.autoSaveContent = function() {
   var autosaveOnFocus;
   var editSnippetExists = document.getElementsByClassName('edit_snippet')[0];
-  var editStoryExists = document.getElementsByClassName('edit_snippet')[0];
+  var editStoryExists = document.getElementsByClassName('edit_story')[0];
 
   $('.redactor_editor').focus(function() {
     if (editSnippetExists) {

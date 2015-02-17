@@ -28,7 +28,7 @@ class StoriesController < ApplicationController
 
 
   def edit
-    Sanitize.fragment(@story, Sanitize::Config::RESTRICTED)
+    @story.remove_dangerous_html_tags!
   end
 
   def update

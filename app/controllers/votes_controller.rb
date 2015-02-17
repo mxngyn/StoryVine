@@ -2,21 +2,23 @@ class VotesController < ApplicationController
   before_action :set_story, :set_vote, except: [:destroy]
 
   def upvote
-    set_vote_up(@story.id, current_user.id)
-    redirect_to @story
+    if request.xhr?
+      set_vote_up(@story.id, session[:user_id])
+      render plain: "Votes: #{@story.vote_count}"
+    end
   end
 
 
   def destroy
     @vote = Vote.find(params[:id])
     @vote.destroy
-    redirect_to :back
+    render plain: ""
   end
 
   private
 
   def set_vote
-    @vote = Vote.find_by(user_id: current_user.id, story_id: @story.id)
+    @vote = Vote.find_by(user_id: session[:user_id], story_id: @story.id)
   end
 
 
