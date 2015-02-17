@@ -17,9 +17,11 @@
     </div>
     <div class="submit-story">
         <ul>
+          <% if current_user %>
           <li><%=link_to "Submit a story for this snippet", new_story_path(snippet_id: @snippet.id), class: "button round snippet-button" %></li>
           <%= form_for @snippet, :url => snippet_flag_path(@snippet) do |f| %>
           <li><%= f.submit "Report inappropriate", class: "button round secondary small" %></li>
+          <% end %>
           <% end %>
         </ul>
       </div>

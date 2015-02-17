@@ -39,7 +39,7 @@
 
 <% if story_editable?(@story) %>
 <div>
-  <% if !@story.published %><Br><br>
+  <% if !@story.published && story_editable?(@story) %><Br><br>
     <%= link_to "Edit", edit_story_path(@story) %><br>
     <%= link_to "Delete", @story, :method => :delete %>
   <% end %>
@@ -47,8 +47,10 @@
 </div>
 <br><br>
 
-<%= form_for @story, :url => story_flag_path(@story) do |f| %>
-<%= f.submit "Report inappropriate" %>
+<% if current_user %>
+  <%= form_for @story, :url => story_flag_path(@story) do |f| %>
+  <%= f.submit "Report inappropriate" %>
+  <% end %>
 <% end %>
 
 <div class="story-tags">
