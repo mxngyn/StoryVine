@@ -28,14 +28,19 @@
         </li>
       <% end %>
       <li class="divider"></li>
-
-      <li class="jankity-search-form">
+      <li class="has-form">
+  <div class="row collapse">
+    <div class="large-8 small-9 columns">
         <%= form_tag stories_search_path, :method => :get do %>
             <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
-      </li>
-      <li class="jankity-search-form" ><%= submit_tag "Search", :name => nil, class: "button radius" %>
-        <% end %>
-      </li>
+    </div>
+    <div class="large-4 small-3 columns">
+      <%= submit_tag "Search", :name => nil, class: "button radius" %>
+            <% end %>
+    </div>
+  </div>
+</li>
+
       <li class="divider"></li>
       <% if current_user %>
         <li><%= link_to "Hello, #{current_user.username.capitalize}", user_path(current_user) %></li>
