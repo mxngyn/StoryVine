@@ -1,9 +1,13 @@
-
-
-
-<ol>
-  <% @stories.each do |story| %>
-    <li><%= link_to story.title, story_path(story) %></li>
-  <% end %>
-</ol>
-
+<div class="row">
+  <div class="large-12 columns">
+    <div class="snippet-header">Stories</div>
+      <% @stories.each do |story| %>
+            <div class="snippet">
+              <div class="story-content">
+                <h4><%= link_to story.title, story_path(story) %></h4>
+                <p>Written By: <%= link_to "#{story.author.username}", user_path(story.author) %></p>
+              </div>
+            </div>
+      <% end %>
+  </div>
+</div>
