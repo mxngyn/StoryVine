@@ -7,15 +7,16 @@
 
     <br><br>
 
-    <ul class="accordion" data-accordion>
-      <li class="accordion-navigation">
-        <a href="#panel1a">Parent Story</a>
-          <div id="panel1a" class="content active">
-            <%= link_to "#{@story.title}", story_path(@story) %>
-          </div>
-      </li>
-    </ul>
-
+    <div class="parent-accordion-bar">
+      <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+          <a href="#panel1a">Parent Story</a>
+            <div id="panel1a" class="content active">
+              <%= link_to "#{@story.title}", story_path(@story) %>
+            </div>
+        </li>
+      </ul>
+    </div>
 
     <br><br>
 
@@ -39,21 +40,18 @@
     </div>
 
 
-    <ul class="side-nav">
-      <h4>Other Stories Written Off Of "<%= @story.title %>"</h4>
-        <% @story.children.each do |story| %>
-          <li><%= link_to "#{story.title}", story_path(story) %></li>
-        <% end %>
-    </ul>
+      <ul class="side-nav-1">
+        <h4>Other Stories Written Off Of "<%= @story.title %>"</h4>
+          <% @story.children.each do |story| %>
+            <p><%= link_to "#{story.title}", story_path(story) %></p>
+          <% end %>
+      </ul>
+
 
   </div>
 </div>
 
 <br><br>
-
-
-
-
 
 
 
