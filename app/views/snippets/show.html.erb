@@ -39,8 +39,14 @@
         <% end %>
       <% else %>
         <p class="center-text">There are currently no stories for this snippet.<p>
+        <p class="center-text"><a href="#" data-reveal-id="signup">Inspired? How about signing up!</a></p>
       <% end %>
     </div>
 
+  </div>
+
+   <div id="signup" class="reveal-modal" data-reveal>
+    <%= render 'layouts/signup' %>
+    <a class="close-reveal-modal">&#215;</a>
   </div>
 </div>
