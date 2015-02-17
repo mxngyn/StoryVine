@@ -533,6 +533,10 @@ font-family: 'Bitter', serif;
 font-size: 1em;
 }
 
+.center-text {
+  text-align: center;
+  padding-top: 2%;
+}
 
 
 /* DASHBOARD */
