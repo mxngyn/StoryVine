@@ -149,7 +149,7 @@ div#container.new-story-page {
 }
 
 .logofont {
-    font-family: 'Bitter', serif;
+  font-family: 'Bitter', serif;
   font-size: 1.4em;
 }
 
@@ -525,6 +525,17 @@ vertical-align: bottom;
 font-family: 'Bree Serif', 'serif';
 }
 
+/*NAV BAR*/
+
+ul.title-area {
+font-family: 'Bitter', serif;
+font-size: 1em;
+}
+
+ul.right {
+font-family: 'Bitter', serif;
+font-size: 0em;
+}
 
 
 
