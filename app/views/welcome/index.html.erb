@@ -105,12 +105,10 @@
             <div class="small-12 columns">
                   <div class="headerlogo">Recent Stories</div>
                   <ol class ="index-list">
-                  <% @popular_stories.each do |story| %>
-                  <% story.each do |key, value| %>
-                  <li>
-                  <%= link_to key.title, story_path(key) %> <%= value %> Tags
+                  <% @recent_stories.each do |story| %>
+                    <li>
+                  <%= link_to story.title, story_path(story) %> <%= story.tags.count %> Tags
                   </li>
-                <% end %>
                 <% end %>
                 </ol>
           </div>
@@ -136,7 +134,21 @@
         </div>
       </div>
       </div>
-      <div class="slide"> Slide 2 </div>
+      <div class="slide">
+                    <div class="row">
+            <div class="small-12 columns">
+                  <div class="headerlogo">Recent Snippets</div>
+                  <ol class ="index-list">
+                  <% @recent_snippets.each do |snippet| %>
+                    <li>
+                  <%= link_to snippet.content, snippet_path(snippet) %> <%= snippet.stories.count %> Stories Created
+                  </li>
+                <% end %>
+                </ol>
+          </div>
+        </div>
+
+      </div>
     </div>
 
 
