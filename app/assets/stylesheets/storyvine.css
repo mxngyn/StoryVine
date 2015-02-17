@@ -1,20 +1,3 @@
-#upvote {
-  width: 25px;
-  height: 25px;
-
-}
-
- .LV_validation_message.LV_invalid {
-
-  color: red;
-}
-
-
-.LV_validation_message.LV_valid {
-  color: green;
-}
-
-
 /* EDIT STORY PAGE */
 
 
@@ -29,55 +12,8 @@
 
 /* INDEX */
 
-#infoMenu {
-    font-family: 'Bitter', serif;
-  height: 20px;
-  color: #f2f2f2;
-  position: fixed;
-  z-index: 70;
-  top: 0;
-  width: 100%;
-  text-align: left;
-  font-size: 1.5em;
-  padding: 8px 15px 30px 0;
-  width: 10%;
-  right: 0%;
-}
-
-.logofont {
-    font-family: 'Bitter', serif;
-  font-size: 1.4em;
-}
-
-.f-dropdown {
-  width: 85%;
-}
-
-.logoNavBar {
-  font-family: 'Bitter', serif;
-  font-size: 2em;
-  height: 20px;
-  color: #f2f2f2;
-  position: fixed;
-  z-index: 70;
-  top: 0;
-  width: 100%;
-  text-align: left;
-  font-size: 0.9em;
-  padding: 8px 15px 30px 0;
-  width: 10%;
-  left: 0;
-
-}
-.menu li {
-  display: inline;
-  list-style: none;
-}
-
-
 body {
   background-color: #65b6b0;
-  overflow:scroll;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -89,19 +25,13 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Bree Serif', serif;
   font-size: 6em;
   margin-bottom: 20px;
-  margin-left: -5%;
-  padding-left: 5%;
 }
 
-.top-logo-name a{
- font-family: 'Bitter', serif;
+.top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span {
+  font-family: 'Bree Serif', serif;
+  padding: 10px;
   color: #FFFFFF;
-  padding: 5px 10px 5px 10px;
   font-size: 1.5em;
-}
-
-.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
-  border-right: solid 1px #b6dddb;
 }
 
 .fullWidth {
@@ -118,7 +48,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
-  font-family: 'Bitter', serif;
+  font-family: 'Bree Serif', serif;
   background-color: #97cfcc;
   font-size: 1.25em;
 }
@@ -133,19 +63,20 @@ h1,h2,h3,h4,h5,h6 {
 
 .sticky {
   background-color: #97cfcc;
- /* For IE8 and earlier */
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
 }
 
 .top-bar {
   background-color: #97cfcc;
- /* For IE8 and earlier */
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
 }
 
 
 .full-screen {
   height: 100%; /* makes panels the entire window height */
 }
-
 
 .first-screen {
   background-color: #65b6b0;
@@ -154,45 +85,23 @@ h1,h2,h3,h4,h5,h6 {
   align-items: center;
 }
 
-#section0 {
-   background-color: #97cfcc;
-  color: #FFFFFF;
-}
-
-#section1 {
-   background-color: #E7E1D4;
+.second-screen {
+  background-color: #E7E1D4;
   color: #372e27;
 }
 
-#section2 {
-  background-color: #949599;
-  color: #f0efed;
-}
-#section3 {
-  background-color: #65b6b0;
-  color: #f0efed;
-}
-
-#section4 {
+.third-screen {
   background-color: #372e27;
   color: #E7E1D4;
 }
 
+.last-screen {
+  background-color: #97cfcc;
+}
+
 .index-list {
-  font-size: 1.2em;
-  text-align: left;
+  text-align: center;
   list-style: none;
-  padding-left: 8%;
-  width: 110%;
-}
-
-#search {
-  border-radius: 10px;
-}
-
-li.menu-dropdown {
-
-  text-align: left;
 }
 
 
@@ -225,6 +134,7 @@ li.menu-dropdown {
   font-family: 'Bitter', serif;
   font-size: 2.5em;
   margin-bottom: 20px;
+  display: block;
   width: 100%;
 }
 
@@ -374,5 +284,3 @@ p {
 .popular-stuff {
   margin-bottom: 8px;
 }
-
-
