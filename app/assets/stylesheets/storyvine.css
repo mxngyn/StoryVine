@@ -49,10 +49,6 @@
 }
 
 
-.always-in-front {
-  z-index: 3;
-}
-
 body {
   background-color: #65b6b0;
 }
