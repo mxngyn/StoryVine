@@ -32,3 +32,10 @@
 
 </div>
 
+<div class="children-sidebar-menu">
+  <div class="item">
+    <label><% @story_new.children.each do |story| %></label>
+        <%= link_to "#{story.title}", story_path(story) %>
+      <% end %>
+  </div>
+</div>
