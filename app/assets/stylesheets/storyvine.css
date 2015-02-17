@@ -205,7 +205,7 @@ h1,h2,h3,h4,h5,h6 {
 .top-logo-name a {
   padding: 5px 10px 5px 10px;
   color: #FFFFFF;
-  font-size: 1.5em;
+  font-size: 1.6em;
 }
 
 .fullWidth {
@@ -228,7 +228,7 @@ h1,h2,h3,h4,h5,h6 {
 .top-bar-section li:not(.has-form) a:not(.button) {
   font-family: 'Bree Serif', serif;
   background-color: #97cfcc;
-  font-size: 1.25em;
+  font-size: 1em;
 }
 
 .top-bar-section ul li {
@@ -455,9 +455,6 @@ input#voterguy {
 
 }
 
-
-
-
 li {
   font-family: 'Bree Serif', serif;
   font-size: 1.2em;
@@ -470,7 +467,6 @@ p {
 .popular-stuff {
   margin-bottom: 8px;
 }
-
 
 /* Profile page */
 
