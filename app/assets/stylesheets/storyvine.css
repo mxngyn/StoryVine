@@ -1,3 +1,21 @@
+
+#upvote {
+  width: 25px;
+  height: 25px;
+
+}
+
+ .LV_validation_message.LV_invalid {
+
+  color: red;
+}
+
+
+.LV_validation_message.LV_valid {
+  color: green;
+}
+
+
 /* EDIT STORY PAGE */
 
 
@@ -11,6 +29,53 @@
 
 
 /* INDEX */
+
+
+#infoMenu {
+  font-family: 'Bitter', serif;
+  height: 20px;
+  color: #f2f2f2;
+  position: fixed;
+  z-index: 70;
+  top: 0;
+  width: 100%;
+  text-align: left;
+  font-size: 1.5em;
+  padding: 8px 15px 30px 0;
+  width: 10%;
+  right: 0%;
+}
+
+.logofont {
+    font-family: 'Bitter', serif;
+  font-size: 1.4em;
+}
+
+.f-dropdown {
+  width: 85%;
+}
+
+.logoNavBar {
+  font-family: 'Bitter', serif;
+  font-size: 2em;
+  height: 20px;
+  color: #f2f2f2;
+  position: fixed;
+  z-index: 70;
+  top: 0;
+  width: 100%;
+  text-align: left;
+  font-size: 0.9em;
+  padding: 8px 15px 30px 0;
+  width: 10%;
+  left: 0;
+
+}
+.menu li {
+  display: inline;
+  list-style: none;
+}
+
 
 body {
   background-color: #65b6b0;
@@ -284,3 +349,12 @@ p {
 .popular-stuff {
   margin-bottom: 8px;
 }
+
+
+/* Profile page */
+
+#profile-page {
+  padding-left: 5%;
+
+}
+
