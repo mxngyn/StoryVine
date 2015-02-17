@@ -1,45 +1,61 @@
 <div class="row">
   <div class="large-12 columns">
+    <div class="root-snippet">
+    <h3>Snippet</h3>
+      <%= @story.snippet.content %>
+    </div>
 
-<div class="root-snippet">
-  <h3>Snippet</h3>
-  <%= @story.snippet.content %>
-</div>
+    <br><br>
+
+    <ul class="accordion" data-accordion>
+      <li class="accordion-navigation">
+        <a href="#panel1a">Parent Story</a>
+          <div id="panel1a" class="content active">
+            <%= link_to "#{@story.title}", story_path(@story) %>
+          </div>
+      </li>
+    </ul>
 
 
-<div class="story-parent">
-  <h3>Parent Story:</h3>
-  <%# params %>
-  <%= link_to "#{@story.parent.title}", story_path(@story.parent) %>
-</div>
+    <br><br>
+
+    <h1> Create a new story </h1>
+    <%# params %>
+    <%= form_for @story_new do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title %><br>
+      <%= f.hidden_field :parent_id, :value => @story.id %>
+      <%= f.hidden_field :snippet_id, :value => @story.snippet.id %>
+      <%= f.hidden_field :author_id, :value => current_user.id %>
+      <%= f.label :content %>
+      <%= f.text_area :content, :class => "redactor"%><br>
+      <%= f.hidden_field :published, :value => false %>
+
+      <%= f.submit "Save" %>
+    <% end %>
+    <div class="autosave">
+
+    </div>
 
 
-<h1> Create a new story </h1>
-<%# params %>
-<%= form_for @story_new do |f| %>
+    <ul class="side-nav">
+      <h4>Other Stories Written Off Of "<%= @story.title %>"</h4>
+        <% @story.children.each do |story| %>
+          <li><%= link_to "#{story.title}", story_path(story) %></li>
+        <% end %>
+    </ul>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %><br>
-  <%= f.hidden_field :parent_id, :value => @story.id %>
-  <%= f.hidden_field :snippet_id, :value => @story.snippet.id %>
-  <%= f.hidden_field :author_id, :value => current_user.id %>
-  <%= f.label :content %>
-  <%= f.text_area :content, :class => "redactor"%><br>
-  <%= f.hidden_field :published, :value => false %>
-
-  <%= f.submit "Save", class: "button" %>
-<% end %>
-<div class="autosave">
-
-</div>
-
-<div class="children-sidebar-menu">
-  <div class="item">
-    <label><% @story_new.children.each do |story| %></label>
-        <%= link_to "#{story.title}", story_path(story) %>
-      <% end %>
   </div>
 </div>
 
-</div>
-</div>
+
+
+
+
+
+
+
+
+
+
