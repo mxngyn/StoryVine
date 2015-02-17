@@ -8,6 +8,7 @@ $(document).ready(function() {
   voteUpdate();
   voteDown();
   accordionBar();
+  storyHistory();
 });
 
 
@@ -78,7 +79,30 @@ var accordionBar = function() {
   $('.accordion-navigation').on('click', function(event) {
     // event.preventDefault();
     $('#panel1a').slideToggle('slow');
-
   })
 };
 
+var storyHistory = function() {
+  $snippet = $('.snippet')[0];
+  // $parentStory = $('.parent-story')[0];
+  // $storyChildren = $('.story-children')[0];
+  // $snippet.hide();
+  // parentStory.hide();
+  // storyChildren.hide();
+  $('.vine-icon').click(function(event) {
+    event.preventDefault();
+    $target = $(event.target);
+    console.log('working');
+    // if ($('.snippet').css('visibility') === 'hidden' && $('.story-children') === 'hidden' && $('.parent-story') === 'hidden'){}
+      $('.snippet').toggle('slow');
+      $('.parent-story').toggle('slow');
+      $('.story-children').toggle('slow')
+
+    // else {
+    //   $('.snippet').css('visibility','hidden');
+    //   $('.parentStory').css('visibility','hidden');
+    //   $('.story-children').css('visibility','hidden'); }
+  });
+
+
+}
