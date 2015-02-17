@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   resources :snippets, except: :create
 
-  get '/snippets/:id/stories/:id/stories/:id', to: 'stories#create_nested_story', as: 'child_story'
-
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create', as: 'new_sign_up'
@@ -18,8 +16,12 @@ Rails.application.routes.draw do
 
   get 'stories/search', to: 'stories#search', as: 'stories_search'
 
+
   resources :stories, except: :create
-  get '/stories/:id/new', to: 'stories#create_nested_story', as: 'new_nested_story'
+
+  get '/stories/:id/new', to: 'stories#new_nested_story', as: 'new_nested_story'
+  post '/stories/:id/new', to: 'stories#create_nested_story', as: 'create_nested_story'
+
   resources :stories
 
 
