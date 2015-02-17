@@ -85,6 +85,8 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Bree Serif', serif;
   font-size: 6em;
   margin-bottom: 20px;
+  margin-left: -5%;
+  padding-left: 5%;
 }
 
 .top-logo-name a{
@@ -157,24 +159,27 @@ h1,h2,h3,h4,h5,h6 {
    background-color: #E7E1D4;
   color: #372e27;
 }
-.second-screen {
-  background-color: #E7E1D4;
-  color: #372e27;
+
+#section2 {
+  background-color: #949599;
+  color: #f0efed;
+}
+#section3 {
+  background-color: #65b6b0;
+  color: #f0efed;
 }
 
-.third-screen {
+#section4 {
   background-color: #372e27;
   color: #E7E1D4;
 }
 
-.last-screen {
-  background-color: #97cfcc;
-}
-
 .index-list {
+  font-size: 1.2em;
   text-align: left;
   list-style: none;
   padding-left: 8%;
+  width: 110%;
 }
 
 #search {
