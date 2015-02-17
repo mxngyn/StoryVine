@@ -59,7 +59,7 @@
 
 
 
-    <div class="section">
+    <div class="section" id="section1">
       <div class="row">
         <div class="small-12 columns">
         <div class="headerlogo">Featured Story</div>
@@ -73,7 +73,7 @@
       </div>
 
 
-    <div class="section">
+    <div class="section" id="section2">
       <div class="slide">
           <div class="row">
             <div class="small-12 columns">
@@ -82,21 +82,34 @@
                   <% @popular_stories.each do |story| %>
                   <% story.each do |key, value| %>
                   <li>
-                  <%= link_to key.content, story_path(key) %> <%= value %> Tags
+                  <%= link_to key.title, story_path(key) %> <%= value %> Tags
                   </li>
                 <% end %>
                 <% end %>
                 </ol>
           </div>
-      </div>
+        </div>
 
       </div>
       <div class="slide">
-      Other SLide information
+            <div class="row">
+            <div class="small-12 columns">
+                  <div class="headerlogo">Recent Stories</div>
+                  <ol class ="index-list">
+                  <% @popular_stories.each do |story| %>
+                  <% story.each do |key, value| %>
+                  <li>
+                  <%= link_to key.title, story_path(key) %> <%= value %> Tags
+                  </li>
+                <% end %>
+                <% end %>
+                </ol>
+          </div>
+        </div>
        </div>
     </div>
 
-        <div class="section">
+        <div class="section" id="section3">
       <div class="slide">
 
           <div class="row">
@@ -118,7 +131,7 @@
     </div>
 
 
-      <div class="section">
+      <div class="section" id="section4">
         <div class="row">
         <div class="small-12 columns">
         <div class="headerlogo">Meet the Team</div>
