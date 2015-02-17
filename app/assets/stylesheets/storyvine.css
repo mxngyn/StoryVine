@@ -51,6 +51,7 @@
 
 body {
   background-color: #65b6b0;
+  overflow:scroll;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -115,32 +116,6 @@ h1,h2,h3,h4,h5,h6 {
 
 .full-screen {
   height: 100%; /* makes panels the entire window height */
-}
-
-.first-screen {
-  background-color: #65b6b0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.feature-screen {
-   background-color: #372e27;
-  color: #E7E1D4;
-}
-
-.second-screen {
-  background-color: #E7E1D4;
-  color: #372e27;
-}
-
-.third-screen {
-  background-color: #372e27;
-  color: #E7E1D4;
-}
-
-.last-screen {
-  background-color: #97cfcc;
 }
 
 .index-list {
