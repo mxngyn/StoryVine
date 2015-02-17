@@ -1,11 +1,11 @@
 
 <div id="profile-page">
   <h1><%= @user.username.capitalize %>'s Profile</h1>
-  <h2 class="user-dashboard"><small>Username:</small> <%= @user.username %></h2>
-  <h2 class="user-dashboard"><small>Country:</small> <%= @user.country %></h2>
-  <h2 class="user-dashboard"><small>Name:</small> <%= @user.first_name %> <%= @user.last_name %></h2>
-  <h2 class="user-dashboard"> <small>URL:</small><% @user.url %></h2>
-  <h2 class="user-dashboard"><small>Bio:</small><% @user.bio %></h2>
+  <h2 class="user-info"><small>Username:</small> <%= @user.username %></h2>
+  <h2 class="user-info"><small>Country:</small> <%= @user.country %></h2>
+  <h2 class="user-info"><small>Name:</small> <%= @user.first_name %> <%= @user.last_name %></h2>
+  <h2 class="user-info"> <small>URL:</small><% @user.url %></h2>
+  <h2 class="user-info"><small>Bio:</small><% @user.bio %></h2>
 <br>
 
 <div class="users-badges">
