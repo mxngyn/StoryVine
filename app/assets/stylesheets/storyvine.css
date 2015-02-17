@@ -89,7 +89,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
-  font-family: 'Bree Serif', serif;
+  font-family: 'Bitter', serif;
   background-color: #97cfcc;
   font-size: 1.25em;
 }
@@ -104,14 +104,12 @@ h1,h2,h3,h4,h5,h6 {
 
 .sticky {
   background-color: #97cfcc;
-  opacity: 0.8;
-  filter: alpha(opacity=80); /* For IE8 and earlier */
+ /* For IE8 and earlier */
 }
 
 .top-bar {
   background-color: #97cfcc;
-  opacity: 0.8;
-  filter: alpha(opacity=80); /* For IE8 and earlier */
+ /* For IE8 and earlier */
 }
 
 
