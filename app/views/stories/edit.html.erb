@@ -9,8 +9,8 @@
     <%= f.text_area :content, :value => @story.content.html_safe, class: "redactor" %><br>
 
     Would you like to publish this story?
-    <%= f.radio_button 'published', false, { :checked => true } %> No
-    <%= f.radio_button 'published', true %> Yes
+    <%= f.radio_button :published, false, { :checked => true } %> No
+    <%= f.radio_button :published, true %> Yes
 
     <%= f.submit %>
 
