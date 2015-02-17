@@ -9,11 +9,15 @@
 /*pearl's css */
 
 .accordion-navigation {
-  width: 40%;
-  /*background-color: #b0c4de;*/
-  font-family: 'Bree Serif', serif;
+  width: 80%;
+
 }
 
+.accordion .accordion-navigation > a, .accordion dd > a {
+  background: #b0c4de;
+  font-family: 'Bree Serif', serif;
+
+}
 
 
 
