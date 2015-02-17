@@ -64,11 +64,15 @@ h1,h2,h3,h4,h5,h6 {
   margin-bottom: 20px;
 }
 
-.top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span {
-  font-family: 'Bree Serif', serif;
-  padding: 10px;
+.top-logo-name a{
+ font-family: 'Bitter', serif;
   color: #FFFFFF;
+  padding: 5px 10px 5px 10px;
   font-size: 1.5em;
+}
+
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+  border-right: solid 1px #b6dddb;
 }
 
 .fullWidth {
