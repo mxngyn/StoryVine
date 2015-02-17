@@ -1,5 +1,6 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :destroy, :update]
+  before_action :set_story, only: [:show, :edit, :destroy, :update, :new_nested_story, :create_nested_story]
+  # before_action :child_story_params, only: [:new_nested_story, :create_nested_story]
 
   def index
     # displays all published stories
@@ -24,6 +25,17 @@ class StoriesController < ApplicationController
   def new
     # show a new story form
     @story = Story.create(snippet_id: params["snippet_id"], author_id: session[:user_id], published: false)
+  end
+
+
+  def create
+    # create new story
+    @story = Story.new(story_params)
+    if @story.save
+      redirect_to story_path(@story)
+    else
+      render :new
+    end
   end
 
 
@@ -55,10 +67,6 @@ class StoriesController < ApplicationController
     redirect_to root_path
   end
 
-  # def show_tags
-  #   @story = Story.find(params[:id])
-  #   @stories_with_tags = Tag.where(story_id: @story.id)
-  # end
 
   def flag
     @story = Story.find(params[:id])
@@ -68,6 +76,24 @@ class StoriesController < ApplicationController
     flash[:notice] = "Thank you. We'll look into this shortly."
     redirect_to story_path(@story.id)
   end
+
+  def new_nested_story
+    @story_new = Story.new
+    # render :create_nested_story
+  end
+
+  def create_nested_story
+     @story_new = Story.new(title: params[:title], author_id: params[:session_id], parent_id: set_story.id, snippet_id: params[:story][:snippet_id])
+    if @story_new.save
+      @parent = set_story
+      @parent.children << @story_new
+      redirect_to story_path(@story_new)
+    else
+      render :new
+      # this should give errors
+    end
+  end
+
 
   private
 
@@ -80,8 +106,12 @@ class StoriesController < ApplicationController
   end
 
   def story_params
-    params.require(:story).permit(:title, :content, :snippet_id, :author_id, :published)
+    params.require(:story).permit(:title, :content, :snippet_id, :author_id, :published, :parent_id)
   end
+
+  # def child_story_params
+  #   @new_story = Story.find(params[:new_story].id)
+  # end
 
 
 end

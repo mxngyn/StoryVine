@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount RedactorRails::Engine => '/redactor_rails'
 
+
+
   resources :snippets, except: :create
 
 
@@ -13,11 +15,19 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :delete]
 
   get 'stories/search', to: 'stories#search', as: 'stories_search'
+
+
   resources :stories, except: :create
+
+  get '/stories/:id/new', to: 'stories#new_nested_story', as: 'new_nested_story'
+  post '/stories/:id/new', to: 'stories#create_nested_story', as: 'create_nested_story'
+
+  resources :stories
+
 
   resources :tags
   get '/tags/:id/stories', to: 'tags#show', as: 'tags_show'
-  # get '/stories/:id/tags', to: 'stories#show_tags', as: 'show_tags'
+
   resources :storytags
 
   root "welcome#index"
@@ -26,8 +36,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'sessions#show', as: 'dashboard'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-  # post '/logout', to: 'sessions#destroy'
-
 
 
   patch 'snippets/:id/flag', to: 'snippets#flag', as: 'snippet_flag'
