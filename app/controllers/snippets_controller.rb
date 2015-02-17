@@ -5,6 +5,7 @@ class SnippetsController < ApplicationController
   end
 
   def new
+    p params
     @snippet = Snippet.create
   end
 

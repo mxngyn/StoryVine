@@ -63,7 +63,8 @@
     </div>
 
     <div class="user-dashboard">
-      story of the day<br>
+      <h5>Story Of The Day</h5>
+      <%= link_to "#{random_story.title}", story_path(random_story) %>
     </div>
 
     <div class="user-dashboard">
