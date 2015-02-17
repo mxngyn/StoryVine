@@ -377,20 +377,47 @@ h1,h2,h3,h4,h5,h6 {
   border-radius: 10px;
   text-align: center;
   color: #372e27;
+  font-size: 10px;
 }
 
 .vote-count {
-  float: left;
+  /*float: left;*/
+  text-align: center;
 }
 
 .vote-button {
-  float: right;
+  /*float: right;*/
+  /*text-align: center;*/
+}
+
+/*from developer's tool*/
+button.round, .button.round {
+/*  margin-left: auto;
+  margin-right: auto;*/
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+
+input#voterguy {
+  margin-right: 0 auto;
+  margin-left: 0 auto;
+  position: relative;
 }
 
 #vote-up-button {
   padding: 5;
-  margin: 0;
+  margin-right: 0 auto;
+  margin-left: 0 auto;
+  position: relative;
+  /*text-align: center;*/
+
 }
+
+
+
 
 li {
   font-family: 'Bree Serif', serif;
