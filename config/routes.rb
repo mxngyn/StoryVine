@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create', as: 'new_sign_up'
 
-  patch 'stories/:id/upvote', to: 'votes#upvote', as: 'vote_up'
+  patch '/upvote/:id', to: 'votes#upvote', as: 'vote_up'
   delete '/vote/:id', to: 'votes#destroy', as: 'vote_delete'
 
   resources :users, only: [:show, :edit, :update, :delete]
