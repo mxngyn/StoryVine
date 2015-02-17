@@ -91,6 +91,7 @@ class StoriesController < ApplicationController
     else
       render :new
       # this should give errors
+      # redirect_to login_path
     end
   end
 
