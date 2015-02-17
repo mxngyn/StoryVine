@@ -28,9 +28,9 @@
     <% else %>
       <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:90000;">Menu</a>
       <ul id="hover1" class="f-dropdown" data-dropdown-content>
-      <li class="menu-dropdown"><a href="#">Create Snippet</a></li>
-      <li class="menu-dropdown"><a href="#">Profile</a></li>
-      <li class="menu-dropdown"><a href="#">Logout</a></li>
+      <li class="menu-dropdown"><%= link_to "Create Snippet", new_snippet_path  %></li>
+      <li class="menu-dropdown"><%= link_to "Profile", user_path(current_user)  %></li>
+      <li class="menu-dropdown"><%= link_to "Logout", logout_path  %></li>
     </ul>
     <% end %>
   </div>
