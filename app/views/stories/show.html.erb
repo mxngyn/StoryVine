@@ -3,7 +3,7 @@
 
     <div class="snippet">
       <div class="snippet-content">
-         <%= strip_tags(@story.snippet.content) %>
+         <%= strip_tags(@snippet.content) %>
       </div>
       <div class="snippet-author">
         <% if @story.snippet.user %>
@@ -17,9 +17,20 @@
       <h4><%= @story.title.html_safe %></h4>
       <%= @story.content.html_safe %><br>
       Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %><br></br>
-      <%= link_to "Write Off Of This Story", new_nested_story_path %>
+      <% if @story.published %>
+        <%= link_to "Write Off Of This Story", new_nested_story_path %>
+      <% end %>
     <% end %>
   </div>
+
+
+    <% if @story.parent != nil %>
+  <div class="story-show">
+    <h3>Parent Story:</h3>
+        <%= link_to "#{@story.parent.title}", story_path(@story.parent.id) %><br>
+  </div>
+    <% end %>
+
 
   <div class="story-show">
     <h3>Children:</h3>
