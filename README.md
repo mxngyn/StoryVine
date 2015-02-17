@@ -26,7 +26,6 @@ Team Members
 #### Trello
 
 * https://trello.com/b/DyWNow9X/write-bulb
-* 
 
 #### Setting up Solr
 - make sure gem file includes: gem 'sunspot_rails' and gem 'sunspot_solr'
