@@ -74,8 +74,10 @@
         <div class="headerlogo">Featured Story</div>
         <ol class ="index-list">
           <h2>
-            <%= link_to "#{random_story.title}", story_path(@story) %>
+            <% story = random_story %>
+            <%= link_to "#{story.title}", story_path(@story) %>
           </h2>
+            <h3>By: <%= link_to "#{story.author.username}", user_path(@story.author) %></h3>
         </ol>
         </div>
       </div>
