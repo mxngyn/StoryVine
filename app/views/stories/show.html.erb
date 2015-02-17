@@ -25,7 +25,8 @@
     <h3>Children:</h3>
     <% @story.children.each do |story| %>
       <% if story.published == true %>
-        <%= link_to "#{story.title}", story_path(story.id) %><br>
+        <%= link_to "#{story.title}", story_path(story.id) %>
+        By: <%= story.author.username %><br>
       <% end %>
     <% end %>
   </div>
