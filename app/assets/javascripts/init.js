@@ -22,16 +22,15 @@ var indexPage = function() {
   if(fullPage) {
     $('#fullpage').fullpage({
       menu: true,
-      anchors:['firstSlide', 'secondSlide'],
+      anchors:['Main', 'Featured Story', 'Popular Stories', 'Popular Snippets', 'Meet the Team'],
       navigation: true,
       navigationPosition: 'right',
-      navigationTooltips: ['firstSlide', 'secondSlide'],
+      navigationTooltips: ['Main', 'Featured Story', 'Popular Stories', 'Popular Snippets', 'Meet the Team'],
       slidesNavigation: true,
       slidesNavPosition: 'bottom',
     });
   }
 }
-
 
 var voteUpdate = function() {
   var voteFormExists = document.getElementsByClassName('edit_story')[0];
@@ -72,7 +71,4 @@ var voteDown = function() {
     });
   }
 }
-
-
-
 
