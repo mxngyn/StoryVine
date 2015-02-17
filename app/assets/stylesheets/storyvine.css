@@ -79,6 +79,7 @@
 
 body {
   background-color: #65b6b0;
+  overflow: scroll;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -92,9 +93,15 @@ h1,h2,h3,h4,h5,h6 {
   margin-bottom: 20px;
 }
 
-.top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span {
+.top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span, .top-bar .name a {
   font-family: 'Bree Serif', serif;
   padding: 10px;
+  color: #FFFFFF;
+  font-size: 1.5em;
+}
+
+.top-logo-name a {
+  padding: 5px 10px 5px 10px;
   color: #FFFFFF;
   font-size: 1.5em;
 }
@@ -110,6 +117,10 @@ h1,h2,h3,h4,h5,h6 {
   margin-top: 5px;
   font-size: 2em;
   height: 100%;
+}
+
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+  border-right: 1px solid #69908e;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
@@ -128,14 +139,10 @@ h1,h2,h3,h4,h5,h6 {
 
 .sticky {
   background-color: #97cfcc;
-  opacity: 0.8;
-  filter: alpha(opacity=80); /* For IE8 and earlier */
 }
 
 .top-bar {
   background-color: #97cfcc;
-  opacity: 0.8;
-  filter: alpha(opacity=80); /* For IE8 and earlier */
 }
 
 
@@ -358,3 +365,13 @@ p {
 
 }
 
+
+
+/* DASHBOARD */
+
+.user-dashboard {
+  background-color: #cbe7e5;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}

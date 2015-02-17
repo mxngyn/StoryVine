@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150215172539) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "flagged",    default: false
   end
 
   create_table "stories", force: :cascade do |t|
@@ -63,9 +64,10 @@ ActiveRecord::Schema.define(version: 20150215172539) do
     t.integer  "author_id"
     t.string   "title"
     t.text     "content"
-    t.boolean  "published",  default: false
+    t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "flagged",    default: false
   end
 
   add_index "stories", ["parent_id"], name: "index_stories_on_parent_id", using: :btree
@@ -85,13 +87,13 @@ ActiveRecord::Schema.define(version: 20150215172539) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
-    t.string   "first_name",      default: ""
-    t.string   "last_name",       default: ""
-    t.string   "country",         default: ""
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "country"
     t.string   "email"
-    t.string   "pic_url",         default: ""
-    t.string   "url",             default: ""
-    t.text     "bio",             default: ""
+    t.string   "pic_url"
+    t.string   "url"
+    t.text     "bio"
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
