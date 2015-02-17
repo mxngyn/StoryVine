@@ -7,7 +7,7 @@
       </div>
       <div class="snippet-author">
         <% if @story.snippet.user %>
-          - <%= link_to @story.snippet.user.username, user_path(@story.snippet.user)  %> (<%= link_to "link", @story.snippet %>)
+          <%= link_to @story.snippet.user.username, user_path(@story.snippet.user)  %> (<%= link_to "link", @story.snippet %>)
         <% end %>
       </div>
     </div>
