@@ -1,5 +1,6 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :destroy, :update, :create_nested_story]
+  before_action :set_story, only: [:show, :edit, :destroy, :update, :new_nested_story, :create_nested_story]
+  # before_action :child_story_params, only: [:new_nested_story, :create_nested_story]
 
   def index
     # displays all published stories
@@ -76,21 +77,22 @@ class StoriesController < ApplicationController
     redirect_to story_path(@story.id)
   end
 
-  def create_nested_story
-
-    # figure out parent id!
-    # @story = Story.find(params[:id])
-    @story_new = Story.new(title: params[:story_new][:title], content: params[:story_new][:content], author_id: params[:story_new][:session_id ] )
-    # if @story_new.save
-      # @story_new.update(parent_id: @story.id)
-      # redirect_to story_path(@story)
-    # else
-      # render :new
-      # this should give errors!
-    # end
-
+  def new_nested_story
+    @story_new = Story.new
+    # render :create_nested_story
   end
 
+  def create_nested_story
+     @story_new = Story.new(title: params[:title], author_id: params[:session_id], parent_id: set_story.id, snippet_id: params[:story][:snippet_id])
+    if @story_new.save
+      @parent = set_story
+      @parent.children << @story_new
+      redirect_to story_path(@story_new)
+    else
+      render :new
+      # this should give errors
+    end
+  end
 
 
   private
@@ -104,8 +106,12 @@ class StoriesController < ApplicationController
   end
 
   def story_params
-    params.require(:story).permit(:title, :content, :snippet_id, :author_id, :published)
+    params.require(:story).permit(:title, :content, :snippet_id, :author_id, :published, :parent_id)
   end
+
+  # def child_story_params
+  #   @new_story = Story.find(params[:new_story].id)
+  # end
 
 
 end
