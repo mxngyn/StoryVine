@@ -75,27 +75,20 @@ var voteDown = function() {
 }
 
 var accordionBar = function() {
-  // var bar = document.getElementsByClassName('.accordion-navigation')[0];
-  $('.accordion-navigation').on('click', function(event) {
-    // event.preventDefault();
-    $('#panel1a').slideToggle('slow');
-  })
+
+    $('.accordion-navigation').on('click', function(event) {
+      // event.preventDefault();
+      $('#panel1a').slideToggle('slow');
+    })
 };
 
 var storyHistory = function() {
-  $snippet = $('.snippet')[0];
-
   $('.vine-icon').click(function(event) {
     event.preventDefault();
     $target = $(event.target);
     console.log('working');
-
-      $('.snippet').toggle('slow');
+      $('.story-snippet-show').toggle('slow');
       $('.parent-story').toggle('slow');
       $('.story-children').toggle('slow')
-
-
   });
-
-
 }
