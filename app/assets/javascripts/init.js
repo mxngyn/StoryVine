@@ -7,6 +7,8 @@ $(document).ready(function() {
   indexPage();
   voteUpdate();
   voteDown();
+  accordionBar();
+  storyHistory();
 });
 
 
@@ -33,14 +35,14 @@ var indexPage = function() {
 }
 
 var voteUpdate = function() {
-  var voteFormExists = document.getElementsByClassName('edit_story')[0];
+  var voteFormExists = document.getElementsByClassName('vote_for_stories')[0];
 
   if (voteFormExists) {
-    $('.edit_story').on('submit', function(event) {
+    $('.vote_for_stories').on('submit', function(event) {
       event.preventDefault();
       var $target = $(event.target);
       $target.hide();
-      var $url = $('.edit_story')[0].action;
+      var $url = $('.vote_for_stories')[0].action;
       $.ajax({
         type: "PATCH",
         url: $url,
@@ -72,3 +74,28 @@ var voteDown = function() {
   }
 }
 
+var accordionBar = function() {
+  // var bar = document.getElementsByClassName('.accordion-navigation')[0];
+  $('.accordion-navigation').on('click', function(event) {
+    // event.preventDefault();
+    $('#panel1a').slideToggle('slow');
+  })
+};
+
+var storyHistory = function() {
+  $snippet = $('.snippet')[0];
+
+  $('.vine-icon').click(function(event) {
+    event.preventDefault();
+    $target = $(event.target);
+    console.log('working');
+
+      $('.snippet').toggle('slow');
+      $('.parent-story').toggle('slow');
+      $('.story-children').toggle('slow')
+
+
+  });
+
+
+}
