@@ -10,6 +10,8 @@
 
 .accordion-navigation {
   width: 80%;
+  /*height: 20px;*/
+  margin: 0 auto;
 
 }
 
@@ -20,7 +22,14 @@
 }
 
 
+.parent-accordion-bar {
+  text-align: center;
+}
 
+.side-nav-1 {
+  margin: 0 auto;
+  text-align: center;
+}
 
 
 
