@@ -30,23 +30,27 @@
 /* INDEX */
 
 #infoMenu {
+    font-family: 'Bitter', serif;
   height: 20px;
   color: #f2f2f2;
   position: fixed;
   z-index: 70;
   top: 0;
   width: 100%;
-  text-align: right;
-  font-size: 0.9em;
+  text-align: left;
+  font-size: 1.5em;
   padding: 8px 15px 30px 0;
   width: 10%;
-  right: 0;
-
+  right: 0%;
 }
 
 .logofont {
     font-family: 'Bitter', serif;
   font-size: 1.4em;
+}
+
+.f-dropdown {
+  width: 85%;
 }
 
 .logoNavBar {
@@ -184,6 +188,11 @@ h1,h2,h3,h4,h5,h6 {
 
 #search {
   border-radius: 10px;
+}
+
+li.menu-dropdown {
+
+  text-align: left;
 }
 
 
