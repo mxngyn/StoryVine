@@ -15,12 +15,20 @@
 
 }
 
-.accordion .accordion-navigation > a, .accordion dd > a {
-  background: #b0c4de;
-  font-family: 'Bree Serif', serif;
-
+#panel1a {
+  display: none;
+  background: none;
 }
 
+.accordion .accordion-navigation > a, .accordion dd > a {
+  background: #f0efed;
+  font-family: 'Bree Serif', serif;
+  border-radius: 10px;
+}
+
+.accordion .accordion-navigation > .content.active, .accordion dd > .content.active {
+  border-radius: 10px;
+}
 
 .parent-accordion-bar {
   text-align: center;
@@ -30,7 +38,6 @@
   margin: 0 auto;
   text-align: center;
 }
-
 
 .vine-icon {
   width: 50px;
@@ -55,6 +62,11 @@
   width: 50%;
   text-align: center;
   margin: 0 auto;
+}
+
+
+div#container.new-story-page {
+  background: #f0efed;
 }
 
 
