@@ -14,12 +14,12 @@
       <li class="has-form">
   <div class="row collapse">
     <div class="large-8 small-9 columns">
-        <%= form_tag stories_search_path, :method => :get do %>
-            <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
+      <%= form_tag stories_search_path, :method => :get do %>
+      <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
     </div>
     <div class="large-4 small-3 columns">
       <%= submit_tag "Search", :name => nil, class: "button radius" %>
-            <% end %>
+      <% end %>
     </div>
   </div>
 </li>
