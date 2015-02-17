@@ -1,21 +1,15 @@
 
 <div id="profile-page">
-<h1><%= @user.username.capitalize %>'s Profile</h1>
-<h2><small>Username:</small> <%= @user.username %></h2>
-<h2><small>Country:</small> <%= @user.country %></h2>
-<h2><small>Name:</small> <%= @user.first_name %> <%= @user.last_name %></h2>
-
-<%= image_tag @user.pic_url %><br>
-<%= link_to "Website", @user.url %><br>
-
+  <h1><%= @user.username.capitalize %>'s Profile</h1>
+  <h2><small>Username:</small> <%= @user.username %></h2>
+  <h2><small>Country:</small> <%= @user.country %></h2>
+  <h2><small>Name:</small> <%= @user.first_name %> <%= @user.last_name %></h2>
+  <h2><small>URL:</small><% @user.url %></h2>
+  <h2><small>Bio:</small><% @user.bio %></h2>
 <br>
 
-
-<br><br>
-
 <div class="users-badges">
-  <%= @user.username.capitalize %>'s Badges:<br>
-  <%# @user.stories.first.first_story_badge %>
+  <h4><%= @user.username.capitalize %>'s Badges:</h4>
   <% @user.stories.each do |story|  %>
     <% story.badges.each do |badge| %>
       <%= badge.title %>
@@ -25,5 +19,5 @@
 
 <br><br>
 
-<%=link_to "Edit", edit_user_path(current_user) %>
+<h4><%=link_to "Edit Profile", edit_user_path(current_user) %></h4>
 </div>
