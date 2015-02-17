@@ -39,7 +39,7 @@
   margin-right: 3%;
 }
 
-.snippet {
+.story-snippet {
   display:none;
 }
 
@@ -51,7 +51,11 @@
   display:none;
 }
 
-
+.add-tag-dropdown {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
 
 
 /*end */
@@ -387,6 +391,10 @@ h1,h2,h3,h4,h5,h6 {
   border-radius: 10px;
   text-align: center;
   color: #372e27;
+  /*pearl added:*/
+  word-wrap: break-word;
+  padding: 20px;
+
 }
 
 .votes {
@@ -414,17 +422,17 @@ h1,h2,h3,h4,h5,h6 {
 button.round, .button.round {
 /*  margin-left: auto;
   margin-right: auto;*/
-  position: relative;
+/*  position: relative;
   margin: 0 auto;
-  text-align: center;
+  text-align: center;*/
 
 }
 
 
 input#voterguy {
-  margin-right: 0 auto;
+/*  margin-right: 0 auto;
   margin-left: 0 auto;
-  position: relative;
+  position: relative;*/
 }
 
 #vote-up-button {
