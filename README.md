@@ -26,6 +26,13 @@ Team Members
 #### Trello
 
 * https://trello.com/b/DyWNow9X/write-bulb
+* 
+
+#### Setting up Solr
+- make sure gem file includes: gem 'sunspot_rails' and gem 'sunspot_solr'
+- rails generate sunspot_rails:install
+- bundle exec rake sunspot:solr:start
+- bundle exec rake sunspot:reindex (will make already existing entries in the database searchable.)
 
 
 
