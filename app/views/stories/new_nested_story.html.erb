@@ -1,9 +1,11 @@
+<div class="row">
+  <div class="large-12 columns">
+
 <div class="root-snippet">
   <h3>Snippet</h3>
   <%= @story.snippet.content %>
 </div>
 
-<br><br>
 
 <div class="story-parent">
   <h3>Parent Story:</h3>
@@ -11,7 +13,6 @@
   <%= link_to "#{@story.parent.title}", story_path(@story.parent) %>
 </div>
 
-<br><br>
 
 <h1> Create a new story </h1>
 <%# params %>
@@ -26,7 +27,7 @@
   <%= f.text_area :content, :class => "redactor"%><br>
   <%= f.hidden_field :published, :value => false %>
 
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class: "button" %>
 <% end %>
 <div class="autosave">
 
@@ -38,4 +39,7 @@
         <%= link_to "#{story.title}", story_path(story) %>
       <% end %>
   </div>
+</div>
+
+</div>
 </div>
