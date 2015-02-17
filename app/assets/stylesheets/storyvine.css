@@ -30,6 +30,31 @@
 
 /* INDEX */
 
+#section0 {
+   background-color: #97cfcc;
+  color: #FFFFFF;
+}
+
+#section1 {
+   background-color: #E7E1D4;
+  color: #372e27;
+}
+
+#section2 {
+  background-color: #949599;
+  color: #f0efed;
+}
+
+#section3 {
+  background-color: #65b6b0;
+  color: #f0efed;
+}
+
+#section4 {
+  background-color: #372e27;
+  color: #E7E1D4;
+}
+
 
 #infoMenu {
   font-family: 'Bitter', serif;
@@ -150,30 +175,12 @@ h1,h2,h3,h4,h5,h6 {
   height: 100%; /* makes panels the entire window height */
 }
 
-.first-screen {
-  background-color: #65b6b0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.second-screen {
-  background-color: #E7E1D4;
-  color: #372e27;
-}
-
-.third-screen {
-  background-color: #372e27;
-  color: #E7E1D4;
-}
-
-.last-screen {
-  background-color: #97cfcc;
-}
 
 .index-list {
-  text-align: center;
+  text-align: left;
   list-style: none;
+  padding-left: 5%;
 }
 
 
