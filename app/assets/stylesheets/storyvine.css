@@ -390,6 +390,27 @@ p {
 
 }
 
+.button {
+  background-color: #f0efed;
+  color: #372e27;
+  margin-right: 5px;
+}
+
+.button :hover {
+  background-color: #949599;
+  color: #372e27;
+}
+
+.button-expand {
+  margin-left: 2%;
+  border-radius: 5px;
+}
+
+li.has-form {
+  background: none!important;
+}
+
+
 
 
 /* DASHBOARD */
@@ -399,4 +420,9 @@ p {
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
+}
+
+
+.redactor_box {
+  min-height: 400px;
 }
