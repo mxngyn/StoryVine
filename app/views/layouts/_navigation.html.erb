@@ -3,7 +3,6 @@
     <li class="top-logo-name">
       <%= link_to 'Story Vine', :root %>
     </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
   </ul>
 
@@ -42,17 +41,20 @@
           </ul>
         </li>
       <% else %>
-        <li><%= link_to 'Sign Up', signup_path %></li>
+      <ul class="menu">
+      <li><a href="#" data-reveal-id="login">LOGIN</a></li>
+      <li><a href="#" data-reveal-id="signup">SIGNUP</a></li>
+      </ul>
       <% end %>
     </ul>
+      <div id="login" class="reveal-modal" data-reveal>
+      <%= render 'layouts/login' %>
+      <a class="close-reveal-modal">&#215;</a>
+  </div>
 
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li class="divider"></li>
-      <li><%= link_to 'Browse Snippets', snippets_path %></li>
-      <li class="divider"></li>
-      <li><%= link_to 'Browse Stories', stories_path %></li>
-      <li class="divider"></li>
-    </ul>
+  <div id="signup" class="reveal-modal" data-reveal>
+    <%= render 'layouts/signup' %>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
   </section>
 </nav>

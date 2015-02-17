@@ -7,7 +7,7 @@
       </div>
       <div class="snippet-author">
         <% if @story.snippet.user %>
-          - <%= link_to @story.snippet.user.username, user_path(@story.snippet.user)  %> (<%= link_to "link", @story.snippet %>)
+          <%= link_to @story.snippet.user.username, user_path(@story.snippet.user)  %> (<%= link_to "link", @story.snippet %>)
         <% end %>
       </div>
     </div>
@@ -27,7 +27,7 @@
         <%= @story.content.html_safe %><br>
         <hr>
         Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %><br></br>
-        <% if @story.published %>
+        <% if @story.published && session[:current_user] %>
           Like this story? <%= link_to "Write Off Of This Story", new_nested_story_path %>
         <% end %>
       <% end %>
@@ -99,10 +99,7 @@
     <br><br>
 
     <div class="story-badges">
-      <%# if @story.author != nil %>
-        <%# @story.award_badge %>
-        <%# @story.most_voted %>
-      <%# end %>
+
     </div>
 
 

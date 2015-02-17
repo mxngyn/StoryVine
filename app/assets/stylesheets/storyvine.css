@@ -149,7 +149,7 @@ div#container.new-story-page {
 }
 
 .logofont {
-    font-family: 'Bitter', serif;
+  font-family: 'Bitter', serif;
   font-size: 1.4em;
 }
 
@@ -205,7 +205,7 @@ h1,h2,h3,h4,h5,h6 {
 .top-logo-name a {
   padding: 5px 10px 5px 10px;
   color: #FFFFFF;
-  font-size: 1.5em;
+  font-size: 1.6em;
 }
 
 .fullWidth {
@@ -228,7 +228,7 @@ h1,h2,h3,h4,h5,h6 {
 .top-bar-section li:not(.has-form) a:not(.button) {
   font-family: 'Bree Serif', serif;
   background-color: #97cfcc;
-  font-size: 1.25em;
+  font-size: 1em;
 }
 
 .top-bar-section ul li {
@@ -290,7 +290,6 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Bitter', serif;
   font-size: 2.5em;
   margin-bottom: 20px;
-  display: block;
   width: 100%;
 }
 
@@ -456,9 +455,6 @@ input#voterguy {
 
 }
 
-
-
-
 li {
   font-family: 'Bree Serif', serif;
   font-size: 1.2em;
@@ -471,7 +467,6 @@ p {
 .popular-stuff {
   margin-bottom: 8px;
 }
-
 
 /* Profile page */
 
@@ -491,7 +486,7 @@ p {
 /* SEARCH BAR */
 
 #search {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .search-button {
@@ -526,7 +521,22 @@ vertical-align: bottom;
 font-family: 'Bree Serif', 'serif';
 }
 
+/*NAV BAR*/
 
+ul.title-area {
+font-family: 'Bitter', serif;
+font-size: 1em;
+}
+
+ul.right {
+font-family: 'Bitter', serif;
+font-size: 1em;
+}
+
+.center-text {
+  text-align: center;
+  padding-top: 2%;
+}
 
 
 /* DASHBOARD */
