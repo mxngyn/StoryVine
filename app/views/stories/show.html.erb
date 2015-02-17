@@ -1,7 +1,7 @@
 <div class="row">
   <div class="large-12 columns">
 
-    <div class="snippet">
+    <div class="story-snippet">
       <div class="snippet-content">
          <%= strip_tags(@snippet.content) %>
       </div>
@@ -25,11 +25,42 @@
       <% if @story.title && @story.content %>
         <h4><%= @story.title.html_safe %></h4>
         <%= @story.content.html_safe %><br>
+        <hr>
         Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %><br></br>
         <% if @story.published %>
           Like this story? <%= link_to "Write Off Of This Story", new_nested_story_path %>
         <% end %>
       <% end %>
+
+
+      <% if story_editable?(@story) %>
+      <div>
+        <% if !@story.published && story_editable?(@story) %><Br><br>
+          <%= link_to "Edit", edit_story_path(@story) %><br>
+          <%= link_to "Delete", @story, :method => :delete %>
+        <% end %>
+
+      </div>
+      <br><br>
+
+      <% if current_user %>
+        <%= form_for @story, :url => story_flag_path(@story) do |f| %>
+        <%= f.submit "Report inappropriate" %>
+        <% end %>
+      <% end %>
+
+      <br><br>
+
+      <div class="story-tags">
+        <h4>Tags</h4>
+        <% @story.tags.each do |tag| %>
+          <%= link_to "#{tag.name}", tags_show_path(tag) %><br>
+        <% end %>
+        <%= render :partial => 'tags/tagform'%>
+      </div>
+      <% end %>
+
+      <br><br>
 
       <div class="vote-count">
         Votes: <%= @story.vote_count %>
@@ -45,6 +76,7 @@
           </div>
         <% end %>
       </div>
+
     </div>
 
 
@@ -62,29 +94,7 @@
 
 
 
-    <% if story_editable?(@story) %>
-    <div>
-      <% if !@story.published && story_editable?(@story) %><Br><br>
-        <%= link_to "Edit", edit_story_path(@story) %><br>
-        <%= link_to "Delete", @story, :method => :delete %>
-      <% end %>
 
-    </div>
-    <br><br>
-
-    <% if current_user %>
-      <%= form_for @story, :url => story_flag_path(@story) do |f| %>
-      <%= f.submit "Report inappropriate" %>
-      <% end %>
-    <% end %>
-
-    <div class="story-tags">
-      <% @story.tags.each do |tag| %>
-        <%= link_to "#{tag.name}", tags_show_path(tag) %><br>
-      <% end %>
-      <%= render :partial => 'tags/tagform'%>
-    </div>
-    <% end %>
 
     <br><br>
 
