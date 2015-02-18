@@ -100,6 +100,7 @@ div#container.new-story-page {
   /*background-color: #97cfcc;*/
   border-radius: 10px;
   text-align: center;
+
 }
 
 
@@ -312,6 +313,8 @@ h1,h2,h3,h4,h5,h6 {
    height: 66px;
    width: 216px;
    margin: 0 auto;
+   margin-bottom: 4%;
+   overflow: hidden;
 }
 
 #vine-hover:hover {
