@@ -1,8 +1,15 @@
-Entries tagged "<%= @tag.name %>"
+<div class="row">
+  <div class="large-12 columns">
 
-<div class="tag-with-stories">
-<% @stories_with_tag.each do |storytag| %>
-  <%= link_to "#{storytag.story.title}", story_path(storytag.story) %><br>
-<% end %>
-</div>
+    <div class ="tagged-stories">
+      <h2>Entries tagged "<%= @tag.name %>"</h2>
 
+        <% @stories_with_tag.each do |storytag| %>
+          <div class="snippet">
+            <div class="story-content">
+              <%= link_to "#{storytag.story.title}", story_path(storytag.story) %><br>
+            </div>
+          </div>
+        <% end %>
+
+    </div>
