@@ -50,6 +50,7 @@ class SnippetsController < ApplicationController
   def vine
     @snippet = Snippet.find(params[:id])
     # @snippet.remove_dangerous_html_tags
+    render layout: false
   end
 
 
