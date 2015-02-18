@@ -321,6 +321,11 @@ h1,h2,h3,h4,h5,h6 {
    background-image: url('vine_dark.png');
 }
 
+
+.vine-for-story {
+  padding-top: 3%;
+}
+
 .index-list {
   text-align: left;
   list-style: none;
