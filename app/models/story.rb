@@ -65,6 +65,7 @@ class Story < ActiveRecord::Base
   def as_json(options={})
     { id: id,
       type: "stories",
+      published: published,
       content: content,
       children: self.children }
   end
