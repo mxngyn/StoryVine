@@ -57,7 +57,7 @@
               <%= submit_tag "Search", :name => nil, class: "button round" %>
             <% end %><br><br>
               <div class="arrow-down">
-                <a href="#section1"><img src="http://www.kylejson.com/img/down-bold.png"></a>
+                <a href="#section2"><img src="http://www.kylejson.com/img/down-bold.png"></a>
               </div>
           </div>
         </div>
@@ -66,55 +66,19 @@
 
 
 
-    <div class="section" id="section1">
-      <div class="row">
-        <div class="small-12 columns">
-        <div class="headerlogo">Featured Story</div>
-        <ol class ="index-list">
-          <h2>
-            <% story = random_story %>
-            <%= link_to "#{story.title}", story_path(@story) %>
-          </h2>
-            <h3>By: <%= link_to "#{story.author.username}", user_path(@story.author) %></h3>
-        </ol>
-        </div>
-      </div>
-      </div>
-
 
     <div class="section" id="section2">
-      <div class="slide">
           <div class="row">
             <div class="small-12 columns">
-                  <div class="headerlogo">Popular Stories</div>
-                  <ol class ="index-list">
-                  <% @popular_stories.each do |story| %>
-                  <% story.each do |key, value| %>
-                  <li>
-                  <%= link_to key.title, story_path(key) %> <%= value %> Tags
-                  </li>
-                <% end %>
-                <% end %>
-                </ol>
+                  <div class="headerlogo">How it Works</div>
+            <ol class ="index-list">
+            <li>We are a community for budding writers. Plot down a snippet and have others write off of it. Let it inspire other writers and watch it grow.</li>
+          </ol>
           </div>
         </div>
 
       </div>
-      <div class="slide">
-            <div class="row">
-            <div class="small-12 columns">
-                  <div class="headerlogo">Recent Stories</div>
-                  <ol class ="index-list">
-                  <% @recent_stories.each do |story| %>
-                    <li>
-                  <%= link_to story.title, story_path(story) %> <%= story.tags.count %> Tags
-                  </li>
-                <% end %>
-                </ol>
-          </div>
-        </div>
-       </div>
-    </div>
+
 
         <div class="section" id="section3">
       <div class="slide">
