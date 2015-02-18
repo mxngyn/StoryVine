@@ -81,6 +81,10 @@
   </div>
 
   <aside class="large-4 columns">
+    <div class="user-dashboard">
+      <li><%= link_to 'Browse Snippets', snippets_path %></li>
+      <li><%= link_to 'Browse Stories', stories_path %></li>
+    </div>
 
     <div class="user-dashboard">
       <%= link_to "View Profile", user_path(current_user)  %>
