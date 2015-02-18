@@ -630,7 +630,7 @@ font-size: 1em;
 /* DASHBOARD */
 
 .user-dashboard {
-  background-color: ;
+  background-color: none;
 /*  border: 1px solid #372e27;*/
   padding: 20px;
   margin: 10px;
