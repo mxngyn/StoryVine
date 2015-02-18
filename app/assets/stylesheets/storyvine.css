@@ -169,8 +169,13 @@ div#container.new-story-page {
 }
 
 #section4 {
-  background-color: #372e27;
-  color: #E7E1D4;
+  background-image: url('moustache.jpg');
+  color: #372e27;
+  text-shadow: 2px 2px black;
+}
+
+.meet-the-team {
+
 }
 
 
@@ -631,9 +636,9 @@ font-size: 1em;
 
 .user-dashboard {
   background-color: none;
-/*  border: 1px solid #372e27;*/
   padding: 20px;
   margin: 10px;
+  word-wrap: break-word;
 }
 
 .user-dashboard-sidebar {
@@ -698,8 +703,24 @@ border-radius: 50%;
 border: 1px solid #372e27;
 }
 
+.team-circular {
+width: 200px;
+height: 200px;
+position: relative;
+overflow: hidden;
+display: inline-block;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+-ms-border-radius: 50%;
+-o-border-radius: 50%;
+border-radius: 50%;
+border: 5px solid #FFFFFF;
+margin: 10px;
+}
+
 .user-info-profile-page {
- margin-left: 4%;
+  margin-left: 4%;
+  word-wrap: break-word;
 }
 
 ul {
@@ -708,6 +729,7 @@ ul {
 
 .user-info-content {
   margin-top: 5%;
+  word-wrap: break-word;
 }
 
 .line-separator{
