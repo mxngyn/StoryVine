@@ -34,4 +34,19 @@ class Snippet < ActiveRecord::Base
     Sanitize.fragment(self, Sanitize::Config::RESTRICTED)
   end
 
+  def tree
+    # Hash[self.stories.to_a.group_by{|s| s.parent_id}.map{|k,v| [(if k then k else 0 end), v] }]
+  end
+
+  def children
+    self.stories.where(parent_id: nil)
+  end
+
+  def as_json(options={})
+    { id: id,
+      type: "snippets",
+      content: content,
+      children: self.children }
+  end
+
 end
