@@ -566,7 +566,7 @@ p {
 }
 
 .user-info {
-  background-color: ;
+  background-color: none;
   width: 100%;
   word-wrap: break-word;
 }
