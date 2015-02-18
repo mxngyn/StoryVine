@@ -1,8 +1,16 @@
 <div id="search-results">
-  <h1> Your Search Results </h1>
+  <h1> Content Containing "<%= params[:search] %>" </h1>
 
+  <% @searched_stories.each do |story| %>
+    <% display_string = story.title %>
+    <% x = params[:search].upcase %>
 
-    <% @searched_stories.each do |story|%>
-      <p><%= link_to story.title, story_path(story) %></p>
+     <% if display_string.include?(params[:search]) %>
+      <p> <% display_string.sub!(params[:search], x ) %></p>
+      <%= link_to display_string, story_path(story) %>
     <% end %>
+  <% end %>
 </div>
+
+
+
