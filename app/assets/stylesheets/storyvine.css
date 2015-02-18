@@ -16,6 +16,10 @@
   padding: 5px;
 }
 
+input.button.round.report {
+  margin-top: 3%;
+}
+
 /*pearl's css */
 
 .accordion-navigation {
@@ -80,7 +84,7 @@
 }
 
 div#container.new-story-page {
-  background: #f0efed;
+  background: #FCFDFF;
 }
 
 .f-dropdown li a {
@@ -391,6 +395,8 @@ h1,h2,h3,h4,h5,h6 {
 .snippet-content {
   color: #372e27;
   font-size: 1.4em;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 .snippet-link {
@@ -452,13 +458,14 @@ h1,h2,h3,h4,h5,h6 {
 
 .autosave {
   text-align: right;
+  color: #372e27;
 }
 
 .new-snippet {
   margin-top: 10px;
   font-family: 'Bitter', serif;
   font-size: 3em;
-  color: #FFFFFF;
+  color: #372e27;
 }
 
 /* STORY SHOW */
@@ -495,6 +502,9 @@ h1,h2,h3,h4,h5,h6 {
   text-align: center;
 }
 
+input#submit_new_content {
+margin-top: 1%;
+}
 .vote-button {
   /*float: right;*/
   /*text-align: center;*/
@@ -654,6 +664,10 @@ font-size: 1em;
   min-height: 400px;
 }
 
+.redactor_editor {
+  min-height: 500px;
+}
+
 .dashboard-nav {
   padding: 0;
   margin: 0;
@@ -695,3 +709,14 @@ ul {
 .user-info-content {
   margin-top: 5%;
 }
+
+.line-separator{
+  height:1px;
+  background:#717171;
+  border-bottom:1px solid #313030;
+}
+
+input#submit_new_content {
+  margin-top:1%;
+}
+
