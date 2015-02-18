@@ -5,6 +5,17 @@
   background-size: cover;
 }
 
+#search-form {
+  height: 12%;
+  background-color:rgba(255,255,255, 0.9);
+  border-radius: 10px;
+}
+
+#search-button {
+  margin: 0;
+  padding: 5px;
+}
+
 /*pearl's css */
 
 .accordion-navigation {
@@ -21,7 +32,7 @@
 
 .accordion .accordion-navigation > a, .accordion dd > a {
   background: #f0efed;
-  font-family: 'Bree Serif', serif;
+  font-family: 'Bitter', serif;
   border-radius: 10px;
 }
 
@@ -39,10 +50,11 @@
 }
 
 .vine-icon {
+  top: 15%;
   width: 50px;
   height: 50px;
-  float: right;
-  margin-right: 3%;
+  position:fixed;
+  right: 0;
 }
 
 .story-snippet-show {
@@ -207,7 +219,7 @@ div#container.new-story-page {
 
 
 body {
-  background-color: #65b6b0;
+  background-color: #fefbf7;
   overflow: scroll;
 }
 
@@ -217,21 +229,19 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .headerlogo {
-  font-family: 'Bree Serif', serif;
+  font-family: 'Bitter', serif;
   font-size: 6em;
   margin-bottom: 20px;
 }
 
 .top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span, .top-bar .name a {
-  font-family: 'Bree Serif', serif;
+  font-family: 'Bitter', serif;
   padding: 10px;
-  color: #FFFFFF;
   font-size: 1.5em;
 }
 
 .top-logo-name a {
-  padding: 5px 10px 5px 10px;
-  color: #FFFFFF;
+  padding: 5px 10px 15px 10px;
   font-size: 1.6em;
 }
 
@@ -249,29 +259,42 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
-  border-right: 1px solid #69908e;
+  padding-right: 5px;
+  border-right: 1px solid transparent;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
-  font-family: 'Bree Serif', serif;
-  background-color: #97cfcc;
+  font-family: 'Bitter', serif;
   font-size: 1em;
+  background: none;
+  color: #008CBA;
 }
 
 .top-bar-section ul li {
-  background-color: #97cfcc;
+  background: none;
+}
+
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+  background: none;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
-   background-color: #97cfcc;
+}
+
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+  background-color: #292E2E;
 }
 
 .sticky {
-  background-color: #97cfcc;
+  padding: 10px;
+  border-bottom: 2px solid #292E2E;
 }
 
 .top-bar {
-  background-color: #97cfcc;
+  padding-bottom: 20px;
+  margin: 10px;
+  background: none;
+  border-bottom: 2px solid #292E2E;
 }
 
 
@@ -491,12 +514,12 @@ input#voterguy {
 
 
 li {
-  font-family: 'Bree Serif', serif;
+  font-family: 'Bitter', serif;
   font-size: 1.2em;
 }
 
 p {
-  font-family: 'Bree Serif', serif;
+  font-family: 'Bitter', serif;
 }
 
 .popular-stuff {
@@ -552,7 +575,7 @@ padding-top: 5px;
 bottom: auto;
 font-size: 13px;
 vertical-align: bottom;
-font-family: 'Bree Serif', 'serif';
+font-family: 'Bitter', 'serif';
 }
 
 /*NAV BAR*/
