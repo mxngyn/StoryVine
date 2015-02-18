@@ -20,7 +20,8 @@ class Story < ActiveRecord::Base
   validates_presence_of :content, :on => :update
 
   searchable do
-    text :title, :content
+    text :title, boost =>5
+    text :content
   end
 
   def vote_count
