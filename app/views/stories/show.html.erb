@@ -30,6 +30,8 @@
         Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %><br></br>
         <% if @story.published && session[:user_id] %>
           Like this story? <%= link_to "Write Off Of This Story", new_nested_story_path %>
+          <% else %>
+            <p class="center-text"><a href="#" data-reveal-id="signup">Inspired? How about signing up!</a></p>
         <% end %>
       <% end %>
 
