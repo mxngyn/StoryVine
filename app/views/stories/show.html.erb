@@ -1,107 +1,109 @@
- <%= csrf_meta_tag %>
 <div class="row">
   <div class="large-12 columns">
 
     <div class="snippet story-snippet-show">
       <div class="snippet-content">
-       <%= strip_tags(@snippet.content) %>
-     </div>
-     <div class="snippet-author">
-      <% if @story.snippet.user %>
-      <%= link_to @story.snippet.user.username, user_path(@story.snippet.user)  %> (<%= link_to "link", @story.snippet %>)
-      <% end %>
-    </div>
-  </div>
-
-  <div class="parent-story">
-    <% if @story.parent != nil %>
-    <div class="story-show">
-      <h4>This story was written off:</h4>
-      <%= link_to "#{@story.parent.title}", story_path(@story.parent.id) %><br>
-    </div>
-    <% end %>
-  </div>
-
-  <% if @story.title && @story.content %>
-  <div class="story-show">
-    <h4><%= @story.title.html_safe %></h4>
-    <%= @story.content.html_safe %><br>
-    <hr>
-    Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %><br></br>
-  </div>
-  <% end %>
-  <% if @story.published && session[:user_id] %>
-  <div class="story-show">
-    Like this story? <%= link_to "Write Off Of This Story", new_nested_story_path %>
-  </div>
-  <% end %>
-
-
-
-  <% if current_user %>
-  <div class="story-show">
-    <% if @story.published && story_editable?(@story) %>
-    <%= link_to "Edit", edit_story_path(@story) %>
-    <%= link_to "Delete", @story, :method => :delete %>
-    <% end %>
-    <%= form_for @story, :url => story_flag_path(@story) do |f| %>
-    <%= f.submit "Report inappropriate", class: "button round" %>
-  </div>
-  <% end %>
-
-
-  <div class="story-show">
-    <div class="story-tags">
-      <h4>Tags</h4>
-      <% @story.tags.each do |tag| %>
-      <%= link_to "#{tag.name}", tags_show_path(tag) %><br>
-      <% end %>
-      <%= render :partial => 'tags/tagform'%>
-    </div>
-    <% end %>
-  </div>
-
-  <div class="story-show">
-    <div class="vote-count">
-      Votes: <%= @story.vote_count %>
-    </div>
-    <div class="vote-button">
-      <% if current_user %>
-      <div id="upvote">
-        <% if @vote != nil && @vote.user_id == current_user.id %>
-        <%= button_to "Downvote",vote_delete_path(@vote), :method => :delete, :class => "button round", :confirm => "Are you sure ?", id: "voterguy" %>
-        <% else %>
-        <%= render "votes/new" %>
+      <h4>Snippet:</h4>
+         <%= strip_tags(@snippet.content) %>
+      </div>
+      <div class="snippet-author">
+        <% if @story.snippet.user %>
+          <%= link_to @story.snippet.user.username, user_path(@story.snippet.user)  %> (<%= link_to "link", @story.snippet %>)
         <% end %>
       </div>
+    </div>
+
+    <div class="parent-story">
+      <% if @story.parent != nil %>
+        <div class="story-show">
+          <h4>This story was written off:</h4>
+            <%= link_to "#{@story.parent.title}", story_path(@story.parent.id) %><br>
+        </div>
       <% end %>
     </div>
-  </div>
 
-
-  <div class="story-children">
     <div class="story-show">
-      <h4>Children:</h4>
-      <% @story.children.each do |story| %>
-      <% if story.published == true %>
-      <%= link_to "#{story.title}", story_path(story.id) %>
-      By: <%= story.author.username %><br>
+      <% if @story.title && @story.content %>
+        <h4><%= @story.title.html_safe %></h4>
+        <%= @story.content.html_safe %><br>
+        <hr>
+        Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %><br></br>
+        <% if @story.published && session[:user_id] %>
+          Like this story? <%= link_to "Write Off Of This Story", new_nested_story_path %>
+          <% else %>
+          <p class="center-text"><a href="#" data-reveal-id="signup">Inspired? How about signing up!</a></p>
+        <% end %>
       <% end %>
+
+
+      <% if story_editable?(@story) %>
+      <div>
+        <% if !@story.published && story_editable?(@story) %><Br><br>
+          <%= link_to "Edit", edit_story_path(@story) %><br>
+          <%= link_to "Delete", @story, :method => :delete %>
+        <% end %>
+
+      </div>
+      <br><br>
+
+      <% if current_user %>
+        <%= form_for @story, :url => story_flag_path(@story) do |f| %>
+        <%= f.submit "Report inappropriate" %>
+        <% end %>
       <% end %>
+
+      <br><br>
+
+      <div class="story-tags">
+        <h4>Tags</h4>
+        <% @story.tags.each do |tag| %>
+          <%= link_to "#{tag.name}", tags_show_path(tag) %><br>
+        <% end %>
+        <%= render :partial => 'tags/tagform'%>
+      </div>
+      <% end %>
+
+      <br><br>
+
+      <div class="vote-count">
+        Votes: <%= @story.vote_count %>
+      </div>
+      <div class="vote-button">
+        <% if current_user %>
+          <div id="upvote">
+          <% if @vote != nil && @vote.user_id == current_user.id %>
+            <%= button_to "Downvote",vote_delete_path(@vote), :method => :delete, :class => "button round", :confirm => "Are you sure ?", id: "voterguy" %>
+          <% else %>
+            <%= render "votes/new" %>
+          <% end %>
+          </div>
+        <% end %>
+      </div>
+
     </div>
+
+
+    <div class="story-children">
+      <div class="story-show">
+        <h4>Children:</h4>
+        <% @story.children.each do |story| %>
+          <% if story.published == true %>
+            <%= link_to "#{story.title}", story_path(story.id) %>
+            By: <%= story.author.username %><br>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <br><br>
+
+    <div class="story-badges">
+
+    </div>
+
   </div>
+</div>
 
-
-
-
-  <div class="story-badges">
-
+  <div class="vine-icon">
+    <img src="http://www.modellodesigns.com/assets/files/645737.gif">
   </div>
-
-
-</div>
-</div>
-
-<div class="vine-icon">
-  <img src="http://www.modellodesigns.com/assets/files/645737.gif">
-</div>

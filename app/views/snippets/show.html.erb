@@ -44,7 +44,9 @@
         <% end %>
       <% else %>
         <p class="center-text">There are currently no stories for this snippet.<p>
+          <% if current_user == nil %>
         <p class="center-text"><a href="#" data-reveal-id="signup">Inspired? How about signing up!</a></p>
+          <% end %>
       <% end %>
     </div>
   </div>

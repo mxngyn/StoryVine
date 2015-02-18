@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(session_params[:password])
       session[:user_id] = @user.id
       redirect_to :dashboard
-      flash[:notice] = "Welcome back, #{@user.username}!"
     else
       redirect_to :back
       flash[:notice] = "There was an error with your login."
