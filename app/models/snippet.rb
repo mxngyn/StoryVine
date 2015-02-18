@@ -9,6 +9,10 @@ class Snippet < ActiveRecord::Base
 
   validates_presence_of :content, :on => :update
 
+  searchable do
+    text :content
+  end
+
   def self.most_recent
     Snippet.all.sort_by(&:created_at).reverse.take(5)
   end
