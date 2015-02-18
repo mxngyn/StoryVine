@@ -457,6 +457,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /*from developer's tool*/
+
 button.round, .button.round {
 /*  margin-left: auto;
   margin-right: auto;*/
@@ -466,6 +467,10 @@ button.round, .button.round {
 
 }
 
+div#vote-center-button {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
 
 input#voterguy {
 /*  margin-right: 0 auto;
@@ -478,9 +483,12 @@ input#voterguy {
   margin-right: 0 auto;
   margin-left: 0 auto;
   position: relative;
-  /*text-align: center;*/
-
 }
+
+#upvote {
+  width: 100%;
+}
+
 
 li {
   font-family: 'Bree Serif', serif;

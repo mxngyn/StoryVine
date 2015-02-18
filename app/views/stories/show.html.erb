@@ -65,10 +65,17 @@
 
       <br><br>
 
+      <div class="row">
+        <div class="small-11 small-centered columns">
       <div class="vote-count">
         Votes: <%= @story.vote_count %>
       </div>
-      <div class="vote-button">
+      </div>
+    </div>
+
+          <div class="row">
+    <div class="small-11 small-centered columns">
+      <div class="vote-button" id="vote-center-button">
         <% if current_user %>
           <div id="upvote">
           <% if @vote != nil && @vote.user_id == current_user.id %>
@@ -79,6 +86,8 @@
           </div>
         <% end %>
       </div>
+    </div>
+  </div>
 
     </div>
 
