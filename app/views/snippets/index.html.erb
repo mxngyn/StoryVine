@@ -6,6 +6,7 @@
             <div class="snippet">
               <div class="snippet-content">
                 <%= strip_tags(snippet.content) %>
+               <p> Submitted on <%= snippet.created_at.to_date %></p>
               </div>
               <div class="snippet-link">
                 <%= link_to "(link)", snippet_path(snippet) %>
