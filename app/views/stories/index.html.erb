@@ -4,7 +4,7 @@
       <% @stories.each do |story| %>
             <div class="snippet">
               <div class="story-content">
-                <h4><%= link_to story.title, story_path(story) %></h4>
+                <h4><%= link_to story.title, story_path(story) %></h4> Published on <%= story.created_at.to_date %>
                 <p>Written By: <%= link_to "#{story.author.username}", user_path(story.author) %></p>
               </div>
             </div>
