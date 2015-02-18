@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+var vineGraph = document.getElementById('vine-graph');
+
+if(vineGraph){
+
 var vineData = rootJSON;
 var vineDataKeys = Object.keys(vineData).sort(function(a, b) {return a - b;});
 
@@ -96,5 +100,5 @@ flowTree(vineData);
 makeTree(vineData, cells);
 
 graph.addCells(cells);
-
+}
 })
