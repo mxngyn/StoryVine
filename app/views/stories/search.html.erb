@@ -1,28 +1,38 @@
 <div id="search-results">
   <br></br>
-  <% if params[:search].empty? %>
-    <h3> There is no content matching "<%= params[:search] %>." </h3>
+  <% if @searched_stories.empty? %>
+    <h3> There is no Story content matching "<%= params[:search] %>." </h3>
   <% else %>
-    <h3> Content with "<%= params[:search] %>" in the Title: </h3>
+    <h3> Stories with "<%= params[:search] %>" in the Title: </h3>
 
     <% @searched_stories.each do |story| %>
-      <% display_string = story.title %>
       <% x = params[:search].upcase %>
-         <% if display_string.include?(params[:search]) %>
-         <% display_string.sub!(params[:search], x ) %>
-          <li><%= link_to display_string, story_path(story) %></li>
-         <% end %>
+      <% if story.title.include?(params[:search]) %>
+        <% display_string = story.title %>
+        <% display_string.sub!(params[:search], x ) %>
+        <li><%= link_to display_string, story_path(story) %></li>
+       <% end %>
+     <% end %>
+     <br>
+     <h3> Stories that mention "<%= params[:search] %>": </h3>
+     <% @searched_stories.each do |story| %>
+       <% if story.content.include?(params[:search]) %>
+        <li><%= link_to story.title, story_path(story) %></li>
+       <% end %>
+     <% end %>
 
-         <% if story.snippet.content.include?(params[:search]) %>
-            <br>
-            <h3> Snippets that mention "<%= params[:search] %>":</h3>
-            <li><%= link_to story.snippet.content, snippet_path(story.snippet) %></li>
-          <% end %>
+  <% end %>
 
-      <% end %>
+    <% @searched_snippets.each do |snip| %>
+       <% if snip.content.include?(params[:search]) %>
+          <br>
+          <h3> Snippets that mention "<%= params[:search] %>":</h3>
+          <li><%= link_to snip.content, snippet_path(snip) %></li>
+    <% end %>
   <% end %>
 
 </div>
+
 
 
 
