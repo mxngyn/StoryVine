@@ -45,6 +45,7 @@ class Snippet < ActiveRecord::Base
   def as_json(options={})
     { id: id,
       type: "snippets",
+      published: true,
       content: content,
       children: self.children }
   end
