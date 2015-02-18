@@ -147,35 +147,37 @@ div#container.new-story-page {
 
 /* INDEX */
 
+
+
+.index-logofont {
+  color: #FFFFFF;
+  font-family: 'Bitter', serif;
+  font-size: 1.4em;
+}
+
 #section0 {
   /* background-color: #97cfcc;*/
   background-color: none;
   color: #FFFFFF;
 }
 
-#section1 {
-   background-color: #E7E1D4;
-  color: #372e27;
-}
 
 #section2 {
-  background-color: #949599;
+  background-image: url("section2bg.jpg");
   color: #f0efed;
 }
 
 #section3 {
-  background-color: #65b6b0;
+background-image: url("section3bg.jpg");
   color: #f0efed;
 }
+
+
 
 #section4 {
   background-image: url('moustache.jpg');
   color: #372e27;
   text-shadow: 2px 2px black;
-}
-
-.meet-the-team {
-
 }
 
 
@@ -186,12 +188,10 @@ div#container.new-story-page {
   position: fixed;
   z-index: 70;
   top: 0;
-  width: 100%;
   text-align: left;
   font-size: 1.5em;
   padding: 8px 15px 30px 0;
-  width: 10%;
-  right: 0%;
+  right: 0;
 }
 
 .logofont {
@@ -239,6 +239,7 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Bitter', serif;
   font-size: 6em;
   margin-bottom: 20px;
+  text-shadow: 2px 2px black;
 }
 
 .top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span, .top-bar .name a {
@@ -338,6 +339,16 @@ h1,h2,h3,h4,h5,h6 {
   text-align: left;
   list-style: none;
   padding-left: 5%;
+}
+
+.index-list a{
+  color: #83ECFF;
+  text-shadow: 2px 2px black;
+}
+
+.index-list a:hover{
+  color: #FFFFFF;
+  text-shadow: 2px 2px black;
 }
 
 
