@@ -1,15 +1,27 @@
 <div id="search-results">
-  <h1> Content Containing "<%= params[:search] %>" </h1>
+  <br></br>
+  <% if params[:search].empty? %>
+    <h3> There is no content matching "<%= params[:search] %>." </h3>
+  <% else %>
+    <h3> Content with "<%= params[:search] %>" in the Title: </h3>
 
-  <% @searched_stories.each do |story| %>
-    <% display_string = story.title %>
-    <% x = params[:search].upcase %>
+    <% @searched_stories.each do |story| %>
+      <% display_string = story.title %>
+      <% x = params[:search].upcase %>
+         <% if display_string.include?(params[:search]) %>
+         <% display_string.sub!(params[:search], x ) %>
+          <li><%= link_to display_string, story_path(story) %></li>
+         <% end %>
 
-     <% if display_string.include?(params[:search]) %>
-      <p> <% display_string.sub!(params[:search], x ) %></p>
-      <%= link_to display_string, story_path(story) %>
-    <% end %>
+         <% if story.snippet.content.include?(params[:search]) %>
+            <br>
+            <h3> Snippets that mention "<%= params[:search] %>":</h3>
+            <li><%= link_to story.snippet.content, snippet_path(story.snippet) %></li>
+          <% end %>
+
+      <% end %>
   <% end %>
+
 </div>
 
 
