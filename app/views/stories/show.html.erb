@@ -38,13 +38,13 @@
 
       <% if story_editable?(@story) %>
       <div>
-        <% if !@story.published && story_editable?(@story) %><Br><br>
+        <% if !@story.published && story_editable?(@story) %>
           <%= link_to "Edit", edit_story_path(@story) %><br>
           <%= link_to "Delete", @story, :method => :delete %>
         <% end %>
 
       </div>
-      <br><br>
+
 
       <% if current_user %>
         <%= form_for @story, :url => story_flag_path(@story) do |f| %>
@@ -52,7 +52,7 @@
         <% end %>
       <% end %>
 
-      <br><br>
+
 
       <div class="story-tags">
         <h4>Tags</h4>
@@ -63,7 +63,7 @@
       </div>
       <% end %>
 
-      <br><br>
+
 
       <div class="row">
         <div class="small-11 small-centered columns">
@@ -97,14 +97,14 @@
         <h4>Children:</h4>
         <% @story.children.each do |story| %>
           <% if story.published == true %>
-            <%= link_to "#{story.title}", story_path(story.id) %>
-            By: <%= story.author.username %><br>
+            <p><%= link_to "#{story.title}", story_path(story.id) %><br>
+            By: <%= story.author.username %></p>
           <% end %>
         <% end %>
       </div>
     </div>
 
-    <br><br>
+
 
     <div class="story-badges">
 
