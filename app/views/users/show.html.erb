@@ -1,13 +1,14 @@
-
+<div class="row">
+  <div class="large-12 columns">
 <div id="profile-page">
   <h1><%= @user.username.capitalize %>'s Profile</h1>
   <h2 class="user-info"><small>Username:</small> <%= @user.username %></h2>
   <h2 class="user-info"><small>Country:</small> <%= @user.country %></h2>
   <h2 class="user-info"><small>Name:</small> <%= @user.first_name %> <%= @user.last_name %></h2>
-  <h2 class="user-info"> <small>URL:</small><% @user.url %></h2>
-  <h2 class="user-info"><small>Bio:</small><% @user.bio %></h2>
+  <h2 class="user-info"> <small>URL:</small><%= @user.url %></h2>
+  <h2 class="user-info"><small>Bio:</small><p><%= @user.bio %></p></h2>
 <br>
-
+</div></div>
 <div class="users-badges">
   <h4><%# @user.username.capitalize %></h4>
   <%# @user.stories.each do |story|  %>
