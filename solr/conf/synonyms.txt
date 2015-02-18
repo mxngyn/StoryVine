@@ -23,6 +23,15 @@ fooaaa,baraaa,bazaaa
 GB,gib,gigabyte,gigabytes
 MB,mib,megabyte,megabytes
 Television, Televisions, TV, TVs
+ipod, i-pod, i pod
+lawyer, attorney
+one, 1
+two, 2
+three, 3
+ten, 10
+hundred, 100
+thousand, 1000
+
 #notice we use "gib" instead of "GiB" so any WordDelimiterFilter coming
 #after us won't split it into two words.
 
