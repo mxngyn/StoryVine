@@ -22,9 +22,9 @@
      <% end %>
 
   <% end %>
-
-    <% @searched_snippets.each do |snip| %>
-       <% if snip.content.include?(params[:search]) %>
+>
+       <% if snip.content.include?(params[
+    <% @searched_snippets.each do |snip| %:search]) %>
           <br>
           <h3> Snippets that mention "<%= params[:search] %>":</h3>
           <li><%= link_to snip.content, snippet_path(snip) %></li>
