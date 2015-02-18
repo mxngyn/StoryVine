@@ -20,7 +20,7 @@ module ApplicationHelper
    end
 
   def random_story
-    @story = Story.all.sample
+    @story = Story.where(published: true).sample
   end
 
 

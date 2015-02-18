@@ -10,6 +10,11 @@ $(document).ready(function() {
   accordionBar();
   storyHistory();
 
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
 });
 
 

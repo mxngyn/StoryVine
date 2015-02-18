@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount RedactorRails::Engine => '/redactor_rails'
 
+  patch 'snippets/:id/flag', to: 'snippets#flag', as: 'snippet_flag'
+  patch 'stories/:id/flag', to: 'stories#flag', as: 'story_flag'
 
   get '/snippets/:id/vine', to: 'snippets#vine', as: 'snippet_vine'
   resources :snippets, except: :create
@@ -38,8 +40,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
 
-  patch 'snippets/:id/flag', to: 'snippets#flag', as: 'snippet_flag'
-  patch 'stories/:id/flag', to: 'stories#flag', as: 'story_flag'
+
 
 end
 

@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       redirect_to dashboard_path
     else
       redirect_to :back
+      flash[:notice] = "There was an error with your signup."
     end
   end
 
