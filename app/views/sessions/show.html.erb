@@ -1,10 +1,13 @@
-<div class="row">
+<div class="row dashboard-fullWidth">
   <div class="large-12 columns">
-  <h1>Welcome, <%= current_user.username %></h1>
+              <div class="user-dashboard">
+          <h1>Welcome, <%= current_user.username %></h1>
+        </div>
 </div>
 </div>
 
-<div class="row">
+
+<div class="row dashboard-fullWidth">
   <div class="large-8 columns">
     <article>
 
@@ -12,14 +15,18 @@
         <div class="large-12 columns">
 
           <% if current_user && current_user.admin %>
+
             <div class="user-dashboard">
-            <h3>Admin Panel</h3>
+            <div class="dashboard-header">Admin Panel</div>
             <h5>Flagged Stories</h5>
             <% if @flagged_stories.count == 0 %>
               <p>There are no flagged stories.</p>
             <% else %>
               <% @flagged_stories.each do |story|  %>
-                <%= link_to strip_tags(story.title), story_path(story)  %>
+              <ul class="dashboard-nav">
+              <li> <%= link_to strip_tags(story.title), story_path(story)  %></li>
+              </ul>
+
               <% end %>
             <% end %>
 
@@ -28,46 +35,56 @@
               <p>There are no flagged snippets.</p>
             <% else %>
               <% @flagged_snippets.each do |snippet|  %>
-                <%= link_to strip_tags(snippet.content), snippet_path(snippet)  %>
+              <ul class="dashboard-nav">
+              <li> <%= link_to strip_tags(snippet.content), snippet_path(snippet)  %></li>
+              </ul>
               <% end %>
             <% end %>
           </div>
           <% end %>
 
             <div class="user-dashboard">
-      <h3>Your Snippets</h3>
+      <div class="dashboard-header">Your Snippets</div>
       <% if current_user.snippets.count == 0 %>
         <p>You have not written any snippets.</p>
       <% else %>
         <% current_user.snippets.each do |snippet|  %>
-          <%= link_to strip_tags(snippet.content), snippet_path(snippet)  %>
+        <ul class="dashboard-nav">
+        <li><%= link_to strip_tags(snippet.content), snippet_path(snippet)  %></li>
+        </ul>
+
         <% end %>
       <% end %>
     </div>
     <div class="user-dashboard">
-      <h3>Your Unpublished Stories</h3>
+      <div class="dashboard-header">Your Unpublished Stories</div>
       <% if current_user.stories.where(published: false).count == 0 %>
         <p>You have no unpublished stories.</p>
       <% else %>
         <% current_user.stories.where(published: false).each do |story| %>
-          <%= link_to "#{story.title}", story_path(story) %><br>
+        <ul class="dashboard-nav">
+        <li><%= link_to "#{story.title}", story_path(story) %></li>
+        </ul>
         <% end %>
       <% end %>
     </div>
 
     <div class="user-dashboard">
-      <h3>Your Published Stories</h3>
+      <div class="dashboard-header">Your Published Stories</div>
       <% if current_user.stories.where(published: true).count == 0 %>
         <p>You have no published stories.</p>
       <% else %>
         <% current_user.stories.where(published: true).each do |story| %>
-          <%= link_to "#{story.title}", story_path(story) %><br>
+        <ul class="dashboard-nav">
+        <li><%= link_to "#{story.title}", story_path(story) %></li>
+        </ul>
+
         <% end %>
       <% end %>
     </div>
 
     <div class="user-dashboard">
-      <h3>Stories You Voted On</h3>
+      <div class="dashboard-header">Stories You Voted On</div>
       <% if current_user.votes.count == 0 %>
         <p>You have not voted any stories.</p>
       <% else %>
@@ -80,21 +97,33 @@
     </article>
   </div>
 
+
   <aside class="large-4 columns">
-    <div class="user-dashboard">
+    <div id="sidebar-container">
+        <div class="user-dashboard-sidebar">
+      <div class="user-dashboard-sidebar-header">User Info</div>
+      <ul class="dashboard-nav">
+      <li><%= link_to "View Profile", user_path(current_user)  %></li>
+      </ul>
+    </div>
+
+    <div class="user-dashboard-sidebar">
+      <div class="user-dashboard-sidebar-header">Navigation</div>
+      <ul class="dashboard-nav">
       <li><%= link_to 'Browse Snippets', snippets_path %></li>
       <li><%= link_to 'Browse Stories', stories_path %></li>
+      </ul>
     </div>
 
-    <div class="user-dashboard">
-      <%= link_to "View Profile", user_path(current_user)  %>
-    </div>
 
-    <div class="user-dashboard">
-      <h5>Story Of The Day</h5>
-      <%= link_to "#{random_story.title}", story_path(random_story) %>
-    </div>
 
+    <div class="user-dashboard-sidebar">
+      <div class="user-dashboard-sidebar-header">Story of the Day</div>
+      <ul class="dashboard-nav">
+      <li><%= link_to "#{random_story.title}", story_path(random_story) %></li>
+      </ul>
+    </div>
+  </div>
 
 
 

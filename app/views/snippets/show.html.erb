@@ -16,16 +16,16 @@
       </div>
     </div>
 
-    <div class="snippet">
-      <h2><%= link_to "Vine", snippet_vine_path(@snippet) %></h2>
-    </div>
+      <%= link_to snippet_vine_path(@snippet) do %>
+        <div id="vine-hover"></div>
+      <% end %>
 
     <div class="submit-story">
         <ul>
           <% if current_user %>
           <li><%=link_to "Submit a story for this snippet", new_story_path(snippet_id: @snippet.id), class: "button round snippet-button" %></li>
           <%= form_for @snippet, :url => snippet_flag_path(@snippet) do |f| %>
-          <li><%= f.submit "Report inappropriate", class: "button round secondary small" %></li>
+          <li><%= f.submit "Report inappropriate", class: "button round snippet-button small" %></li>
           <% end %>
           <% end %>
         </ul>
