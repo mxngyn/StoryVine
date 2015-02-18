@@ -10,6 +10,30 @@
 
       <div class="row">
         <div class="large-12 columns">
+
+          <% if current_user && current_user.admin %>
+            <div class="user-dashboard">
+            <h3>Admin Panel</h3>
+            <h5>Flagged Stories</h5>
+            <% if @flagged_stories.count == 0 %>
+              <p>There are no flagged stories.</p>
+            <% else %>
+              <% @flagged_stories.each do |story|  %>
+                <%= link_to strip_tags(story.title), story_path(story)  %>
+              <% end %>
+            <% end %>
+
+            <h5>Flagged Snippets</h5>
+            <% if @flagged_snippets.count == 0 %>
+              <p>There are no flagged snippets.</p>
+            <% else %>
+              <% @flagged_snippets.each do |snippet|  %>
+                <%= link_to strip_tags(snippet.content), snippet_path(snippet)  %>
+              <% end %>
+            <% end %>
+          </div>
+          <% end %>
+
             <div class="user-dashboard">
       <h3>Your Snippets</h3>
       <% if current_user.snippets.count == 0 %>
