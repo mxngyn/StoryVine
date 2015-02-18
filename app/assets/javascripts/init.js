@@ -9,6 +9,8 @@ $(document).ready(function() {
   voteDown();
   accordionBar();
   storyHistory();
+  revealVineModal();
+
 });
 
 
@@ -73,6 +75,7 @@ var voteDown = function() {
     });
   }
 }
+<<<<<<< HEAD
 
 var accordionBar = function() {
 
@@ -92,3 +95,5 @@ var storyHistory = function() {
       $('.story-children').toggle('slow')
   });
 }
+=======
+>>>>>>> Javascript work

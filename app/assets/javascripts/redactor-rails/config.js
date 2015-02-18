@@ -5,6 +5,7 @@ $(document).ready(function(){
   if (csrf_param !== undefined && csrf_token !== undefined) {
     params = csrf_param + "=" + encodeURIComponent(csrf_token);
   }
+  if(document.getElementsByClassName('redactor')[0]){
   $('.redactor').redactor(
     { "imageUpload":"/redactor_rails/pictures?" + params,
       "imageGetJson":"/redactor_rails/pictures",
@@ -14,6 +15,6 @@ $(document).ready(function(){
       "css":"style.css",
       buttons: ['formatting', 'bold', 'italic', 'deleted', 'unorderedlist', 'orderedlist', 'outdent', 'indent', 'alignment', 'horizontalrule']
   });
-
+}
 });
 
