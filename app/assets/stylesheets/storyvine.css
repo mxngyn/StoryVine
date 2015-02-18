@@ -76,9 +76,21 @@ div#container.new-story-page {
   font-size:20px;
   padding: 0.5rem;
   text-align: center;
-
 }
 
+
+.tagged-stories {
+  /*text-align: center;*/
+  /*clear: both;*/
+  /*font-family: 'Bitter', serif;*/
+  padding: 20px 0px 20px 0px;
+  margin: 20px;
+  /*background-color: #97cfcc;*/
+  border-radius: 10px;
+  text-align: center;
+  width: ;
+
+}
 
 
 /*end */
