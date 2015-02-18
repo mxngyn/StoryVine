@@ -12,9 +12,9 @@
  <div class="logoNavBar">
     <ul class="menu">
       <% if current_user %>
-      <li><%= link_to "StoryVine", dashboard_path, class: "logofont" %></li>
+      <li><%= link_to "StoryVine", dashboard_path, class: "index-logofont" %></li>
       <% else %>
-      <%= link_to "StoryVine", :root, class: "logofont"  %>
+      <%= link_to "StoryVine", :root, class: "index-logofont"  %>
       <% end %>
     </ul>
   </div>
@@ -22,16 +22,8 @@
   <div id="infoMenu">
     <% if !current_user %>
     <ul class="menu">
-      <li><a href="#" data-reveal-id="login">LOGIN</a></li> |
-      <li><a href="#" data-reveal-id="signup">SIGNUP</a></li>
-    </ul>
-    <% else %>
-      <a href="#" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:90000;">Menu</a>
-      <ul id="hover1" class="f-dropdown" data-dropdown-content>
-      <li class="menu-dropdown"><%= link_to "Create Snippet", new_snippet_path  %></li>
-      <li class="menu-dropdown"><%= link_to "Dashboard", dashboard_path  %></li>
-      <li class="menu-dropdown"><%= link_to "Profile", user_path(current_user)  %></li>
-      <li class="menu-dropdown"><%= link_to "Logout", logout_path  %></li>
+      <li><a href="#" data-reveal-id="login" class="index-logofont">LOGIN</a></li> |
+      <li><a href="#" data-reveal-id="signup" class="index-logofont">SIGNUP</a></li>
     </ul>
     <% end %>
   </div>
