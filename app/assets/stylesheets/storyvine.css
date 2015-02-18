@@ -16,6 +16,10 @@
   padding: 5px;
 }
 
+input.button.round.report {
+  margin-top: 3%;
+}
+
 /*pearl's css */
 
 .accordion-navigation {
@@ -50,11 +54,10 @@
 }
 
 .vine-icon {
-  top: 15%;
-  width: 50px;
-  height: 50px;
-  position:fixed;
-  right: 0;
+
+  padding: 3%;
+  font-size: 1.5em;
+
 }
 
 .story-snippet-show {
@@ -81,7 +84,7 @@
 }
 
 div#container.new-story-page {
-  background: #f0efed;
+  background: #FCFDFF;
 }
 
 .f-dropdown li a {
@@ -100,6 +103,7 @@ div#container.new-story-page {
   /*background-color: #97cfcc;*/
   border-radius: 10px;
   text-align: center;
+
 }
 
 
@@ -312,10 +316,17 @@ h1,h2,h3,h4,h5,h6 {
    height: 66px;
    width: 216px;
    margin: 0 auto;
+   margin-bottom: 4%;
+   overflow: hidden;
 }
 
 #vine-hover:hover {
    background-image: url('vine_dark.png');
+}
+
+
+.vine-for-story {
+  padding-top: 3%;
 }
 
 .index-list {
@@ -384,6 +395,8 @@ h1,h2,h3,h4,h5,h6 {
 .snippet-content {
   color: #372e27;
   font-size: 1.4em;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 .snippet-link {
@@ -445,13 +458,14 @@ h1,h2,h3,h4,h5,h6 {
 
 .autosave {
   text-align: right;
+  color: #372e27;
 }
 
 .new-snippet {
   margin-top: 10px;
   font-family: 'Bitter', serif;
   font-size: 3em;
-  color: #FFFFFF;
+  color: #372e27;
 }
 
 /* STORY SHOW */
@@ -460,13 +474,15 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Bitter', serif;
   padding: 30px 0px 30px 0px;
   margin: 50px;
-  background-color: #97cfcc;
-  border-radius: 10px;
+  /*background-color: #97cfcc;*/
+  background-color: #e3e3e3;
+
   text-align: center;
   color: #372e27;
   /*pearl added:*/
   word-wrap: break-word;
   padding: 20px;
+
 
 }
 
@@ -486,6 +502,9 @@ h1,h2,h3,h4,h5,h6 {
   text-align: center;
 }
 
+input#submit_new_content {
+margin-top: 1%;
+}
 .vote-button {
   /*float: right;*/
   /*text-align: center;*/
@@ -645,6 +664,10 @@ font-size: 1em;
   min-height: 400px;
 }
 
+.redactor_editor {
+  min-height: 500px;
+}
+
 .dashboard-nav {
   padding: 0;
   margin: 0;
@@ -686,3 +709,14 @@ ul {
 .user-info-content {
   margin-top: 5%;
 }
+
+.line-separator{
+  height:1px;
+  background:#717171;
+  border-bottom:1px solid #313030;
+}
+
+input#submit_new_content {
+  margin-top:1%;
+}
+
