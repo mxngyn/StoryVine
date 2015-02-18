@@ -1,7 +1,11 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="top-logo-name">
-      <%= link_to 'Story Vine', :root %>
+      <% if current_user %>
+        <%= link_to 'Story Vine', :dashboard, class: "story-vine-link" %>
+      <% else %>
+        <%= link_to 'Story Vine', :root, class: "story-vine-link" %>
+      <% end %>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
   </ul>
@@ -10,22 +14,11 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <li class="divider"></li>
-      <li class="has-form">
-  <div class="row collapse">
-    <div class="large-8 small-9 columns">
-      <%= form_tag stories_search_path, :method => :get do %>
-      <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
-    </div>
-    <div class="large-4 small-3 columns">
-      <%= submit_tag "Search", :name => nil, class: "button radius" %>
-      <% end %>
-    </div>
-  </div>
-</li>
 
+<li ><a href="#" data-dropdown="search-form">Search</a></li>
       <li class="divider"></li>
       <% if current_user %>
-        <li><%= link_to "Hello, #{current_user.username.capitalize}", user_path(current_user) %></li>
+        <li><%= link_to "#{current_user.username.capitalize}", user_path(current_user) %></li>
         <li class="divider"></li>
         <li class="has-dropdown">
           <a href="#">MENU</a>
@@ -58,3 +51,9 @@
   </div>
   </section>
 </nav>
+
+<div id="search-form" data-dropdown-content class="f-dropdown content small" aria-hidden="true" tabindex="-1">
+  <%= form_tag stories_search_path, :method => :get do %>
+<%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
+<p align="right"><%= submit_tag "Search", :name => nil, class: "button radius", id: 'search-button' %></p>
+<% end %> </div>
