@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RedactorRails::Engine => '/redactor_rails'
 
 
-
+  get '/snippets/:id/vine', to: 'snippets#vine', as: 'snippet_vine'
   resources :snippets, except: :create
 
 
