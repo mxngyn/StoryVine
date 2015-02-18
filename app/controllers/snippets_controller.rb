@@ -42,9 +42,7 @@ class SnippetsController < ApplicationController
 
   def flag
     @snippet = Snippet.find(params[:id])
-    if !(Flag.where(flaggable_type: "Snippet", flaggable_id: @snippet.id))
-      @snippet.flag(session[:user_id])
-    end
+    Flag.create(flaggable_type: "Snippet", flaggable_id: @snippet.id)
     flash[:notice] = "Thank you. We'll look into this shortly."
     redirect_to snippet_path(@snippet.id)
   end

@@ -70,9 +70,7 @@ class StoriesController < ApplicationController
 
   def flag
     @story = Story.find(params[:id])
-    if !(Flag.where(flaggable_type: "Story", flaggable_id: @story.id))
-      @story.flag(session[:user_id])
-    end
+    Flag.create(flaggable_type: "Story", flaggable_id: @story.id)
     flash[:notice] = "Thank you. We'll look into this shortly."
     redirect_to story_path(@story.id)
   end

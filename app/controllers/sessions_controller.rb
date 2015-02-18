@@ -14,12 +14,14 @@ class SessionsController < ApplicationController
       flash[:notice] = "Welcome back, #{@user.username}!"
     else
       redirect_to :back
-      flash[:notice] = "There was an error logging in."
+      flash[:notice] = "There was an error with your login."
     end
   end
 
   def show
     @user = User.find(session[:user_id])
+    @flagged_stories = Flag.stories
+    @flagged_snippets = Flag.snippets
   end
 
   def destroy
