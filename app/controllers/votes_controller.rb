@@ -12,7 +12,7 @@ class VotesController < ApplicationController
   def destroy
     @vote = Vote.find(params[:id])
     @vote.destroy
-    render plain: ""
+    render plain: "Vote: #{@vote.story.vote_count}"
   end
 
   private
