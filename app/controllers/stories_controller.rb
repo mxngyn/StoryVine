@@ -17,6 +17,17 @@ class StoriesController < ApplicationController
       end
       fulltext stext, :highlight => true
     end
+
+    @snip_search = Snippet.search do
+      if params[:search].nil? || params[:search].empty?
+        stext = ''
+      else
+        stext = params[:search]
+      end
+      fulltext stext, :highlight => true
+    end
+
+    @searched_snippets = @snip_search.results
     @searched_stories = @search.results
   end
 
