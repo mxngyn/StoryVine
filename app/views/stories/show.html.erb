@@ -16,11 +16,23 @@
   <div class="parent-story">
     <% if @story.parent != nil %>
     <div class="story-show">
+
       <h4>This story was written off:</h4>
       <%= link_to "#{@story.parent.title}", story_path(@story.parent.id) %><br>
     </div>
     <% end %>
   </div>
+
+      <% if @story.title && @story.content %>
+        <h4><%= @story.title.html_safe %></h4>
+        <%= @story.content.html_safe %><br>
+        <hr>
+        Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %><br></br>
+        <% if @story.published && current_user %>
+          Like this story? <%= link_to "Write Off Of This Story", new_nested_story_path %>
+        <% end %>
+      <% end %>
+
 
   <% if @story.title && @story.content %>
   <div class="story-show">
