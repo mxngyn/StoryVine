@@ -41,7 +41,7 @@ function makeTree(node, tree) {
     attrs: {
       rect: { fill: '#000000', rx: 5, ry: 5, 'stroke-width': 2, stroke: '#65b6b0' },
       a: { 'xlink:href': '/' + node.type + '/' + node.id , cursor: 'pointer' },
-      text: { text: joint.util.breakText($(node.content).text().slice(0,20), { width: 135 }) }
+      text: { text: joint.util.breakText($(node.content).text().slice(0,20) + "...", { width: 135 }) }
     }
   });
   box.attr({
