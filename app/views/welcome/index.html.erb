@@ -101,12 +101,14 @@
       <div class="slide">
                     <div class="row">
             <div class="small-12 columns">
-                  <div class="headerlogo">Recent Snippets</div>
+                  <div class="headerlogo">Popular Stories</div>
                   <ol class ="index-list">
-                  <% @recent_snippets.each do |snippet| %>
-                    <li>
-                  <%= link_to snippet.content, snippet_path(snippet) %> <%= snippet.stories.count %> Stories Created
+                  <% @popular_stories.each do |story| %>
+                  <% story.each do |key, value| %>
+                  <li>
+                  <%= link_to key.title, story_path(key) %> <%= value %> Tags
                   </li>
+                <% end %>
                 <% end %>
                 </ol>
           </div>
@@ -122,10 +124,11 @@
         <div class="headerlogo">Meet the Team</div>
         <div class="row">
           <div class="large-12 columns">
-        <div class="team-circular"><%= image_tag('alex_forreal.gif') %></div>
-        <div class="team-circular"><%= image_tag('pearl.gif') %></div>
-        <div class="team-circular"><%= image_tag('dionne.gif') %></div>
-        <div class="team-circular"><%= image_tag('mai.gif') %></div>
+
+        <div class="team-circular"><%= link_to image_tag('pearl.gif'), 'https://github.com/pearlshin' %></div>
+        <div class="team-circular"><%= link_to image_tag('alex_forreal.gif'), 'https://github.com/alexjtark' %></div>
+        <div class="team-circular"><%= link_to image_tag('dionne.gif'), 'https://github.com/SputterPuttRedux' %></div>
+        <div class="team-circular"><%= link_to image_tag('mai.gif'), 'https://github.com/mxngyn' %></div>
       </div></div>
       </div>
       </div>
