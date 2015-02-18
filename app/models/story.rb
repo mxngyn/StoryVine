@@ -66,6 +66,14 @@ class Story < ActiveRecord::Base
     Sanitize.fragment(self, Sanitize::Config::RESTRICTED)
   end
 
+  def as_json(options={})
+    { id: id,
+      type: "stories",
+      title: title,
+      children: self.children }
+  end
+
+
 end
 
 

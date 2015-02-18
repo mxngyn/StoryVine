@@ -15,6 +15,11 @@
         <% end %>
       </div>
     </div>
+
+    <div class="snippet">
+      <h2><%= link_to "Vine", snippet_vine_path(@snippet) %></h2>
+    </div>
+
     <div class="submit-story">
         <ul>
           <% if current_user %>
@@ -42,7 +47,6 @@
         <p class="center-text"><a href="#" data-reveal-id="signup">Inspired? How about signing up!</a></p>
       <% end %>
     </div>
-
   </div>
 
    <div id="signup" class="reveal-modal" data-reveal>

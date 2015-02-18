@@ -8,6 +8,18 @@ end
   Snippet.create(user_id: rand(1..10), content: Faker::Lorem.sentence)
 end
 
+## STORY SEED DATA FOR VINE TESTING ##
+Story.create(title: Faker::Lorem.sentence, author_id: 1, content: Faker::Lorem.paragraph, parent_id: nil, snippet_id: 1, published: true)
+
+Story.create(title: Faker::Lorem.sentence, author_id: 1, content: Faker::Lorem.paragraph, parent_id: 1, snippet_id: 1, published: true)
+
+Story.create(title: Faker::Lorem.sentence, author_id: 1, content: Faker::Lorem.paragraph, parent_id: 1, snippet_id: 1, published: true)
+
+Story.create(title: Faker::Lorem.sentence, author_id: 1, content: Faker::Lorem.paragraph, parent_id: 2, snippet_id: 1, published: true)
+
+
+## END ##
+
 20.times do
   published = [true, false].sample
   Story.create(title: Faker::Lorem.sentence, author_id: rand(1..10), content: Faker::Lorem.paragraph, parent_id: rand(1..9), snippet_id: rand(1..10), published: published)
@@ -29,3 +41,4 @@ end
 ## ADMIN ##
 
 User.create(username: "mai", password: "password", email: "mai@mai.com", admin: true)
+

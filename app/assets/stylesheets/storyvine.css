@@ -1,4 +1,3 @@
-
 #embedded-video {
   position: fixed; right: 0; bottom: 0;
   min-width: 100%; min-height: 100%;
@@ -74,6 +73,10 @@ div#container.new-story-page {
 
 
 
+
+#container {
+  height: 100%;
+}
 
 #upvote {
   width: 25px;
@@ -547,8 +550,11 @@ font-size: 1em;
   padding: 10px;
   margin: 10px;
 }
+<<<<<<< HEAD
 
 
 .redactor_box {
   min-height: 400px;
 }
+=======
+>>>>>>> Styling

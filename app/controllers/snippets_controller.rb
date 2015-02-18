@@ -49,6 +49,12 @@ class SnippetsController < ApplicationController
     redirect_to snippet_path(@snippet.id)
   end
 
+  def vine
+    @snippet = Snippet.find(params[:id])
+  end
+
+
+
   private
 
     def set_user
