@@ -30,6 +30,17 @@
         <% if @story.published && session[:current_user] %>
           Like this story? <%= link_to "Write Off Of This Story", new_nested_story_path %>
         <% end %>
+
+  <div class="story-show">
+    <h2><%= link_to "Vine", snippet_vine_path(@story.snippet) %></h2>
+  </div>
+
+  <div class="story-show">
+    <h3>Children:</h3>
+    <% @story.children.each do |story| %>
+      <% if story.published == true %>
+        <%= link_to "#{story.title}", story_path(story.id) %><br>
+
       <% end %>
 
 
@@ -105,7 +116,41 @@
 
   </div>
 </div>
+<<<<<<< HEAD
 
   <div class="vine-icon">
       <img src="http://www.modellodesigns.com/assets/files/645737.gif">
     </div>
+=======
+<br><br>
+
+<% if current_user %>
+  <%= form_for @story, :url => story_flag_path(@story) do |f| %>
+  <%= f.submit "Report inappropriate" %>
+  <% end %>
+<% end %>
+
+<div class="story-tags">
+  <% @story.tags.each do |tag| %>
+    <%= link_to "#{tag.name}", tags_show_path(tag) %><br>
+  <% end %>
+  <%= render :partial => 'tags/tagform'%>
+</div>
+<% end %>
+<br><br>
+
+<div class="story-badges">
+  <%# @story.badges.each do |badge| %>
+    <%# badge.title  %>
+  <%# end %>
+  <% if @story.author != nil %>
+    <%= @story.award_badge %>
+    <%# @story.most_voted %>
+  <% end %>
+</div>
+
+
+
+</div>
+</div>
+>>>>>>> Add link to vine
