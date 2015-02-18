@@ -10,7 +10,12 @@ class StoriesController < ApplicationController
   def search
     #displays all stories searched for
     @search = Story.search do
-      fulltext params[:search]
+      if params[:search].nil? || params[:search].empty?
+        stext = ''
+      else
+        stext = params[:search]
+      end
+      fulltext stext, :highlight => true
     end
     @searched_stories = @search.results
   end
