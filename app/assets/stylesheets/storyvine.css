@@ -463,13 +463,15 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Bitter', serif;
   padding: 30px 0px 30px 0px;
   margin: 50px;
-  background-color: #97cfcc;
-  border-radius: 10px;
+  /*background-color: #97cfcc;*/
+  background-color: #e3e3e3;
+
   text-align: center;
   color: #372e27;
   /*pearl added:*/
   word-wrap: break-word;
   padding: 20px;
+
 
 }
 
