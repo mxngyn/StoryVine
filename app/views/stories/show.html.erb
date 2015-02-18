@@ -25,8 +25,10 @@
     <div class="story-show">
       <% if @story.title && @story.content %>
         <h4><%= @story.title.html_safe %></h4>
-        <%= @story.content.html_safe %><br>
-        <hr>
+        <%= @story.content.html_safe %>
+
+        <div class="line-separator"></div><br><br>
+
         Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %><br></br>
         <% if @story.published && session[:user_id] %>
           Like this story? <%= link_to "Write Off Of This Story", new_nested_story_path %>
@@ -48,7 +50,7 @@
 
       <% if current_user %>
         <%= form_for @story, :url => story_flag_path(@story) do |f| %>
-        <%= f.submit "Report inappropriate" %>
+        <%= f.submit "Report inappropriate", class:"button round report" %>
         <% end %>
       <% end %>
 
@@ -64,13 +66,13 @@
       <% end %>
 
   <div class="vine-for-story">
-   <%= link_to snippet_vine_path(@snippet) do %>
+   <%= link_to snippet_vine_path(@story.snippet) do %>
         <div id="vine-hover"></div>
       <% end %>
     </div>
 
     <div class="vine-icon">
-      See The Parent Story
+      Trace The History
   </div>
 
       <div class="row">
