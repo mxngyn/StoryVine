@@ -63,9 +63,9 @@
             <%= form_tag stories_search_path, :method => :get do %>
               <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
               <%= submit_tag "Search", :name => nil, class: "button round" %>
-            <% end %>
+            <% end %><br><br>
               <div class="arrow-down">
-                <img src="http://www.kylejson.com/img/down-bold.png">
+                <a href="#section1"><img src="http://www.kylejson.com/img/down-bold.png"></a>
               </div>
           </div>
         </div>
