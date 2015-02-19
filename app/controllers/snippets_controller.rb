@@ -12,7 +12,8 @@ class SnippetsController < ApplicationController
 
   def update
     @snippet = Snippet.find(params["id"])
-    if @snippet.update(content: params["snippet"]["content"])
+    snippet_content = Sanitize.fragment(params["snippet"]["content"], Sanitize::Config::RESTRICTED)
+    if @snippet.update(content: snippet_content)
       User.find(session[:user_id]).snippets << @snippet
       if request.xhr?
         render plain: "Autosaved on " + @snippet.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
