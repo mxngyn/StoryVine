@@ -753,3 +753,10 @@ input#submit_new_content {
   margin-top:1%;
 }
 
+/* Search highlight Color */
+
+mark {
+    background-color: #008cba;
+    color: white;
+}
+
