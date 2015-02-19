@@ -66,7 +66,7 @@ class Story < ActiveRecord::Base
     { id: id,
       type: "stories",
       published: published,
-      content: content,
+      title: title,
       children: self.children }
   end
 

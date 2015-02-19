@@ -3,7 +3,7 @@
     <div class="snippet">
     <div class="root-snippet">
     <h3>Snippet</h3>
-      <%= @story.snippet.content %>
+      <%= strip_tags(@story.snippet.content) %>
     </div>
   </div>
 
