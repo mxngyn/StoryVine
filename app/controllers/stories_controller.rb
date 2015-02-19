@@ -61,7 +61,8 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find(params["id"])
-    if @story.update(content: params["story"]["content"], title: params["story"]["title"], published: params["story"]["published"])
+    story_content = Sanitize.fragment(params["story"]["content"], Sanitize::Config::RESTRICTED)
+    if @story.update(content: story_content, title: params["story"]["title"], published: params["story"]["published"])
       User.find(session[:user_id]).stories << @story
       if request.xhr?
         render plain: "Autosaved on " + @story.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
