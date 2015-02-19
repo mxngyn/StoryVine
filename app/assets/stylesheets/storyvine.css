@@ -600,13 +600,13 @@ p {
 }
 
 .button {
-  background-color: #C9C9C9;
+  background-color: #ffffff;
   color: #372e27;
   margin-right: 5px;
 }
 
 .button :hover {
-  background-color: #949599;
+  background-color: #ffffff;
   color: #372e27;
 }
 
