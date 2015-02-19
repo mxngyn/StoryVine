@@ -6,6 +6,6 @@
     <%= f.label 'or, Create a New Tag' %> <br>
     <%= f.text_field :add_name %><br>
     <%= f.hidden_field :story_id, :value => @story.id %>
-    <%= f.submit "Tag", class: "button round" %>
+    <%= f.submit "Tag", class: "button round tag" %>
   <% end %>
 </div>
