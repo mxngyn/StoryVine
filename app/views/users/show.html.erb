@@ -23,6 +23,7 @@
               <p style="margin-top: 10%; width: 55%" align="right">
                 <%=link_to "Edit Profile", edit_user_path(current_user), class: "button radius small" %>
               </p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -45,7 +46,7 @@
      <% if @user.all_published %>
      <ul>
        <% @user.all_published.each do |story| %>
-       <li><%= link_to strip_tags(story.title), story_path(story) %></li>
+        <li><%= link_to strip_tags(story.title), story_path(story) %></li>
        <% end %>
      </ul>
       <% else %>
@@ -54,7 +55,7 @@
   </div>
 </div>
 
-    <% end %>
+
   </div>
 
 
