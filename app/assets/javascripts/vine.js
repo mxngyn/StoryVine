@@ -66,6 +66,7 @@ $(document).ready(function() {
         var link = new joint.dia.Link({
           source: {id: box.id},
           target: {id: child.id},
+          smooth: true
         });
         link.attr({
           '.connection': { stroke: '#65b6b0', 'stroke-width': 2 },
