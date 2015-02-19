@@ -1,35 +1,47 @@
 <div class="row">
-  <div class="large-vine columns"
-<div id="search-results">
-  <% if (@searched_stories + @searched_snippets).empty? %>
-  <br>
-    <h3> We couldn't find any content containing "<%= params[:search] %>".</h3>
-  <% elsif !@searched_stories.empty? %>
-    <div class="dashboard-header"> Stories with "<%= params[:search] %> in the title: " </div>
-    <% @searched_stories.each do |story| %>
-      <% display_string = story.title %>
-      <% x = params[:search]%>
-      <% if display_string.include?(params[:search]) %>
-        <% display_string.sub!(params[:search], "<mark><strong>#{x}</strong></mark>" ) %>
+  <div class="large-vine columns">
+    <div id="search-results">
+      <% if (@searched_stories + @searched_snippets).empty? %>
         <br>
-        <li><%= link_to display_string.html_safe, story_path(story) %></li>
+        <h3> We couldn't find any content containing "<%= params[:search] %>".</h3>
+      <% elsif !@searched_stories.empty? %>
+
+        <div class="dashboard-header"> Stories with "<%= params[:search] %> in the title": </div>
+        <% @searched_stories.each do |story| %>
+          <% display_string = story.title.downcase %>
+          <% x = params[:search].downcase %>
+          <% if display_string.include?(params[:search].downcase) %>
+            <% display_string.sub!(params[:search].downcase, "<mark><strong>#{x}</strong></mark>" ) %>
+            <br>
+            <li><%= link_to display_string.html_safe, story_path(story) %></li>
+          <% end %>
+        <% end %>
+
+
+        <div class="dashboard-header"> Stories that mention "<%= params[:search] %>": </div>
+          <% @searched_stories.each do |story| %>
+            <% if story.content.downcase.include?(params[:search].downcase) %>
+              <li><%= link_to story.title, story_path(story) %></li>
+            <% end %>
+          <% end %>
       <% end %>
-    <% end %>
-  <% end %>
 
-  <% if !@searched_snippets.empty? %>
-  <br>
-    <div class="dashboard-header">Snippets that contain"<%= params[:search] %>":</div>
-    <% @searched_snippets.each do |snip| %>
-    <% display_string = snip.content %>
-    <% x = params[:search]%>
-    <% display_string.sub!(params[:search], "<mark><strong>#{x}</strong></mark>" ) %>
-    <li><%= link_to snip.content.html_safe, snippet_path(snip) %></li>
-   <% end %>
-  <% end %>
+      <% if !@searched_snippets.empty? %>
+        <br>
+        <div class="dashboard-header">Snippets that contain"<%= params[:search] %>":</div>
+        <% @searched_snippets.each do |snip| %>
+          <% display_string = snip.content.downcase %>
+          <% x = params[:search].downcase %>
+          <% if display_string.include?(params[:search].downcase) %>
+            <% display_string.sub!(params[:search].downcase, "<mark><strong>#{x}</strong></mark>" ) %>
+            <li><%= link_to display_string.html_safe, snippet_path(snip) %></li>
+          <% end %>
+        <% end %>
+      <% end %>
 
+      </div>
+  </div>
 </div>
-</div></div>
 
 
 
