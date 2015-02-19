@@ -34,15 +34,23 @@ $(document).ready(function() {
     }, joint.shapes.basic.Rect.prototype.defaults)
   });
 
+    function strip(html)
+    {
+       var tmp = document.createElement("DIV");
+       tmp.innerHTML = html;
+       return tmp.textContent || tmp.innerText || "";
+    }
+
     function makeTree(node, tree) {
       if(node.published){
+
         var box = new joint.shapes.custom.ElementLabelLink({
           position: node.pos,
           size: {width: 150, height: 90},
           attrs: {
             rect: { fill: '#000000', rx: 5, ry: 5, 'stroke-width': 2, stroke: '#65b6b0' },
             a: { 'xlink:href': '/' + node.type + '/' + node.id , cursor: 'pointer' },
-            text: { text: joint.util.breakText($(node.content).text().substr(0, 20) + "...", { width: 135 }) }
+            text: { text: joint.util.breakText(strip(node.content).substr(0, 20) + "...", { width: 135 }) }
           }
         });
         box.attr({
