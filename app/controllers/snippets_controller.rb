@@ -12,7 +12,7 @@ class SnippetsController < ApplicationController
 
   def update
     @snippet = Snippet.find(params["id"])
-    snippet_content = Sanitize.fragment(params["snippet"]["content"], Sanitize::Config::RESTRICTED)
+    snippet_content = Sanitize.fragment(params["snippet"]["content"], Sanitize::Config::BASIC)
     if @snippet.update(content: snippet_content)
       User.find(session[:user_id]).snippets << @snippet
       if request.xhr?

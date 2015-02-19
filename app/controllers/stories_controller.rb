@@ -61,7 +61,7 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find(params["id"])
-    story_content = Sanitize.fragment(params["story"]["content"], Sanitize::Config::RESTRICTED)
+    story_content = Sanitize.fragment(params["story"]["content"], Sanitize::Config::BASIC)
     if @story.update(content: story_content, title: params["story"]["title"], published: params["story"]["published"])
       User.find(session[:user_id]).stories << @story
       if request.xhr?
