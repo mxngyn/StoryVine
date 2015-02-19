@@ -72,7 +72,7 @@
             <div class="small-12 columns">
                   <div class="headerlogo">How it Works</div>
             <ol class ="index-list">
-            <li>We are a community for budding writers. Plot down a snippet and have others write off of it. Let it inspire other writers and watch it grow.</li>
+            <li>We are a community for budding writers. Write down a snippet and have other writers write off of it. See how far a small idea can grow into stories through other perspectives. Let it inspire other writers and watch it flourish.</li>
           </ol>
           </div>
         </div>
@@ -90,7 +90,7 @@
             <% @popular_snippets.each do |snippet| %>
             <% snippet.each do |key, value| %>
             <li>
-            <%= link_to strip_tags(key.content), snippet_path(key) %> <%= value %> Stories Created
+            <%= link_to strip_tags(key.content), snippet_path(key) %> <%= value %> Stories Written
             </li>
           <% end %>
           <% end %>
