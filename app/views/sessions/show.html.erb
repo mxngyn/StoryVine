@@ -88,9 +88,11 @@
       <% if current_user.votes.count == 0 %>
         <p>You have not voted any stories.</p>
       <% else %>
+      <ul>
         <% current_user.votes.each do |vote| %>
-          <%= link_to "#{vote.story.title}", story_path(vote.story) %>
+          <li><%= link_to "#{vote.story.title}", story_path(vote.story) %></li>
         <% end %>
+      </ul>
       <% end %>
     </div>
 
