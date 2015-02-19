@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :flags, as: :flaggable
 
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
 
   def all_published
