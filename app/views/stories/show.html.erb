@@ -104,7 +104,7 @@
 
     <div class="story-children">
       <div class="story-show">
-        <h4>Children:</h4>
+        <h4>Children Stories:</h4>
         <% @story.children.each do |story| %>
           <% if story.published == true %>
             <p><%= link_to "#{story.title}", story_path(story.id) %><br>
