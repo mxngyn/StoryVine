@@ -18,6 +18,7 @@
 
 input.button.round.report {
   margin-top: 3%;
+  background-color: #FFFFFF;
 }
 
 /*pearl's css */
@@ -340,16 +341,16 @@ h1,h2,h3,h4,h5,h6 {
   text-align: left;
   list-style: none;
   padding-left: 5%;
+  font-size: 2em;
 }
 
 .index-list a{
-  color: #FF7373;
-  text-shadow: 2px 2px black;
+  color: #000000;
+  border-bottom: 1px dashed #000000;
 }
 
 .index-list a:hover{
   color: #FFFFFF;
-  text-shadow: 2px 2px black;
 }
 
 
@@ -536,7 +537,7 @@ button.round, .button.round {
 /*  position: relative;
   margin: 0 auto;
   text-align: center;*/
-
+  background-color: #C9C9C9;
 }
 
 div#vote-center-button {
@@ -555,6 +556,7 @@ input#voterguy {
   margin-right: 0 auto;
   margin-left: 0 auto;
   position: relative;
+  background-color: #FFFFFF;
 }
 
 #upvote {
@@ -755,10 +757,21 @@ input#submit_new_content {
   margin-top:1%;
 }
 
+
 /* Search highlight Color */
 
 mark {
     background-color: #008cba;
     color: white;
+}
+
+
+button.radius, .button.radius {
+  background-color: #C9C9C9;
+  /*margin-left: 20px;*/
+
+}
+input.button.round.tag {
+  background-color: #FFFFFF;
 }
 
