@@ -7,7 +7,7 @@
 
 #search-form {
   height: 12%;
-  background-color: #979797;
+  background-color: #A9C0B9;
   border-radius: 10px;
 }
 
@@ -407,7 +407,7 @@ h1,h2,h3,h4,h5,h6 {
   padding: 30px 0px 30px 0px;
   margin: 50px;
   /*background-color: #e3e3e3;*/
-  background-color: #979797;
+  background-color: #A9C0B9;
   text-align: center;
 }
 
@@ -469,7 +469,7 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Bitter', serif;
   padding: 20px 0px 20px 0px;
   margin: 20px;
-  background-color: #979797;
+  background-color: #A9C0B9;
   text-align: center;
 }
 
@@ -494,7 +494,7 @@ h1,h2,h3,h4,h5,h6 {
   padding: 30px 0px 30px 0px;
   margin: 50px;
   /*background-color: #97cfcc;*/
-  background-color: #979797;
+  background-color: #A9C0B9;
 
   text-align: center;
   color: #372e27;
@@ -537,7 +537,7 @@ button.round, .button.round {
 /*  position: relative;
   margin: 0 auto;
   text-align: center;*/
-  background-color: #979797;
+  background-color: #A9C0B9;
 }
 
 div#vote-center-button {
@@ -666,7 +666,7 @@ font-size: 1em;
   font-size: 1.25em;
   margin-bottom: 5px;
   font-weight: 400;
-  background-color: #979797;
+  background-color: #A9C0B9;
   padding: 3px 0 0 5px;
 }
 
@@ -676,7 +676,7 @@ font-size: 1em;
   font-family: 'Bitter', serif;
   margin-bottom: 10px;
   font-weight: 400;
-  background-color: #979797;
+  background-color: #A9C0B9;
   padding: 3px 0 0 5px;
 }
 
@@ -767,7 +767,7 @@ mark {
 
 
 button.radius, .button.radius {
-  background-color: #979797;
+  background-color: #A9C0B9;
   /*margin-left: 20px;*/
 
 }
