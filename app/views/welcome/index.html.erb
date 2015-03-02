@@ -90,7 +90,7 @@
             <% @popular_snippets.each do |snippet| %>
             <% snippet.each do |key, value| %>
             <li>
-            <%= link_to strip_tags(key.content), snippet_path(key) %> <%= value %> Stories Written
+            <%= link_to strip_tags(key.content), snippet_path(key) %>  <p><%= value %> Stories Written</p>
             </li>
           <% end %>
           <% end %>
