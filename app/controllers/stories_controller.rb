@@ -3,12 +3,12 @@ class StoriesController < ApplicationController
   # before_action :child_story_params, only: [:new_nested_story, :create_nested_story]
 
   def index
-    # displays all published stories
-    @stories = Story.all.where(published: true)
+    @stories = Story.published
+    @most_popular = Story.all_most_popular
+    @most_recent = Story.all_most_recent
   end
 
   def search
-    #displays all stories searched for
     @search = Story.search do
       if params[:search].nil? || params[:search].empty?
         stext = ''
