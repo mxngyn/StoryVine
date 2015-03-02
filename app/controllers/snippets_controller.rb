@@ -2,6 +2,8 @@ class SnippetsController < ApplicationController
 
   def index
     @snippets = Snippet.random
+    @most_popular = Snippet.all_most_popular
+    @most_recent = Snippet.all_most_recent
   end
 
   def new
