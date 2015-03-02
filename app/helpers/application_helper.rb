@@ -19,9 +19,5 @@ module ApplicationHelper
      end
    end
 
-  def random_story
-    @story = Story.where(published: true).sample
-  end
-
 
 end
