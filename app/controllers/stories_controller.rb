@@ -110,7 +110,6 @@ class StoriesController < ApplicationController
     end
   end
 
-
   private
 
   def find_vote(story)
