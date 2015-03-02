@@ -2,9 +2,9 @@
   <ul class="title-area">
     <li class="top-logo-name">
       <% if current_user %>
-        <%= link_to 'Story Vine', :dashboard, class: "story-vine-link" %>
+      <%= link_to 'Story Vine', :dashboard, class: "story-vine-link" %>
       <% else %>
-        <%= link_to 'Story Vine', :root, class: "story-vine-link" %>
+      <%= link_to 'Story Vine', :root, class: "story-vine-link" %>
       <% end %>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -13,47 +13,50 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
+      <li><%= link_to 'Browse Snippets', snippets_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to 'Browse Stories', stories_path %></li>
       <li class="divider"></li>
 
-<li ><a href="#" data-dropdown="search-form">Search</a></li>
+      <li><a href="#" data-dropdown="search-form">Search</a></li>
       <li class="divider"></li>
       <% if current_user %>
-        <li><%= link_to "#{current_user.username.capitalize}", user_path(current_user) %></li>
-        <li class="divider"></li>
-        <li class="has-dropdown">
-          <a href="#">MENU</a>
-          <ul class="dropdown">
-            <li class="divider"></li>
-            <li><%= link_to 'New Snippet', new_snippet_path%></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Profile', user_path(current_user) %></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Dashboard', dashboard_path %></li>
-            <li class="divider"></li>
-            <li><%= link_to 'Logout', logout_path(current_user) %></li>
-          </ul>
-        </li>
+      <li><%= link_to "#{current_user.username.capitalize}", user_path(current_user) %></li>
+      <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">MENU</a>
+        <ul class="dropdown">
+          <li class="divider"></li>
+          <li><%= link_to 'New Snippet', new_snippet_path%></li>
+          <li class="divider"></li>
+          <li><%= link_to 'Profile', user_path(current_user) %></li>
+          <li class="divider"></li>
+          <li><%= link_to 'Dashboard', dashboard_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to 'Logout', logout_path(current_user) %></li>
+        </ul>
+      </li>
       <% else %>
       <ul class="menu">
-      <li><a href="#" data-reveal-id="login">LOGIN</a></li>
-      <li><a href="#" data-reveal-id="signup">SIGNUP</a></li>
+        <li><a href="#" data-reveal-id="login">LOGIN</a></li>
+        <li><a href="#" data-reveal-id="signup">SIGNUP</a></li>
       </ul>
       <% end %>
     </ul>
-      <div id="login" class="reveal-modal" data-reveal>
+    <div id="login" class="reveal-modal" data-reveal>
       <%= render 'layouts/login' %>
       <a class="close-reveal-modal">&#215;</a>
-  </div>
+    </div>
 
-  <div id="signup" class="reveal-modal" data-reveal>
-    <%= render 'layouts/signup' %>
-    <a class="close-reveal-modal">&#215;</a>
-  </div>
+    <div id="signup" class="reveal-modal" data-reveal>
+      <%= render 'layouts/signup' %>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
   </section>
 </nav>
 
 <div id="search-form" data-dropdown-content class="f-dropdown content small" aria-hidden="true" tabindex="-1">
   <%= form_tag stories_search_path, :method => :get do %>
-<%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
-<p align="right"><%= submit_tag "Search", :name => nil, class: "button radius", id: 'search-button' %></p>
-<% end %> </div>
+  <%= text_field_tag :search, params[:search], :placeholder => "search for stories" %>
+  <p align="right"><%= submit_tag "Search", :name => nil, class: "button radius", id: 'search-button' %></p>
+  <% end %> </div>
