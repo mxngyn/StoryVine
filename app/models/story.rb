@@ -24,6 +24,10 @@ class Story < ActiveRecord::Base
     text :content
   end
 
+  def self.published
+    Story.all.where(published: true).shuffle
+  end
+
   def vote_count
     self.votes.where(liked: true).count
   end
@@ -31,6 +35,14 @@ class Story < ActiveRecord::Base
   def self.most_popular
     stories = Story.all.where(published: true).sort_by(&:vote_count).reverse.take(5)
     stories.map { |story| {story => story.vote_count} }
+  end
+
+  def self.all_most_popular
+    Story.all.where(published: true).sort_by(&:vote_count).reverse
+  end
+
+   def self.all_most_recent
+    Story.all.where(published: true).sort_by(&:created_at).reverse
   end
 
   def self.most_recent

@@ -1,13 +1,45 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="snippet-header">Stories</div>
-      <% @stories.each do |story| %>
-            <div class="snippet">
-              <div class="story-content">
-                <h4><%= link_to story.title, story_path(story) %></h4> Published on <%= story.created_at.to_date %>
-                <p>Written By: <%= link_to "#{story.author.username}", user_path(story.author) %></p>
-              </div>
-            </div>
-      <% end %>
+    <ul class="tabs" data-tab>
+      <li>Sort By:</li>
+      <li class="tab-title active"><a href="#panel1">All</a></li>
+      <li class="tab-title"><a href="#panel2">Most Recent</a></li>
+      <li class="tab-title"><a href="#panel3">Most Popular</a></li>
+    </ul>
+    <div class="tabs-content">
+      <div class="content active" id="panel1">
+        <% @stories.each do |story| %>
+        <div class="snippet">
+          <div class="story-content">
+            <h4><%= link_to story.title, story_path(story) %></h4>
+            <p>Written By: <%= link_to "#{story.author.username}", user_path(story.author) %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="content" id="panel2">
+        <% @most_recent.each do |story| %>
+        <div class="snippet">
+          <div class="story-content">
+            <h4><%= link_to story.title, story_path(story) %></h4>
+            <p>Written By: <%= link_to "#{story.author.username}", user_path(story.author) %></p>
+            Published on <%= story.created_at.to_date %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="content" id="panel3">
+        <% @most_popular.each do |story| %>
+        <div class="snippet">
+          <div class="story-content">
+            <h4><%= link_to story.title, story_path(story) %></h4>
+            <p>Written By: <%= link_to "#{story.author.username}", user_path(story.author) %></p>
+            Votes: <%= story.vote_count %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
