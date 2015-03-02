@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     @user = User.find(session[:user_id])
     @flagged_stories = Flag.stories
     @flagged_snippets = Flag.snippets
-    @story_of_the_day = Story.of_the_day
+    @random_story = Story.random_story
   end
 
   def destroy

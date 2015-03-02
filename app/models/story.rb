@@ -82,9 +82,10 @@ class Story < ActiveRecord::Base
       children: self.children }
   end
 
-  def self.of_the_day
-    Story.all.where(published: true).shuffle.first
+  def self.random_story
+    Story.published.first
   end
+
 
 end
 
