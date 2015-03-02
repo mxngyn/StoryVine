@@ -406,7 +406,6 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Bitter', serif;
   padding: 30px 0px 30px 0px;
   margin: 50px;
-  /*background-color: #e3e3e3;*/
   background-color: #A9C0B9;
   text-align: center;
 }
@@ -424,6 +423,35 @@ h1,h2,h3,h4,h5,h6 {
   text-align: right;
   font-size: 0.78em;
 }
+
+.tabs .tab-title > a {
+outline: none;
+display: block;
+background-color: transparent;
+color: #222222;
+padding: 1rem 1rem;
+font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+font-size: 1rem;
+}
+
+.tabs {
+  padding-left: 5%;
+}
+.tabs .tab-title > a:hover {
+outline: none;
+display: block;
+background-color: transparent;
+color: #008CBA;
+padding: 1rem 1rem;
+font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+font-size: 1rem;
+}
+
+.tabs .tab-title.active a {
+background-color: #FFFFFF;
+color: #008CBA;
+}
+
 
 /* SNIPPET SHOW */
 

@@ -17,6 +17,10 @@ class Snippet < ActiveRecord::Base
     Snippet.all.sort_by(&:created_at).reverse.take(5)
   end
 
+  def self.all_most_recent
+    Snippet.all.sort_by(&:created_at).reverse
+  end
+
   def stories_count
     self.stories.count
   end
@@ -24,6 +28,10 @@ class Snippet < ActiveRecord::Base
   def self.most_popular
     snippets = Snippet.all.sort_by(&:stories_count).reverse.take(5)
     snippets.map { |snippet| {snippet => snippet.stories_count} }
+  end
+
+    def self.all_most_popular
+    snippets = Snippet.all.sort_by(&:stories_count).reverse
   end
 
   def self.random
