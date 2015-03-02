@@ -1,4 +1,4 @@
-<i class="icon-pencil"></i> Write Bulb / Story Vine
+<i class="icon-pencil"></i>Story Vine
 ===================
 
 Team Members
